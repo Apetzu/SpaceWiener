@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 	
 	private Vector3 startPos;
 
