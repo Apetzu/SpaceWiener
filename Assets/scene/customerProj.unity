@@ -594,6 +594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6750cc9abeabedd4fbb559a208580712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos1Taken: 0
+  pos2Taken: 0
+  pos3Taken: 0
+  pos4Taken: 0
   spawnerLeft: {fileID: 1967452918}
   spawnerRight: {fileID: 248220746}
   customers:

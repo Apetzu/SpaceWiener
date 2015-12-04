@@ -8,7 +8,7 @@ public class customer1 : MonoBehaviour {
 
 	void Start () 
 	{
-		customerMaster = GameObject.FindWithTag ("customerMaster");
+		//customerMaster = GameObject.FindWithTag ("customerMaster");
 		Debug.Log (position);
 	}
 	void Update () 
