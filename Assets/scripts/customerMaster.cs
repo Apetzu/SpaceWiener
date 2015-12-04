@@ -36,13 +36,11 @@ public class customerMaster : MonoBehaviour {
 		{
 			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,2)],spawnerLeft.transform.position, spawnerLeft.transform.rotation);
 			customer1.gameObject.AddComponent<customer1>();
-			//customer1.position = 1;
 		}
 		else
 		{
 			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,2)],spawnerRight.transform.position, spawnerRight.transform.rotation);
 			customer1.gameObject.AddComponent<customer1>();
-			//customer1.position = 1;
 		}
 	}
 }
