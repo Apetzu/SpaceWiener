@@ -14,11 +14,6 @@ public class customerMaster : MonoBehaviour {
 	public GameObject spawnerRight;
 	public GameObject[] customers;
 
-//	public customer1 script;
-//	public customer2 script1;
-//	public customer3 script2;
-//	public customer4 script3;
-
 	Vector3 waitPosition;
 	
 	void Start()

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - customerMaster
+  - custPos1
+  - custPos2
+  - custPos3
+  - custPos4
   layers:
   - Default
   - TransparentFX
