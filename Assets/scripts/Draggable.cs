@@ -7,28 +7,23 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	
 	private Vector3 startPos;
 
-	void Start()
-	{
-		print (transform.position);
-		startPos = transform.position;
-	}
-
 	public void OnBeginDrag (PointerEventData eventData)
 	{
+		startPos = transform.position;
 		Debug.Log ("OnBegindDrag");
 	}
 	public void OnDrag(PointerEventData eventData)
 	{
-		this.transform.position = eventData.position;
+		transform.position = eventData.position;
 		Debug.Log ("OnDrag");
-		this.GetComponent<Image> ().color = Color.white;
+		GetComponent<Image> ().color = Color.white;
 
 	}
 	public void OnEndDrag(PointerEventData eventData)
 	{
 		Debug.Log ("OnEndDrag");
-		this.transform.position = startPos;
-		this.GetComponent<Image> ().color = Color.clear;
+		transform.position = startPos;
+		GetComponent<Image> ().color = Color.clear;
 
 	}
 
