@@ -11,13 +11,11 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	{
 		startPos = transform.position;
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
-		//Debug.Log ("OnBegindDrag");
 	}
 	public void OnDrag(PointerEventData eventData)
 	{
 		transform.position = eventData.position;
 		GetComponent<Image>().color = Color.white;
-		//Debug.Log ("OnDrag");
 
 	}
 	public void OnEndDrag(PointerEventData eventData)
@@ -25,7 +23,6 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		transform.position = startPos;
 		GetComponent<Image>().color = Color.clear;
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
-		//Debug.Log ("OnEndDrag");
 	}
 
 

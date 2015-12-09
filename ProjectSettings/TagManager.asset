@@ -9,6 +9,9 @@ TagManager:
   - custPos2
   - custPos3
   - custPos4
+  - sausage
+  - salad
+  - sauce
   layers:
   - Default
   - TransparentFX
