@@ -10,6 +10,7 @@ public class customer1 : MonoBehaviour {
 	float lifeTime = 20;
 	public int position = 0;
 
+	GameObject speechBubble;
 	GameObject masterObj;
 	GameObject target1;
 	GameObject target2;
@@ -25,6 +26,7 @@ public class customer1 : MonoBehaviour {
 	
 	void Start () 
 	{
+		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		timeLeft = Random.Range (8, 13);
 		ChoosePos();
 		side = Random.value;
@@ -50,7 +52,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos1Taken = true;
 				position = 1;
-				transform.GetChild(0).gameObject.SetActive(true);
+				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
 		}
@@ -61,7 +63,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos2Taken = true;
 				position = 2;
-				transform.GetChild(0).gameObject.SetActive(true);
+				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
 		}
@@ -72,7 +74,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos3Taken = true;
 				position = 3;
-				transform.GetChild(0).gameObject.SetActive(true);
+				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
 		}
@@ -83,7 +85,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos4Taken = true;
 				position = 4;
-				transform.GetChild(0).gameObject.SetActive(true);
+				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
 		}
