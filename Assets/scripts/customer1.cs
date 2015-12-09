@@ -3,9 +3,12 @@ using System.Collections;
 
 public class customer1 : MonoBehaviour {
 
-	float speed = 2;
+	float speed = 0.5f;
 	float side;
 	float timeLeft = 8;
+	int chosenPosition = 4;
+	float lifeTime = 20;
+	public int position = 0;
 
 	GameObject masterObj;
 	GameObject target1;
@@ -19,11 +22,11 @@ public class customer1 : MonoBehaviour {
 	bool moveToPos4;
 
 	customerMaster masterScript;
-	public int position = 0;
 	
 	void Start () 
 	{
 		timeLeft = Random.Range (8, 13);
+		ChoosePos();
 		side = Random.value;
 		target1 = GameObject.FindWithTag ("custPos1");
 		target2 = GameObject.FindWithTag ("custPos2");
@@ -32,7 +35,11 @@ public class customer1 : MonoBehaviour {
 		masterObj = GameObject.FindWithTag ("customerMaster");
 		masterScript = masterObj.GetComponent<customerMaster>();
 		SetPosition ();
-		Debug.Log (position);
+	}
+	void ChoosePos()
+	{
+		chosenPosition = Random.Range (1,5);
+
 	}
 	void Update () 
 	{
@@ -43,7 +50,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos1Taken = true;
 				position = 1;
-				// here be what customer want
+				transform.GetChild(0).gameObject.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
 		}
@@ -54,7 +61,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos2Taken = true;
 				position = 2;
-				// here be what customer want
+				transform.GetChild(0).gameObject.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
 		}
@@ -65,7 +72,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos3Taken = true;
 				position = 3;
-				// here be what customer want
+				transform.GetChild(0).gameObject.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
 		}
@@ -76,40 +83,50 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.pos4Taken = true;
 				position = 4;
-				// here be what customer want
+				transform.GetChild(0).gameObject.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
+		}
+		if (timeLeft < timeLeft / 2)
+		{
+
 		}
 		if (timeLeft < 0)
 		{
 			if (position == 1)
 			{
 				moveToPos1 = false;
-				leave ();
+				Leave ();
 				masterScript.pos1Taken = false;
 			}
 			if (position == 2)
 			{
 				moveToPos2 = false;
-				leave ();
+				Leave ();
 				masterScript.pos2Taken = false;
 			}
 			if (position == 3)
 			{
 				moveToPos3 = false;
-				leave ();
+				Leave ();
 				masterScript.pos3Taken = false;
 			}
 			if (position == 4)
 			{
 				moveToPos4 = false;
-				leave ();
+				Leave ();
 				masterScript.pos4Taken = false;
 			}
 		}
+		lifeTime -= Time.deltaTime;
+		if (lifeTime < 0)
+		{
+			Destroy (gameObject);
+		}
 	}
-	void leave()
+	void Leave()
 	{
+		//Payment system here
 		if (side > 0.5)
 		{
 			transform.Translate(Vector2.left * speed);
@@ -118,28 +135,53 @@ public class customer1 : MonoBehaviour {
 		{
 			transform.Translate(Vector2.right * speed);
 		}
+		transform.GetChild(0).gameObject.SetActive(false);
 	}
 	void SetPosition()
 	{
-		if (masterScript.pos1Taken == false)
+		if (chosenPosition == 1)
 		{
-			Debug.Log ("pos1free");
-			moveToPos1 = true;
+			if (masterScript.pos1Taken == false)
+			{
+				moveToPos1 = true;
+			}
+			else
+			{
+				Destroy (gameObject);
+			}
 		}
-		else if (masterScript.pos2Taken == false)
+		if (chosenPosition == 2)
 		{
-			Debug.Log ("pos2free");
-			moveToPos2 = true;
+			if (masterScript.pos2Taken == false)
+			{
+				moveToPos2 = true;
+			}
+			else
+			{
+				Destroy (gameObject);
+			}
 		}
-		else if (masterScript.pos3Taken == false)
+		if (chosenPosition == 3)
 		{
-			Debug.Log ("pos3free");
-			moveToPos3 = true;
+			if (masterScript.pos3Taken == false)
+			{
+				moveToPos3 = true;
+			}
+			else
+			{
+				Destroy (gameObject);
+			}
 		}
-		else if (masterScript.pos4Taken == false)
+		if (chosenPosition == 4)
 		{
-			Debug.Log ("pos4free");
-			moveToPos4 = true;
+			if (masterScript.pos4Taken == false)
+			{
+				moveToPos4 = true;
+			}
+			else
+			{
+				Destroy (gameObject);
+			}
 		}
 	}
 }

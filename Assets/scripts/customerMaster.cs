@@ -3,6 +3,10 @@ using System.Collections;
 
 public class customerMaster : MonoBehaviour {
 
+	/* this script sets customer spawn side
+	 * spawns random customer from array on either left or right
+	 */
+
 	public bool pos1Taken = false;
 	public bool pos2Taken = false;
 	public bool pos3Taken = false;
@@ -29,11 +33,13 @@ public class customerMaster : MonoBehaviour {
 	{
 		if (side > 0.5)
 		{
+			//spawn random customer on left side from array and applies customer script to it
 			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,2)],spawnerLeft.transform.position, spawnerLeft.transform.rotation);
 			customer1.gameObject.AddComponent<customer1>();
 		}
 		else
 		{
+			//spawn random customer on right side from array and applies customer script to it
 			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,2)],spawnerRight.transform.position, spawnerRight.transform.rotation);
 			customer1.gameObject.AddComponent<customer1>();
 		}
@@ -43,7 +49,7 @@ public class customerMaster : MonoBehaviour {
 		while (true)
 		{
 			RollSide ();
-			yield return new WaitForSeconds(Random.Range(3,6));
+			yield return new WaitForSeconds(Random.Range(2,4));
 		}
 	}
 }
