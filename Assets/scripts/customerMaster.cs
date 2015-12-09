@@ -18,7 +18,7 @@ public class customerMaster : MonoBehaviour {
 	
 	void Start()
 	{
-		RollSide ();
+		StartCoroutine (spawnCust());
 	}
 	void RollSide()
 	{
@@ -36,6 +36,14 @@ public class customerMaster : MonoBehaviour {
 		{
 			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,2)],spawnerRight.transform.position, spawnerRight.transform.rotation);
 			customer1.gameObject.AddComponent<customer1>();
+		}
+	}
+	IEnumerator spawnCust()
+	{
+		while (true)
+		{
+			RollSide ();
+			yield return new WaitForSeconds(Random.Range(3,6));
 		}
 	}
 }
