@@ -47,9 +47,11 @@ public class customer1 : MonoBehaviour {
 	{
 		if (moveToPos1 == true)
 		{
+			//tells customer to move to its position
 			transform.position = Vector3.MoveTowards(transform.position, target1.transform.position, speed);
 			if (transform.position == target1.transform.position)
 			{
+				//shows speechbubble and its contents
 				masterScript.pos1Taken = true;
 				position = 1;
 				speechBubble.SetActive(true);
@@ -91,8 +93,9 @@ public class customer1 : MonoBehaviour {
 		}
 		if (timeLeft < timeLeft / 2)
 		{
-
+			//angry or bored face after half of wait time has passed??
 		}
+		//customer leaves and sets its position as free
 		if (timeLeft < 0)
 		{
 			if (position == 1)
@@ -125,7 +128,24 @@ public class customer1 : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
+		if (moveToPos1 == true)
+		{
+			masterScript.pos1Taken = true;
+		}
+		if (moveToPos2 == true)
+		{
+			masterScript.pos2Taken = true;
+		}
+		if (moveToPos3 == true)
+		{
+			masterScript.pos3Taken = true;
+		}
+		if (moveToPos4 == true)
+		{
+			masterScript.pos4Taken = true;
+		}
 	}
+	//Leave chooses side customer will leave to and deletes the speechbubble
 	void Leave()
 	{
 		//Payment system here
@@ -143,8 +163,10 @@ public class customer1 : MonoBehaviour {
 	{
 		if (chosenPosition == 1)
 		{
+			//this sets the chosen position as taken and moves customer to the position if chosen position is taken customer is destroyed
 			if (masterScript.pos1Taken == false)
 			{
+				masterScript.pos1Taken = true;
 				moveToPos1 = true;
 			}
 			else
@@ -156,6 +178,7 @@ public class customer1 : MonoBehaviour {
 		{
 			if (masterScript.pos2Taken == false)
 			{
+				masterScript.pos2Taken = true;
 				moveToPos2 = true;
 			}
 			else
@@ -167,6 +190,7 @@ public class customer1 : MonoBehaviour {
 		{
 			if (masterScript.pos3Taken == false)
 			{
+				masterScript.pos3Taken = true;
 				moveToPos3 = true;
 			}
 			else
@@ -178,6 +202,7 @@ public class customer1 : MonoBehaviour {
 		{
 			if (masterScript.pos4Taken == false)
 			{
+				masterScript.pos4Taken = true;
 				moveToPos4 = true;
 			}
 			else

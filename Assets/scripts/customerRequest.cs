@@ -40,8 +40,9 @@ public class customerRequest : MonoBehaviour {
 	}
 	void RandomizeValues()
 	{
-		randBoolSpice = Random.Range (1,9);
-		if (randBoolSpice > 4)
+		//rolls whether the customer wants sauce or not 
+		randBoolSpice = Random.Range (1,10);
+		if (randBoolSpice > 2)
 		{
 			sauce = true;
 		}
@@ -49,7 +50,8 @@ public class customerRequest : MonoBehaviour {
 		{
 			sauce = false;
 		}
-		randBoolSalad = Random.Range (1,9);
+		//rolls whether the customer wants salad or not 
+		randBoolSalad = Random.Range (1,10);
 		if (randBoolSalad > 2f)
 		{
 			salad = true;
@@ -58,6 +60,7 @@ public class customerRequest : MonoBehaviour {
 		{
 			salad = false;
 		}
+		//rolls customers desired ingredients
 		wienerI = Random.Range (1,4);
 		sauceI = Random.Range (1,4);
 		saladI = Random.Range (1,4);

@@ -46,6 +46,7 @@ public class customerMaster : MonoBehaviour {
 	}
 	IEnumerator spawnCust()
 	{
+		//spawns customer every 2-4 seconds
 		while (true)
 		{
 			RollSide ();
