@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 public class customerZone : MonoBehaviour, IDropHandler {
 
 	public GameObject doneBread;
-	Draggable finishedBread;
+	draggableItem finishedBread;
 
 	void Start()
 	{
-		finishedBread = doneBread.GetComponent<Draggable> ();
+		finishedBread = doneBread.GetComponent<draggableItem> ();
 	}
 	public void OnDrop(PointerEventData eventData)
 	{

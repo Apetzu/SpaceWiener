@@ -11,6 +11,16 @@ public class plateZone : MonoBehaviour, IDropHandler
 	public GameObject saladObj;
 	public GameObject sauceObj;
 
+	public GameObject objOfTheSausage1;
+	public GameObject objOfTheSausage2;
+	public GameObject objOfTheSausage3;
+	public GameObject objOfTheSalad1;
+	public GameObject objOfTheSalad2;
+	public GameObject objOfTheSalad3;
+	public GameObject objOfTheSauce1;
+	public GameObject objOfTheSauce2;
+	public GameObject objOfTheSauce3;
+
 	public void OnDrop(PointerEventData eventData)
 	{
 		if (bread == true)
