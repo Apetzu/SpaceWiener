@@ -167,7 +167,6 @@ public class customer1 : MonoBehaviour {
 		custRend.sortingOrder = -3;
 		Animator animator = GetComponent<Animator>();
 		animator.SetTrigger("leaving");
-		//Payment system here
 		if (side > 0.5)
 		{
 			transform.Translate(Vector2.left * speed);

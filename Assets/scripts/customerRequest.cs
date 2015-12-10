@@ -68,11 +68,6 @@ public class customerRequest : MonoBehaviour {
 		wienerI = Random.Range (1,4);
 		sauceI = Random.Range (1,4);
 		saladI = Random.Range (1,4);
-		Debug.Log (sauce);
-		Debug.Log (salad);
-		Debug.Log (wienerI);
-		Debug.Log (sauceI);
-		Debug.Log (saladI);
 	}
 	void ChangeSprites()
 	{
