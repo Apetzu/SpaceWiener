@@ -34,13 +34,13 @@ public class customerMaster : MonoBehaviour {
 		if (side > 0.5)
 		{
 			//spawn random customer on left side from array and applies customer script to it
-			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,2)],spawnerLeft.transform.position, spawnerLeft.transform.rotation);
+			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,4)],spawnerLeft.transform.position, spawnerLeft.transform.rotation);
 			customer1.gameObject.AddComponent<customer1>();
 		}
 		else
 		{
 			//spawn random customer on right side from array and applies customer script to it
-			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,2)],spawnerRight.transform.position, spawnerRight.transform.rotation);
+			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,4)],spawnerRight.transform.position, spawnerRight.transform.rotation);
 			customer1.gameObject.AddComponent<customer1>();
 		}
 	}

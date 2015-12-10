@@ -688,6 +688,9 @@ MonoBehaviour:
   customers:
   - {fileID: 177886, guid: 796e5791378ea1f43b6c1b9ccb02f145, type: 2}
   - {fileID: 146890, guid: 6d8825ef76eb78642bc5ea2fe5d4fb69, type: 2}
+  - {fileID: 177886, guid: 796e5791378ea1f43b6c1b9ccb02f145, type: 2}
+  - {fileID: 146890, guid: 6d8825ef76eb78642bc5ea2fe5d4fb69, type: 2}
+  - {fileID: 0}
 --- !u!4 &1911390323
 Transform:
   m_ObjectHideFlags: 0

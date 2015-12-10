@@ -3,6 +3,10 @@ using System.Collections;
 
 public class customerRequest : MonoBehaviour {
 
+	/* Randomizes customizers ingredient values and sets the sprites
+	 * to the ingredients in question
+	 */
+
 	bool sauce;
 	bool salad;
 

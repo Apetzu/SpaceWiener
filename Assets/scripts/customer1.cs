@@ -3,6 +3,10 @@ using System.Collections;
 
 public class customer1 : MonoBehaviour {
 
+
+	/* Customer chooses position to go to and goes there
+	 * speechbubble is displayed which shows what the customer wants
+	 */
 	float speed = 0.5f;
 	float side;
 	float timeLeft = 8;
@@ -20,6 +24,8 @@ public class customer1 : MonoBehaviour {
 
 	Animator animator;
 
+	SpriteRenderer custRend;
+
 	bool moveToPos1;
 	bool moveToPos2;
 	bool moveToPos3;
@@ -29,6 +35,7 @@ public class customer1 : MonoBehaviour {
 	
 	void Start () 
 	{
+		custRend = GetComponent<SpriteRenderer> ();
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		timeLeft = Random.Range (8, 13);
 		timeLeftCopy = timeLeft;
@@ -56,6 +63,7 @@ public class customer1 : MonoBehaviour {
 			if (transform.position == target1.transform.position)
 			{
 				//shows speechbubble and its contents
+				custRend.sortingOrder = 0;
 				masterScript.pos1Taken = true;
 				position = 1;
 				speechBubble.SetActive(true);
@@ -67,6 +75,7 @@ public class customer1 : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target2.transform.position, speed);
 			if (transform.position == target2.transform.position)
 			{
+				custRend.sortingOrder = 0;
 				masterScript.pos2Taken = true;
 				position = 2;
 				speechBubble.SetActive(true);
@@ -78,6 +87,7 @@ public class customer1 : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target3.transform.position, speed);
 			if (transform.position == target3.transform.position)
 			{
+				custRend.sortingOrder = 0;
 				masterScript.pos3Taken = true;
 				position = 3;
 				speechBubble.SetActive(true);
@@ -89,6 +99,7 @@ public class customer1 : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target4.transform.position, speed);
 			if (transform.position == target4.transform.position)
 			{
+				custRend.sortingOrder = 0;
 				masterScript.pos4Taken = true;
 				position = 4;
 				speechBubble.SetActive(true);
@@ -153,6 +164,7 @@ public class customer1 : MonoBehaviour {
 	//Leave chooses side customer will leave to and deletes the speechbubble
 	void Leave()
 	{
+		custRend.sortingOrder = -3;
 		Animator animator = GetComponent<Animator>();
 		animator.SetTrigger("leaving");
 		//Payment system here
