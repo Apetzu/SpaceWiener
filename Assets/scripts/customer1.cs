@@ -8,6 +8,7 @@ public class customer1 : MonoBehaviour {
 	float timeLeft = 8;
 	int chosenPosition = 4;
 	float lifeTime = 20;
+	float timeLeftCopy = 0;
 	public int position = 0;
 
 	GameObject speechBubble;
@@ -16,6 +17,8 @@ public class customer1 : MonoBehaviour {
 	GameObject target2;
 	GameObject target3;
 	GameObject target4;
+
+	Animator animator;
 
 	bool moveToPos1;
 	bool moveToPos2;
@@ -28,6 +31,7 @@ public class customer1 : MonoBehaviour {
 	{
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		timeLeft = Random.Range (8, 13);
+		timeLeftCopy = timeLeft;
 		ChoosePos();
 		side = Random.value;
 		target1 = GameObject.FindWithTag ("custPos1");
@@ -91,9 +95,10 @@ public class customer1 : MonoBehaviour {
 				timeLeft -= Time.deltaTime;
 			}
 		}
-		if (timeLeft < timeLeft / 2)
+		if (timeLeft < timeLeftCopy / 2.0f)
 		{
-			//angry or bored face after half of wait time has passed??
+			Animator animator = GetComponent<Animator>();
+			animator.SetTrigger("angry");
 		}
 		//customer leaves and sets its position as free
 		if (timeLeft < 0)
@@ -148,6 +153,8 @@ public class customer1 : MonoBehaviour {
 	//Leave chooses side customer will leave to and deletes the speechbubble
 	void Leave()
 	{
+		Animator animator = GetComponent<Animator>();
+		animator.SetTrigger("leaving");
 		//Payment system here
 		if (side > 0.5)
 		{

@@ -86,17 +86,17 @@ public class customerRequest : MonoBehaviour {
 		}
 		else
 		{
-			saladRend.sprite = null;
+			sauceRend.sprite = null;
 		}
-		if (sauce == true && saladI == 1)
+		if (salad == true && saladI == 1)
 		{
 			saladRend.sprite = salad1;
 		}
-		else if (sauce == true && saladI == 2)
+		else if (salad == true && saladI == 2)
 		{
 			saladRend.sprite = salad2;
 		}
-		else if (sauce == true && saladI == 3)
+		else if (salad == true && saladI == 3)
 		{
 			saladRend.sprite = salad3;
 		}
