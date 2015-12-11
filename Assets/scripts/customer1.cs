@@ -6,7 +6,9 @@ public class customer1 : MonoBehaviour {
 
 	/* Customer chooses position to go to and goes there
 	 * speechbubble is displayed which shows what the customer wants
+	 * deletes collider when customer leaves
 	 */
+
 	float speed = 0.5f;
 	float side;
 	public float timeLeft = 8;
@@ -14,6 +16,9 @@ public class customer1 : MonoBehaviour {
 	float lifeTime = 20;
 	float timeLeftCopy = 0;
 	public int position = 0;
+	public float correctIngredients;
+
+	BoxCollider2D customerColl;
 
 	GameObject speechBubble;
 	GameObject masterObj;
@@ -26,6 +31,7 @@ public class customer1 : MonoBehaviour {
 
 	SpriteRenderer custRend;
 
+	public bool canRecieveFood;
 	bool moveToPos1;
 	bool moveToPos2;
 	bool moveToPos3;
@@ -35,9 +41,13 @@ public class customer1 : MonoBehaviour {
 	
 	void Start () 
 	{
+		//gets customers collider, renderer, and speechbubble
+		customerColl = GetComponent<BoxCollider2D> ();
 		custRend = GetComponent<SpriteRenderer> ();
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
+		//random time customer waits at its position
 		timeLeft = Random.Range (8, 13);
+		//copy of timeleft for face changing purposes
 		timeLeftCopy = timeLeft;
 		ChoosePos();
 		side = Random.value;
@@ -51,8 +61,8 @@ public class customer1 : MonoBehaviour {
 	}
 	void ChoosePos()
 	{
+		//chooses position customer takes
 		chosenPosition = Random.Range (1,5);
-
 	}
 	void Update () 
 	{
@@ -62,7 +72,9 @@ public class customer1 : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target1.transform.position, speed);
 			if (transform.position == target1.transform.position)
 			{
-				//shows speechbubble and its contents
+				//shows speechbubble and its contents sets customer able to recieve food
+				customerColl.enabled = true;
+				canRecieveFood = true;
 				custRend.sortingOrder = 0;
 				masterScript.pos1Taken = true;
 				position = 1;
@@ -75,6 +87,8 @@ public class customer1 : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target2.transform.position, speed);
 			if (transform.position == target2.transform.position)
 			{
+				customerColl.enabled = true;
+				canRecieveFood = true;
 				custRend.sortingOrder = 0;
 				masterScript.pos2Taken = true;
 				position = 2;
@@ -87,6 +101,8 @@ public class customer1 : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target3.transform.position, speed);
 			if (transform.position == target3.transform.position)
 			{
+				customerColl.enabled = true;
+				canRecieveFood = true;
 				custRend.sortingOrder = 0;
 				masterScript.pos3Taken = true;
 				position = 3;
@@ -99,6 +115,8 @@ public class customer1 : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target4.transform.position, speed);
 			if (transform.position == target4.transform.position)
 			{
+				customerColl.enabled = true;
+				canRecieveFood = true;
 				custRend.sortingOrder = 0;
 				masterScript.pos4Taken = true;
 				position = 4;
@@ -111,29 +129,37 @@ public class customer1 : MonoBehaviour {
 			Animator animator = GetComponent<Animator>();
 			animator.SetTrigger("angry");
 		}
-		//customer leaves and sets its position as free
+		//customer leaves and sets its position as free deletes collider
 		if (timeLeft < 0)
 		{
 			if (position == 1)
 			{
+				customerColl.enabled = false;
+				canRecieveFood = false;
 				moveToPos1 = false;
 				Leave ();
 				masterScript.pos1Taken = false;
 			}
 			if (position == 2)
 			{
+				customerColl.enabled = false;
+				canRecieveFood = false;
 				moveToPos2 = false;
 				Leave ();
 				masterScript.pos2Taken = false;
 			}
 			if (position == 3)
 			{
+				customerColl.enabled = false;
+				canRecieveFood = false;
 				moveToPos3 = false;
 				Leave ();
 				masterScript.pos3Taken = false;
 			}
 			if (position == 4)
 			{
+				customerColl.enabled = false;
+				canRecieveFood = false;
 				moveToPos4 = false;
 				Leave ();
 				masterScript.pos4Taken = false;
@@ -161,12 +187,23 @@ public class customer1 : MonoBehaviour {
 			masterScript.pos4Taken = true;
 		}
 	}
-	//Leave chooses side customer will leave to and deletes the speechbubble
+	//Leave chooses side customer will leave to and deletes the speechbubble + sets customer sorting layer to -3
 	public void Leave()
 	{
-		custRend.sortingOrder = -3;
 		Animator animator = GetComponent<Animator>();
-		animator.SetTrigger("leaving");
+		if (correctIngredients == 3)
+		{
+			animator.SetTrigger("happy");
+		}
+		else if (correctIngredients == 2)
+		{
+			animator.SetTrigger("angry");
+		}
+		else
+		{
+			animator.SetTrigger("leaving");
+		}
+		custRend.sortingOrder = -3;
 		if (side > 0.5)
 		{
 			transform.Translate(Vector2.left * speed);

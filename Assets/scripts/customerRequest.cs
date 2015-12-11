@@ -65,21 +65,21 @@ public class customerRequest : MonoBehaviour {
 			salad = false;
 		}
 		//rolls customers desired ingredients
-		wienerI = Random.Range (1,4);
-		sauceI = Random.Range (1,4);
-		saladI = Random.Range (1,4);
+		wienerI = Random.Range (0,3);
+		sauceI = Random.Range (0,3);
+		saladI = Random.Range (0,3);
 	}
 	void ChangeSprites()
 	{
-		if (sauce == true && sauceI == 1)
+		if (sauce == true && sauceI == 0)
 		{
 			sauceRend.sprite = sauce1;
 		}
-		else if (sauce == true && sauceI == 2)
+		else if (sauce == true && sauceI == 1)
 		{
 			sauceRend.sprite = sauce2;
 		}
-		else if (sauce == true && sauceI == 3)
+		else if (sauce == true && sauceI == 2)
 		{
 			sauceRend.sprite = sauce3;
 		}
@@ -87,15 +87,15 @@ public class customerRequest : MonoBehaviour {
 		{
 			sauceRend.sprite = null;
 		}
-		if (salad == true && saladI == 1)
+		if (salad == true && saladI == 0)
 		{
 			saladRend.sprite = salad1;
 		}
-		else if (salad == true && saladI == 2)
+		else if (salad == true && saladI == 1)
 		{
 			saladRend.sprite = salad2;
 		}
-		else if (salad == true && saladI == 3)
+		else if (salad == true && saladI == 2)
 		{
 			saladRend.sprite = salad3;
 		}
@@ -103,15 +103,15 @@ public class customerRequest : MonoBehaviour {
 		{
 			saladRend.sprite = null;
 		}
-		if (wienerI == 1)
+		if (wienerI == 0)
 		{
 			wienerRend.sprite = wiener1;
 		}
-		else if (wienerI == 2)
+		else if (wienerI == 1)
 		{
 			wienerRend.sprite = wiener2;
 		}
-		else if (wienerI == 3)
+		else if (wienerI == 2)
 		{
 			wienerRend.sprite = wiener3;
 		}

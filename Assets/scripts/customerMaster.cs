@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class customerMaster : MonoBehaviour {
@@ -6,6 +7,7 @@ public class customerMaster : MonoBehaviour {
 	/* this script sets customer spawn side
 	 * spawns random customer from array on either left or right
 	 */
+	public Text cashText;
 
 	public bool pos1Taken = false;
 	public bool pos2Taken = false;
@@ -13,13 +15,18 @@ public class customerMaster : MonoBehaviour {
 	public bool pos4Taken = false;
 
 	float side;
+	public float moneyValue = 0;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;
 	public GameObject[] customers;
 
 	Vector3 waitPosition;
-	
+
+	void Update()
+	{
+		cashText.text = ("money: "+moneyValue);
+	}
 	void Start()
 	{
 		StartCoroutine (spawnCust());
