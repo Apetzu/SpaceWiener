@@ -9,7 +9,7 @@ public class customer1 : MonoBehaviour {
 	 */
 	float speed = 0.5f;
 	float side;
-	float timeLeft = 8;
+	public float timeLeft = 8;
 	int chosenPosition = 4;
 	float lifeTime = 20;
 	float timeLeftCopy = 0;
@@ -162,7 +162,7 @@ public class customer1 : MonoBehaviour {
 		}
 	}
 	//Leave chooses side customer will leave to and deletes the speechbubble
-	void Leave()
+	public void Leave()
 	{
 		custRend.sortingOrder = -3;
 		Animator animator = GetComponent<Animator>();

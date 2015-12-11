@@ -7,9 +7,6 @@ public class customerRequest : MonoBehaviour {
 	 * to the ingredients in question
 	 */
 
-	bool sauce;
-	bool salad;
-
 	float randBoolSpice;
 	float randBoolSalad;
 
@@ -30,9 +27,12 @@ public class customerRequest : MonoBehaviour {
 	SpriteRenderer wienerRend;
 	SpriteRenderer saladRend;
 
-	int wienerI;
-	int sauceI;
-	int saladI;
+	public bool sauce;
+	public bool salad;
+	
+	public int wienerI;
+	public int sauceI;
+	public int saladI;
 	
 	void Start () 
 	{

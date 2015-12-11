@@ -42,6 +42,7 @@ GameObject:
   - 4: {fileID: 464582}
   - 212: {fileID: 21270186}
   - 95: {fileID: 9578550}
+  - 61: {fileID: 6190742}
   m_Layer: 0
   m_Name: customer2
   m_TagString: Untagged
@@ -203,6 +204,19 @@ Transform:
   - {fileID: 448940}
   m_Father: {fileID: 435508}
   m_RootOrder: 0
+--- !u!61 &6190742
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146890}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2.55999994, y: 2.55999994}
 --- !u!95 &9578550
 Animator:
   serializedVersion: 3
@@ -243,6 +257,11 @@ MonoBehaviour:
   wiener1: {fileID: 21300000, guid: d84f0c3e2f3d16843b35ef0d10f1bf90, type: 3}
   wiener2: {fileID: 21300000, guid: a28c8a7ad9f14c54d91355b2f22acab3, type: 3}
   wiener3: {fileID: 21300000, guid: 51433ec79bf3a3c4e9c98365ec8cce8a, type: 3}
+  sauce: 0
+  salad: 0
+  wienerI: 0
+  sauceI: 0
+  saladI: 0
 --- !u!212 &21203284
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -416,6 +435,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
