@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 424194}
   - 114: {fileID: 11487688}
   m_Layer: 0
-  m_Name: request 1
+  m_Name: request
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,6 +58,7 @@ GameObject:
   - 4: {fileID: 410070}
   - 212: {fileID: 21200518}
   - 95: {fileID: 9525398}
+  - 61: {fileID: 6103888}
   m_Layer: 0
   m_Name: customer1
   m_TagString: Untagged
@@ -203,6 +204,19 @@ Transform:
   - {fileID: 430232}
   m_Father: {fileID: 424194}
   m_RootOrder: 0
+--- !u!61 &6103888
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177886}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2.55999994, y: 2.55999994}
 --- !u!95 &9525398
 Animator:
   serializedVersion: 3
@@ -243,6 +257,11 @@ MonoBehaviour:
   wiener1: {fileID: 21300000, guid: d84f0c3e2f3d16843b35ef0d10f1bf90, type: 3}
   wiener2: {fileID: 21300000, guid: a28c8a7ad9f14c54d91355b2f22acab3, type: 3}
   wiener3: {fileID: 21300000, guid: 51433ec79bf3a3c4e9c98365ec8cce8a, type: 3}
+  sauce: 0
+  salad: 0
+  wienerI: 0
+  sauceI: 0
+  saladI: 0
 --- !u!212 &21200518
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -405,7 +424,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 177886}
