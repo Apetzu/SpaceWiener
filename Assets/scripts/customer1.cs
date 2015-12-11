@@ -75,7 +75,7 @@ public class customer1 : MonoBehaviour {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = 0;
+				custRend.sortingOrder = -1;
 				masterScript.pos1Taken = true;
 				position = 1;
 				speechBubble.SetActive(true);
@@ -89,7 +89,7 @@ public class customer1 : MonoBehaviour {
 			{
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = 0;
+				custRend.sortingOrder = -1;
 				masterScript.pos2Taken = true;
 				position = 2;
 				speechBubble.SetActive(true);
@@ -103,7 +103,7 @@ public class customer1 : MonoBehaviour {
 			{
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = 0;
+				custRend.sortingOrder = -1;
 				masterScript.pos3Taken = true;
 				position = 3;
 				speechBubble.SetActive(true);
@@ -117,7 +117,7 @@ public class customer1 : MonoBehaviour {
 			{
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = 0;
+				custRend.sortingOrder = -1;
 				masterScript.pos4Taken = true;
 				position = 4;
 				speechBubble.SetActive(true);

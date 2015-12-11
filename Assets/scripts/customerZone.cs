@@ -9,14 +9,14 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	public GameObject masterObj;
 	GameObject requestObj;
 
-	draggableItemCopy finishedBread;
+	plateZone finishedBread;
 	customer1 customerScript;
 	customerRequest requestScript;
 	customerMaster masterScript;
 
 	void Start()
 	{
-		finishedBread = doneBread.GetComponent<draggableItemCopy> ();
+		finishedBread = doneBread.GetComponent<plateZone> ();
 		masterScript = masterObj.GetComponent<customerMaster>();
 	}
 	public void OnDrop(PointerEventData eventData)

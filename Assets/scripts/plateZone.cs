@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class plateZone : MonoBehaviour, IDropHandler
 {
+	private Vector3 startPos;
+
 	bool bread = false;
 	public GameObject draggableBreadObj;
 	public GameObject sausageObj;
@@ -22,7 +24,7 @@ public class plateZone : MonoBehaviour, IDropHandler
 	public List<GameObject> allSausageObjects = new List<GameObject>();
 	public List<GameObject> allSaladObjects = new List<GameObject>();
 	public List<GameObject> allSauceObjects = new List<GameObject>();
-
+	
 	public void OnDrop(PointerEventData eventData)
 	{
 		if (bread == true)

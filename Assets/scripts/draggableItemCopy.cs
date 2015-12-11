@@ -6,13 +6,6 @@ using UnityEngine.EventSystems;
 public class draggableItemCopy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler 
 {
 	private Vector3 startPos;
-
-	public bool sauce;
-	public bool salad;
-	
-	public int wienerI;
-	public int sauceI;
-	public int saladI;
 	
 	public void OnBeginDrag (PointerEventData eventData)
 	{
