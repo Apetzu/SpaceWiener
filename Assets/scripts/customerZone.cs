@@ -13,6 +13,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	public GameObject saladObj;
 	public GameObject sauceObj;
 	public GameObject canvas;
+	public GameObject draggableBreadObj;
 
 	Text moneyPaidTextClone;
 
@@ -44,9 +45,9 @@ public class customerZone : MonoBehaviour, IDropHandler {
 			requestObj = hit.transform.gameObject.transform.Find("speechbubble1/request").gameObject;
 			requestScript = requestObj.GetComponent<customerRequest>();
 			//loooooooong long sentence that checks the values on customer request and the finished bread
-			if (customerScript.canRecieveFood == true)
+			if (customerScript.canRecieveFood == true && finishedBread.bread == true)
 			{
-				if (requestScript.wienerI == finishedBread.wienerI)
+				if (requestScript.wienerI == finishedBread.wienerI  && finishedBread.wiener == true)
 				{
 					Debug.Log("this is the correct wiener");
 					masterScript.moneyValue += 5;
@@ -129,7 +130,10 @@ public class customerZone : MonoBehaviour, IDropHandler {
 				sausageObj.GetComponent<Image>().color = Color.clear;
 				saladObj.GetComponent<Image>().color = Color.clear;
 				sauceObj.GetComponent<Image>().color = Color.clear;
+				draggableBreadObj.GetComponent<Image>().color = Color.clear;
 				finishedBread.sauce = false;
+				finishedBread.wiener = false;
+				finishedBread.bread = false;
 				finishedBread.salad = false;
 
 				Text customerPaidCopy = (Text) Instantiate(moneyPaidText, chosenCustomer.transform.position, transform.rotation);

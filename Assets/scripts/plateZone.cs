@@ -8,7 +8,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 {
 	private Vector3 startPos;
 
-	bool bread = false;
+	public bool bread = false;
 	public GameObject draggableBreadObj;
 	public GameObject sausageObj;
 	public GameObject saladObj;
@@ -99,10 +99,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		if (bread == true)
-		{
-			transform.position = startPos;
-			GetComponent<CanvasGroup> ().blocksRaycasts = true;
-		}
+		transform.position = startPos;
+		GetComponent<CanvasGroup> ().blocksRaycasts = true;
 	}
 }
