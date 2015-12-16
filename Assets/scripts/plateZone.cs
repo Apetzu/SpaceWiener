@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class plateZone : MonoBehaviour, IDropHandler
+public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler 
 {
 	private Vector3 startPos;
 
@@ -19,6 +19,7 @@ public class plateZone : MonoBehaviour, IDropHandler
 	public int sauceI;
 	public bool salad;
 	public bool sauce;
+	public bool wiener;
 
 	//public GameObject[,] objects = new GameObject[3,3];
 	public List<GameObject> allSausageObjects = new List<GameObject>();
@@ -38,6 +39,7 @@ public class plateZone : MonoBehaviour, IDropHandler
 					if (eventData.pointerDrag.gameObject == allSausageObjects[i])
 					{
 						wienerI = i;
+						wiener = true;
 						break;
 					}
 				}
@@ -76,6 +78,31 @@ public class plateZone : MonoBehaviour, IDropHandler
 		{
 			bread = true;
 			GetComponent<Image>().color = Color.white;
+		}
+	}
+
+	public void OnBeginDrag (PointerEventData eventData)
+	{
+		if (bread == true)
+		{
+			startPos = transform.position;
+			GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			GetComponent<Image> ().color = Color.white;
+		}
+	}
+
+	public void OnDrag(PointerEventData eventData)
+	{
+		if (bread == true)
+			transform.position = eventData.position;
+	}
+
+	public void OnEndDrag(PointerEventData eventData)
+	{
+		if (bread == true)
+		{
+			transform.position = startPos;
+			GetComponent<CanvasGroup> ().blocksRaycasts = true;
 		}
 	}
 }
