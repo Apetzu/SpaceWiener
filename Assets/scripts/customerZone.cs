@@ -8,11 +8,23 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	public GameObject doneBread;
 	public GameObject masterObj;
 	GameObject requestObj;
+	public Text moneyPaidText;
+	public GameObject sausageObj;
+	public GameObject saladObj;
+	public GameObject sauceObj;
+	public GameObject canvas;
+
+	Text moneyPaidTextClone;
+
+	public float moneyPaid = 0;
 
 	plateZone finishedBread;
+	GameObject chosenCustomer;
 	customer1 customerScript;
 	customerRequest requestScript;
 	customerMaster masterScript;
+
+
 
 	void Start()
 	{
@@ -27,6 +39,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 		if (hit.collider != null)
 		{
 			customerScript = hit.transform.gameObject.GetComponent<customer1>();
+			chosenCustomer = hit.transform.gameObject;
 			//child of child
 			requestObj = hit.transform.gameObject.transform.Find("speechbubble1/request").gameObject;
 			requestScript = requestObj.GetComponent<customerRequest>();
@@ -37,6 +50,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 				{
 					Debug.Log("this is the correct wiener");
 					masterScript.moneyValue += 5;
+					moneyPaid += 5;
 					customerScript.timeLeft = 0;
 					customerScript.correctIngredients += 1;
 				}
@@ -51,7 +65,9 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					if (requestScript.saladI == finishedBread.saladI)
 					{
 						Debug.Log("you gave the correct salad");
+
 						masterScript.moneyValue += 3;
+						moneyPaid += 3;
 						customerScript.correctIngredients += 1;
 						customerScript.timeLeft = 0;
 					}
@@ -84,6 +100,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					{
 						Debug.Log ("you gave the correct sauce");
 						masterScript.moneyValue += 1.5f;
+						moneyPaid += 1.5f;
 						customerScript.timeLeft = 0;
 						customerScript.correctIngredients += 1;
 					}
@@ -109,6 +126,17 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					Debug.Log ("i didnt want sauce but you gave it to me");
 					customerScript.timeLeft = 0;
 				}
+				sausageObj.GetComponent<Image>().color = Color.clear;
+				saladObj.GetComponent<Image>().color = Color.clear;
+				sauceObj.GetComponent<Image>().color = Color.clear;
+				finishedBread.sauce = false;
+				finishedBread.salad = false;
+
+				Text customerPaidCopy = (Text) Instantiate(moneyPaidText, chosenCustomer.transform.position, transform.rotation);
+				customerPaidCopy.gameObject.AddComponent<moneyPaidText>();
+				customerPaidCopy.transform.SetParent(canvas.transform);
+				customerPaidCopy.transform.position = Input.mousePosition;
+				customerPaidCopy.text = ("Earned: " + moneyPaid);
 			}
 			else
 			{

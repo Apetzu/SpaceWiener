@@ -7,7 +7,8 @@ public class customerMaster : MonoBehaviour {
 	/* this script sets customer spawn side
 	 * spawns random customer from array on either left or right
 	 */
-	public Text cashText;
+	public Text moneyText;
+	public Text timer;
 
 	public bool pos1Taken = false;
 	public bool pos2Taken = false;
@@ -16,6 +17,7 @@ public class customerMaster : MonoBehaviour {
 
 	float side;
 	public float moneyValue = 0;
+	float endTimer = 60;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;
@@ -25,7 +27,13 @@ public class customerMaster : MonoBehaviour {
 
 	void Update()
 	{
-		cashText.text = ("money: "+moneyValue);
+		endTimer = endTimer - Time.deltaTime;
+		moneyText.text = ("money: "+moneyValue);
+		timer.text = ("Time left: "+ (int) (endTimer) );
+		if (endTimer >= 0)
+		{
+			//win condition
+		}
 	}
 	void Start()
 	{
