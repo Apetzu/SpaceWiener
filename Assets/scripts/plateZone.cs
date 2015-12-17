@@ -38,6 +38,8 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 				{
 					if (eventData.pointerDrag.gameObject == allSausageObjects[i])
 					{
+						if (allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
+							sausageObj.GetComponent<Image>().sprite = allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
 						wienerI = i;
 						wiener = true;
 						break;
@@ -52,6 +54,8 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 				{
 					if (eventData.pointerDrag.gameObject == allSaladObjects[i])
 					{
+						if (allSaladObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
+							saladObj.GetComponent<Image>().sprite = allSaladObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
 						salad = true;
 						saladI = i;
 						break;
@@ -66,6 +70,8 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 				{
 					if (eventData.pointerDrag.gameObject == allSauceObjects[i])
 					{
+						if (allSauceObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
+							sauceObj.GetComponent<Image>().sprite = allSauceObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
 						sauce = true;
 						sauceI = i;
 						break;
@@ -78,6 +84,9 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 		{
 			bread = true;
 			GetComponent<Image>().color = Color.white;
+			GetComponent<Image>().sprite = draggableBreadObj.GetComponent<Image>().sprite;
+			if (draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace != null)
+				GetComponent<Image>().sprite = draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace;
 		}
 	}
 

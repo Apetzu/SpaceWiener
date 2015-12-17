@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler 
 {
 	private Vector3 startPos;
+	public Sprite onDogSpriteReplace;
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
@@ -20,7 +21,6 @@ public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	}
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		Debug.Log (eventData.pointerEnter);
 		transform.position = startPos;
 		GetComponent<Image>().color = Color.clear;
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
