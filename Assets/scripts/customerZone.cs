@@ -141,12 +141,18 @@ public class customerZone : MonoBehaviour, IDropHandler {
 				customerPaidCopy.transform.SetParent(canvas.transform);
 				customerPaidCopy.transform.position = Input.mousePosition;
 				customerPaidCopy.text = ("Earned: " + moneyPaid);
+				StartCoroutine("resetMoneyPaid");
 			}
 			else
 			{
 				Debug.Log ("customer is moving and cannot recieve food");
 			}
 		}
+	}
+	IEnumerator resetMoneyPaid()
+	{
+		yield return new WaitForSeconds(1.5f);
+		moneyPaid = 0;
 	}
 }
 	
