@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.3500004, y: 68.25, z: 0}
+  m_LocalPosition: {x: -40.4551888, y: -.316378117, z: 0}
   m_LocalScale: {x: .600000024, y: .600000024, z: .600000024}
   m_Children:
   - {fileID: 432628}
@@ -158,15 +158,20 @@ MonoBehaviour:
   sauceObj: {fileID: 133580}
   saladObj: {fileID: 137326}
   wienerObj: {fileID: 117792}
-  sauce1: {fileID: 21300000, guid: 477f47b0320b72a42832ce71e8f8454d, type: 3}
-  sauce2: {fileID: 21300000, guid: 42282a89576b037449603b3bfd17ae18, type: 3}
-  sauce3: {fileID: 21300000, guid: 3173cc8b0e608f345877a7e3d4322a96, type: 3}
-  salad1: {fileID: 21300000, guid: a1458486fb467924691505b1358f842a, type: 3}
-  salad2: {fileID: 21300000, guid: 1ae72f0ee3f42a94abced16371b359dc, type: 3}
-  salad3: {fileID: 21300000, guid: 6c340ac7d3e51ab42b6265c97481e306, type: 3}
-  wiener1: {fileID: 21300000, guid: d84f0c3e2f3d16843b35ef0d10f1bf90, type: 3}
-  wiener2: {fileID: 21300000, guid: a28c8a7ad9f14c54d91355b2f22acab3, type: 3}
-  wiener3: {fileID: 21300000, guid: 51433ec79bf3a3c4e9c98365ec8cce8a, type: 3}
+  sauce1: {fileID: 21300000, guid: 62e88f6ee3bf3394dad2e43fd09cdb52, type: 3}
+  sauce2: {fileID: 21300000, guid: a38fe178bb062f043b7772e7e4f09a26, type: 3}
+  sauce3: {fileID: 21300000, guid: f28127600b3caf24fb36b6aa8b38cda8, type: 3}
+  salad1: {fileID: 21300000, guid: 87adcef04f8fd014fa684dc1ee54ce79, type: 3}
+  salad2: {fileID: 21300000, guid: fe10540f18c986b42a65beafd1828c46, type: 3}
+  salad3: {fileID: 21300000, guid: a729039aefc856441a514a2334051a77, type: 3}
+  wiener1: {fileID: 21300000, guid: 7d7496152a11dab4fb0b32657dfd7128, type: 3}
+  wiener2: {fileID: 21300000, guid: a37ac154aa6726f478c33c50fadc714c, type: 3}
+  wiener3: {fileID: 21300000, guid: bf69c3865b0b5c540a8b34a3c44caf62, type: 3}
+  sauce: 0
+  salad: 0
+  wienerI: 0
+  sauceI: 0
+  saladI: 0
 --- !u!212 &21223338
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -191,7 +196,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d84f0c3e2f3d16843b35ef0d10f1bf90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf69c3865b0b5c540a8b34a3c44caf62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21229404
 SpriteRenderer:
@@ -216,8 +221,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: eca31992d7efa8b4bbbb2fbd1351027c, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 8a75f999dda12ba42af1f11a62696534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21259420
 SpriteRenderer:
@@ -243,7 +248,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 477f47b0320b72a42832ce71e8f8454d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21282278
 SpriteRenderer:
@@ -269,7 +274,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a1458486fb467924691505b1358f842a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -277,7 +282,52 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: sauce1
+      value: 
+      objectReference: {fileID: 21300000, guid: 62e88f6ee3bf3394dad2e43fd09cdb52,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sauce2
+      value: 
+      objectReference: {fileID: 21300000, guid: a38fe178bb062f043b7772e7e4f09a26,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sauce3
+      value: 
+      objectReference: {fileID: 21300000, guid: f28127600b3caf24fb36b6aa8b38cda8,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: salad1
+      value: 
+      objectReference: {fileID: 21300000, guid: 87adcef04f8fd014fa684dc1ee54ce79,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: salad2
+      value: 
+      objectReference: {fileID: 21300000, guid: fe10540f18c986b42a65beafd1828c46,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: salad3
+      value: 
+      objectReference: {fileID: 21300000, guid: a729039aefc856441a514a2334051a77,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: wiener1
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d7496152a11dab4fb0b32657dfd7128,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: wiener2
+      value: 
+      objectReference: {fileID: 21300000, guid: a37ac154aa6726f478c33c50fadc714c,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: wiener3
+      value: 
+      objectReference: {fileID: 21300000, guid: bf69c3865b0b5c540a8b34a3c44caf62,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199600}

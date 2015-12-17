@@ -30,7 +30,7 @@ public class customerMaster : MonoBehaviour {
 		endTimer = endTimer - Time.deltaTime;
 		moneyText.text = ("money: "+moneyValue);
 		timer.text = ("Time left: "+ (int) (endTimer) );
-		if (endTimer >= 0)
+		if (endTimer >= 0 || moneyValue == 1 /*replace with wanted number */)
 		{
 			//win condition
 		}
