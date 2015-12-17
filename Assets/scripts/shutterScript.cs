@@ -9,13 +9,13 @@ public class shutterScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-
+		Time.timeScale = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(gameObject.transform.position.y == 6)
+		if(gameObject.transform.position.y == 5)
 		{
 			Time.timeScale = 0;
 		}
@@ -42,7 +42,7 @@ public class shutterScript : MonoBehaviour {
 	void OnMouseDrag() 
 	{ 
 		Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
-		gameObject.transform.position = new Vector3 (0, Mathf.Clamp (point.y, 6.0F, 14.0F), 0);
+		gameObject.transform.position = new Vector3 (0, Mathf.Clamp (point.y, 5.0F, 13.0F), 0);
 	}
 }
 

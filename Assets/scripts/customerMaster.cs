@@ -18,7 +18,7 @@ public class customerMaster : MonoBehaviour {
 
 	float side;
 	public float moneyValue = 0;
-	float endTimer = 60;
+	float endTimer = 61;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;
@@ -65,6 +65,7 @@ public class customerMaster : MonoBehaviour {
 		//spawns customer every 2-4 seconds
 		while (true)
 		{
+			yield return new WaitForSeconds(1);
 			RollSide ();
 			yield return new WaitForSeconds(Random.Range(2,4));
 		}
