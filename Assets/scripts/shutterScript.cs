@@ -15,7 +15,7 @@ public class shutterScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(gameObject.transform.position.y == -2)
+		if(gameObject.transform.position.y == 6)
 		{
 			Time.timeScale = 0;
 		}
@@ -23,18 +23,26 @@ public class shutterScript : MonoBehaviour {
 		{
 			Time.timeScale = 1;
 		}
+
+		if(Time.timeScale == 0)
+		{
+			Debug.Log("Paused true");
+		}
+		else
+		{
+			Debug.Log("Paused false");
+		}
 	}
 	
-	/*void OnMouseDown()
+	void OnMouseDown()
 	{ 
-		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-	}*/
+	}
 	
 	void OnMouseDrag() 
 	{ 
-		Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		gameObject.transform.position = new Vector3 (0, Mathf.Clamp (point.y, -2.0F, 2.0F), 0);
+		Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+		gameObject.transform.position = new Vector3 (0, Mathf.Clamp (point.y, 6.0F, 14.0F), 0);
 	}
 }
 
