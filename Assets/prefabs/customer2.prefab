@@ -108,7 +108,7 @@ GameObject:
   - 4: {fileID: 449474}
   - 114: {fileID: 11428436}
   m_Layer: 0
-  m_Name: request 1 (1)
+  m_Name: request
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

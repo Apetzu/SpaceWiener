@@ -9,6 +9,7 @@ public class customerMaster : MonoBehaviour {
 	 */
 	public Text moneyText;
 	public Text timer;
+	public Text winText;
 
 	public bool pos1Taken = false;
 	public bool pos2Taken = false;
@@ -30,9 +31,9 @@ public class customerMaster : MonoBehaviour {
 		endTimer = endTimer - Time.deltaTime;
 		moneyText.text = ("money: "+moneyValue);
 		timer.text = ("Time left: "+ (int) (endTimer) );
-		if (endTimer >= 0 || moneyValue == 1 /*replace with wanted number */)
+		if (endTimer <= 0 || moneyValue >= 100 /*replace with wanted number */)
 		{
-			//win condition
+			winText.text = ("you got "+moneyValue+"/100 money");
 		}
 	}
 	void Start()
