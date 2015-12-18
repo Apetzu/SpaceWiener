@@ -14,6 +14,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	public GameObject sauceObj;
 	public GameObject canvas;
 	public GameObject draggableBreadObj;
+	public Camera mainCamera;
 
 	Text moneyPaidTextClone;
 
@@ -123,7 +124,8 @@ public class customerZone : MonoBehaviour, IDropHandler {
 				finishedBread.bread = false;
 				finishedBread.salad = false;
 
-				Text customerPaidCopy = (Text) Instantiate(moneyPaidText, chosenCustomer.transform.position, transform.rotation);
+				/* Tämä ei toimi se spawnautuu jonnekkin ihan muualle*/
+				Text customerPaidCopy = (Text) Instantiate(moneyPaidText, Vector3.zero, transform.rotation);
 				customerPaidCopy.gameObject.AddComponent<moneyPaidText>();
 				customerPaidCopy.transform.SetParent(canvas.transform);
 				customerPaidCopy.transform.position = Input.mousePosition;
