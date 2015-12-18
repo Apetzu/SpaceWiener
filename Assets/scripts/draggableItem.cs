@@ -7,6 +7,8 @@ public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
 	private Vector3 startPos;
 	public Sprite onDogSpriteReplace;
+	public Camera mainCamera;
+	public bool isVisibleAllTime;
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
@@ -15,14 +17,15 @@ public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	}
 	public void OnDrag(PointerEventData eventData)
 	{
-		transform.position = eventData.position;
+		transform.position = mainCamera.ScreenToWorldPoint (eventData.position) + Vector3.forward;
 		GetComponent<Image>().color = Color.white;
 
 	}
 	public void OnEndDrag(PointerEventData eventData)
 	{
 		transform.position = startPos;
-		GetComponent<Image>().color = Color.clear;
+		if (isVisibleAllTime != true)
+			GetComponent<Image>().color = Color.clear;
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
 	}
 
