@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler 
 {
 	private Vector3 startPos;
+	public Camera mainCamera;
 
 	public bool bread = false;
 	public GameObject draggableBreadObj;
@@ -103,7 +104,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	public void OnDrag(PointerEventData eventData)
 	{
 		if (bread == true)
-			transform.position = eventData.position;
+			transform.position = mainCamera.ScreenToWorldPoint (eventData.position) + Vector3.forward;
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
