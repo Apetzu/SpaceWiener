@@ -1,27 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class shutterScript : MonoBehaviour {
 	
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
-	// Use this for initialization
+	public GameObject kioskForeground;
+	public Text instructionText;
+
+	SpriteRenderer kioskRend;
+	SpriteRenderer shutterRend;
+
+	/*SORTING ORDERS:
+	 * speecbubble = 7
+	 * bread = 8
+	 * breads children = 9 (nakki, salad, sauce)
+	 * shutter = 5 when down
+	 * kiosk = 6 when shutter down
+	 * shutter = 10 when up
+	 * kiosk is 11 when shutter is up
+	 */
+	
 	void Start () 
 	{
 		Time.timeScale = 0;
+		shutterRend = GetComponent<SpriteRenderer> ();
+		kioskRend = kioskForeground.GetComponent<SpriteRenderer> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
-		if(gameObject.transform.position.y == 5)
+		if(gameObject.transform.position.y != 5)
 		{
-			Time.timeScale = 0;
+			Time.timeScale = 1;
+			instructionText.enabled = false;
 		}
 		else
 		{
-			Time.timeScale = 1;
+			Time.timeScale = 0;
+		}
+		if(gameObject.transform.position.y < 10)
+		{
+			shutterRend.sortingOrder = 10;
+			kioskRend.sortingOrder = 11;
+		}
+		else
+		{
+			kioskRend.sortingOrder = 6;
+			shutterRend.sortingOrder = 0;
 		}
 
 		if(Time.timeScale == 0)

@@ -34,6 +34,7 @@ public class customerMaster : MonoBehaviour {
 		if (endTimer <= 0 || moneyValue >= 100 /*replace with wanted number */)
 		{
 			winText.text = ("you got "+moneyValue+"/100 money");
+			Time.timeScale = 0;
 		}
 	}
 	void Start()
@@ -62,12 +63,12 @@ public class customerMaster : MonoBehaviour {
 	}
 	IEnumerator spawnCust()
 	{
-		//spawns customer every 2-4 seconds
+		//spawns customer every 0.5-2 seconds
 		while (true)
 		{
 			yield return new WaitForSeconds(1);
 			RollSide ();
-			yield return new WaitForSeconds(Random.Range(2,4));
+			yield return new WaitForSeconds(Random.Range(0.5f,2));
 		}
 	}
 }

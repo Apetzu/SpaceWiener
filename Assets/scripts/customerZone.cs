@@ -49,15 +49,13 @@ public class customerZone : MonoBehaviour, IDropHandler {
 			{
 				if (requestScript.wienerI == finishedBread.wienerI  && finishedBread.wiener == true)
 				{
-					Debug.Log("this is the correct wiener");
 					masterScript.moneyValue += 5;
 					moneyPaid += 5;
 					customerScript.timeLeft = 0;
 					customerScript.correctIngredients += 1;
 				}
 				else
-				{
-					Debug.Log("this is the wrong wiener");		
+				{	
 					customerScript.timeLeft = 0;
 				}
 				
@@ -65,8 +63,6 @@ public class customerZone : MonoBehaviour, IDropHandler {
 				{
 					if (requestScript.saladI == finishedBread.saladI)
 					{
-						Debug.Log("you gave the correct salad");
-
 						masterScript.moneyValue += 3;
 						moneyPaid += 3;
 						customerScript.correctIngredients += 1;
@@ -74,32 +70,27 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					}
 					else
 					{
-						Debug.Log ("you gave the wrong salad");
 						customerScript.timeLeft = 0;
 					}
 				}
 				else if (requestScript.salad == true && finishedBread.salad == false)
 				{
-					Debug.Log ("i wanted salad but you didnt give it to me");
 					customerScript.timeLeft = 0;
 				}
 				else if (requestScript.salad == false && finishedBread.salad == false)
 				{
-					Debug.Log ("i didnt want salad and you didnt give it to me");
 					customerScript.timeLeft = 0;
 					customerScript.correctIngredients += 1;
 				}
 				else if (requestScript.salad == false && finishedBread.salad == true)
 				{
-					Debug.Log ("i didnt want salad and you gave it to me");
 					customerScript.timeLeft = 0;
 				}
 				
-				if (requestScript.sauce == true && finishedBread.salad == true)
+				if (requestScript.sauce == true && finishedBread.sauce == true)
 				{
-					if (requestScript.saladI == finishedBread.saladI)
+					if (requestScript.sauceI == finishedBread.sauceI)
 					{
-						Debug.Log ("you gave the correct sauce");
 						masterScript.moneyValue += 1.5f;
 						moneyPaid += 1.5f;
 						customerScript.timeLeft = 0;
@@ -107,24 +98,20 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					}
 					else
 					{
-						Debug.Log("you gave the wrong sauce");
 						customerScript.timeLeft = 0;
 					}
 				}
 				else if (requestScript.sauce == true && finishedBread.sauce == false)
 				{
-					Debug.Log("i wanted sauce but you didnt give it to me");
 					customerScript.timeLeft = 0;
 				}
 				else if (requestScript.sauce == false && finishedBread.sauce == false)
 				{
-					Debug.Log ("i didnt want sauce and you didnt give it to me");
 					customerScript.timeLeft = 0;
 					customerScript.correctIngredients += 1;
 				}
 				else if (requestScript.sauce == false && finishedBread.sauce == true)
 				{
-					Debug.Log ("i didnt want sauce but you gave it to me");
 					customerScript.timeLeft = 0;
 				}
 				sausageObj.GetComponent<Image>().color = Color.clear;

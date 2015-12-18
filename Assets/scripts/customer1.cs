@@ -30,6 +30,7 @@ public class customer1 : MonoBehaviour {
 	Animator animator;
 
 	SpriteRenderer custRend;
+	SpriteRenderer speechBubRend;
 
 	public bool canRecieveFood;
 	bool moveToPos1;
@@ -46,7 +47,7 @@ public class customer1 : MonoBehaviour {
 		custRend = GetComponent<SpriteRenderer> ();
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		//random time customer waits at its position
-		timeLeft = Random.Range (8, 13);
+		timeLeft = Random.Range (10, 15);
 		//copy of timeleft for face changing purposes
 		timeLeftCopy = timeLeft;
 		ChoosePos();
@@ -61,10 +62,10 @@ public class customer1 : MonoBehaviour {
 	}
 	void ChoosePos()
 	{
-		//chooses position customer takes
+		//chooses position customer takes max has to be 5 because unity rounds down 
 		chosenPosition = Random.Range (1,5);
 	}
-	void Update () 
+	void FixedUpdate () 
 	{
 		if (moveToPos1 == true)
 		{
