@@ -23,6 +23,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	plateZone finishedBread;
 	GameObject chosenCustomer;
 	customer1 customerScript;
+	customer2 customerScript2;
 	customerRequest requestScript;
 	customerMaster masterScript;
 
@@ -40,7 +41,14 @@ public class customerZone : MonoBehaviour, IDropHandler {
 		RaycastHit2D hit = Physics2D.GetRayIntersection (ray, Mathf.Infinity);
 		if (hit.collider != null)
 		{
-			customerScript = hit.transform.gameObject.GetComponent<customer1>();
+			if (hit.collider.gameObject.tag == "childCustomer")
+			{
+				customerScript2 = hit.transform.gameObject.GetComponent<customer2>();
+			}
+			else
+			{
+				customerScript = hit.transform.gameObject.GetComponent<customer1>();
+			}
 			chosenCustomer = hit.transform.gameObject;
 			//child of child
 			requestObj = hit.transform.gameObject.transform.Find("speechbubble1/request").gameObject;

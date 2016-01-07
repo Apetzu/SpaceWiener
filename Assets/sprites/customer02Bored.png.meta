@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 61a79950e8c77274bb53629857d4486d
-timeCreated: 1450432214
+guid: da1ad3e8811e6d7408c8c03c22e893f9
+timeCreated: 1452164310
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: customer01Angry_0
-    21300002: customer01Angry_1
+    21300000: customer02Bored_0
+    21300002: customer02Bored_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,7 +29,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 512
+  maxTextureSize: 2048
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -52,7 +52,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: customer01Angry_0
+    - name: customer02Bored_0
       rect:
         serializedVersion: 2
         x: 0
@@ -62,7 +62,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: customer01Angry_1
+    - name: customer02Bored_1
       rect:
         serializedVersion: 2
         x: 256

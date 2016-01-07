@@ -12,6 +12,15 @@ TagManager:
   - sausage
   - salad
   - sauce
+  - childCustomer
+  - custPosKid1
+  - custPosKid2
+  - custPosKid3
+  - custPosKid4
+  - kidSpawner1
+  - kidSpawner2
+  - kidSpawner3
+  - kidSpawner4
   layers:
   - Default
   - TransparentFX

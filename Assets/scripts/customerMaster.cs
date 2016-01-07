@@ -52,23 +52,41 @@ public class customerMaster : MonoBehaviour {
 		{
 			//spawn random customer on left side from array and applies customer script to it
 			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,4)],spawnerLeft.transform.position, spawnerLeft.transform.rotation);
-			customer1.gameObject.AddComponent<customer1>();
+			Debug.Log (customer1.tag);
+			if (customer1.gameObject.tag == "childCustomer")
+			{
+				customer1.gameObject.AddComponent<customer2>();
+				Debug.Log ("olio alhaalta");
+			}
+			else
+			{
+				customer1.gameObject.AddComponent<customer1>();
+			}
 		}
 		else
 		{
 			//spawn random customer on right side from array and applies customer script to it
 			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,4)],spawnerRight.transform.position, spawnerRight.transform.rotation);
-			customer1.gameObject.AddComponent<customer1>();
+			Debug.Log (customer1.tag);
+			if (customer1.gameObject.tag == "childCustomer")
+			{
+				customer1.gameObject.AddComponent<customer2>();
+				Debug.Log ("olio alhaalta");
+			}
+			else
+			{
+				customer1.gameObject.AddComponent<customer1>();
+			}
 		}
 	}
 	IEnumerator spawnCust()
 	{
-		//spawns customer every 0.5-2 seconds
+		//spawns customer every 1-3 seconds
 		while (true)
 		{
 			yield return new WaitForSeconds(1);
 			RollSide ();
-			yield return new WaitForSeconds(Random.Range(0.5f,2));
+			yield return new WaitForSeconds(Random.Range(1f,3));
 		}
 	}
 }
