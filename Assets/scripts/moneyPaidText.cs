@@ -8,7 +8,7 @@ public class moneyPaidText : MonoBehaviour {
 	private float yVelocity = 0.0F;
 	float fadeOut = 1f;
 	Text text;
-	public float target = 10f;
+	public float target = 100f;
 	public Camera mainCamera;
 	private Vector3 newThisPosition;
 
@@ -23,9 +23,13 @@ public class moneyPaidText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		/*text.color = Color.Lerp (text.color, new Color (230, 255, 0, 0), fadeOut * Time.deltaTime);
+		text.color = Color.Lerp (text.color, new Color (230, 255, 0, 0), fadeOut * Time.deltaTime);
 		newThisPosition = mainCamera.WorldToScreenPoint (transform.position);
 		float newPosition = Mathf.SmoothDamp(newThisPosition.y, newThisPosition.y + target, ref yVelocity, smoothTime);
-		transform.position = mainCamera.ScreenToWorldPoint(new Vector3 (newThisPosition.x, newPosition, newThisPosition.z));*/
+		transform.position = mainCamera.ScreenToWorldPoint(new Vector3 (newThisPosition.x, newPosition, newThisPosition.z));
+		if (text.color.a < 0.1)
+		{
+			Destroy(gameObject);
+		}
 	}
 }

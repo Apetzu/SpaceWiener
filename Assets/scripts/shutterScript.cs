@@ -20,7 +20,7 @@ public class shutterScript : MonoBehaviour {
 	 * shutter = 5 when down
 	 * kiosk = 6 when shutter down
 	 * shutter = 10 when up
-	 * kiosk is 11 when shutter is up
+	 * kiosk = 11 when shutter up
 	 */
 	
 	void Start () 

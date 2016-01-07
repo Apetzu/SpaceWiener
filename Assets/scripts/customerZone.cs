@@ -16,7 +16,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	public GameObject draggableBreadObj;
 	public Camera mainCamera;
 
-	Text moneyPaidTextClone;
+	//Text moneyPaidTextClone;
 
 	public float moneyPaid = 0;
 
@@ -128,7 +128,8 @@ public class customerZone : MonoBehaviour, IDropHandler {
 				Text customerPaidCopy = (Text) Instantiate(moneyPaidText, Vector3.zero, transform.rotation);
 				customerPaidCopy.gameObject.AddComponent<moneyPaidText>();
 				customerPaidCopy.transform.SetParent(canvas.transform);
-				customerPaidCopy.transform.position = Input.mousePosition;
+				customerPaidCopy.transform.localScale = new Vector3(1,1,1);
+				customerPaidCopy.transform.position = chosenCustomer.transform.position;
 				customerPaidCopy.text = ("Earned: " + moneyPaid);
 				StartCoroutine("resetMoneyPaid");
 			}
