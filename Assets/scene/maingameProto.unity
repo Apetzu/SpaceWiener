@@ -2935,6 +2935,8 @@ MonoBehaviour:
   sauceObj: {fileID: 877095756}
   draggableBreadObj: {fileID: 1294766679}
   doneBread: {fileID: 1294766679}
+  canvas: {fileID: 1499940534}
+  moneyPaidText: {fileID: 619652371}
 --- !u!222 &2141443971
 CanvasRenderer:
   m_ObjectHideFlags: 0

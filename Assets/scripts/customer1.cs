@@ -13,7 +13,7 @@ public class customer1 : MonoBehaviour {
 	float side;
 	public float timeLeft = 8;
 	int chosenPosition = 4;
-	float lifeTime = 20;
+	float lifeTime = 0;
 	float timeLeftCopy = 0;
 	public int position = 0;
 	public float correctIngredients;
@@ -47,7 +47,8 @@ public class customer1 : MonoBehaviour {
 		custRend = GetComponent<SpriteRenderer> ();
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		//random time customer waits at its position
-		timeLeft = Random.Range (10, 15);
+		timeLeft = Random.Range (25, 30);
+		lifeTime = timeLeft + 5;
 		//copy of timeleft for face changing purposes
 		timeLeftCopy = timeLeft;
 		ChoosePos();

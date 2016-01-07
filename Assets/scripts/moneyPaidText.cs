@@ -27,7 +27,7 @@ public class moneyPaidText : MonoBehaviour {
 		newThisPosition = mainCamera.WorldToScreenPoint (transform.position);
 		float newPosition = Mathf.SmoothDamp(newThisPosition.y, newThisPosition.y + target, ref yVelocity, smoothTime);
 		transform.position = mainCamera.ScreenToWorldPoint(new Vector3 (newThisPosition.x, newPosition, newThisPosition.z));
-		if (text.color.a < 0.1)
+		if (text.color.a < 0.1f)
 		{
 			Destroy(gameObject);
 		}
