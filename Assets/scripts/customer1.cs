@@ -63,8 +63,9 @@ public class customer1 : MonoBehaviour {
 	}
 	public void ChoosePos()
 	{
-		//chooses position customer takes max has to be 5 because unity rounds down 
+		//chooses position customer takes max has to be 5 because unity rounds down (i think)
 		chosenPosition = Random.Range (1,5);
+		//SetPosition ();
 	}
 	public virtual void FixedUpdate () 
 	{
@@ -218,7 +219,11 @@ public class customer1 : MonoBehaviour {
 	}
 	public void SetPosition()
 	{
-		if (chosenPosition == 1)
+		if (masterScript.pos1Taken == true && masterScript.pos2Taken == true && masterScript.pos3Taken == true && masterScript.pos4Taken == true)
+		{
+			Destroy(gameObject);
+		}
+		else if (chosenPosition == 1)
 		{
 			//this sets the chosen position as taken and moves customer to the position if chosen position is taken customer is destroyed
 			if (masterScript.pos1Taken == false)
@@ -228,10 +233,11 @@ public class customer1 : MonoBehaviour {
 			}
 			else
 			{
-				Destroy (gameObject);
+				chosenPosition = 4;
+				SetPosition();
 			}
 		}
-		if (chosenPosition == 2)
+		else if (chosenPosition == 2)
 		{
 			if (masterScript.pos2Taken == false)
 			{
@@ -240,10 +246,11 @@ public class customer1 : MonoBehaviour {
 			}
 			else
 			{
-				Destroy (gameObject);
+				chosenPosition = 3;
+				SetPosition();
 			}
 		}
-		if (chosenPosition == 3)
+		else if (chosenPosition == 3)
 		{
 			if (masterScript.pos3Taken == false)
 			{
@@ -252,10 +259,11 @@ public class customer1 : MonoBehaviour {
 			}
 			else
 			{
-				Destroy (gameObject);
+				chosenPosition = 1;
+				SetPosition();
 			}
 		}
-		if (chosenPosition == 4)
+		else if (chosenPosition == 4)
 		{
 			if (masterScript.pos4Taken == false)
 			{
@@ -264,8 +272,13 @@ public class customer1 : MonoBehaviour {
 			}
 			else
 			{
-				Destroy (gameObject);
+				chosenPosition = 2;
+				SetPosition();
 			}
+		}
+		else
+		{
+			Destroy(gameObject);
 		}
 	}
 }

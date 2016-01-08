@@ -2,9 +2,12 @@
 using System.Collections;
 
 public class customer2 : customer1 {
-
+	
+		
 	public GameObject tentacles;
 	public SpriteRenderer tentacleRend;
+
+	new public float speed = 0.3f;
 
 	// Use this for initialization
 	public override void Start () 
@@ -198,11 +201,11 @@ public class customer2 : customer1 {
 		custRend.sortingOrder = -3;
 		if (side > 0.5)
 		{
-			transform.Translate(Vector2.down * speed);
+			transform.Translate(Vector2.right * speed);
 		}
 		else
 		{
-			transform.Translate(Vector2.down * speed);
+			transform.Translate(Vector2.left * speed);
 		}
 		transform.GetChild(0).gameObject.SetActive(false);
 	}

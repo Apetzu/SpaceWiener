@@ -18,7 +18,7 @@ public class customerMaster : MonoBehaviour {
 
 	float side;
 	public float moneyValue = 0;
-	float endTimer = 61;
+	float endTimer = 81;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;
@@ -30,7 +30,7 @@ public class customerMaster : MonoBehaviour {
 	{
 		endTimer = endTimer - Time.deltaTime;
 		moneyText.text = ("money: "+moneyValue);
-		timer.text = ("Time left: "+ (int) (endTimer) );
+		timer.text = ("Time left: "+ (int) (endTimer));
 		if (endTimer <= 0 || moneyValue >= 100 /*replace with wanted number */)
 		{
 			winText.text = ("you got "+moneyValue+"/100 money");
