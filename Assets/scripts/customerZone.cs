@@ -41,16 +41,8 @@ public class customerZone : MonoBehaviour, IDropHandler {
 		RaycastHit2D hit = Physics2D.GetRayIntersection (ray, Mathf.Infinity);
 		if (hit.collider != null)
 		{
-			if (hit.collider.gameObject.tag == "childCustomer")
-			{
-				customerScript2 = hit.transform.gameObject.GetComponent<customer2>();
-			}
-			else
-			{
-				customerScript = hit.transform.gameObject.GetComponent<customer1>();
-			}
 			chosenCustomer = hit.transform.gameObject;
-			//child of child
+			customerScript = chosenCustomer.transform.gameObject.GetComponent<customer1>();
 			requestObj = hit.transform.gameObject.transform.Find("speechbubble1/request").gameObject;
 			requestScript = requestObj.GetComponent<customerRequest>();
 			//loooooooong long sentence that checks the values on customer request and the finished bread

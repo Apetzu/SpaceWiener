@@ -56,7 +56,6 @@ public class customerMaster : MonoBehaviour {
 			if (customer1.gameObject.tag == "childCustomer")
 			{
 				customer1.gameObject.AddComponent<customer2>();
-				Debug.Log ("olio alhaalta");
 			}
 			else
 			{
@@ -71,7 +70,6 @@ public class customerMaster : MonoBehaviour {
 			if (customer1.gameObject.tag == "childCustomer")
 			{
 				customer1.gameObject.AddComponent<customer2>();
-				Debug.Log ("olio alhaalta");
 			}
 			else
 			{

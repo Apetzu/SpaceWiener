@@ -9,38 +9,38 @@ public class customer1 : MonoBehaviour {
 	 * deletes collider when customer leaves
 	 */
 
-	float speed = 0.5f;
-	float side;
+	public float speed = 0.5f;
+	public float side;
 	public float timeLeft = 8;
-	int chosenPosition = 4;
-	float lifeTime = 0;
-	float timeLeftCopy = 0;
+	public int chosenPosition = 4;
+	public float lifeTime = 0;
+	public float timeLeftCopy = 0;
 	public int position = 0;
 	public float correctIngredients;
 
-	BoxCollider2D customerColl;
+	public BoxCollider2D customerColl;
 
-	GameObject speechBubble;
-	GameObject masterObj;
-	GameObject target1;
-	GameObject target2;
-	GameObject target3;
-	GameObject target4;
+	public GameObject speechBubble;
+	public GameObject masterObj;
+	public GameObject target1;
+	public GameObject target2;
+	public GameObject target3;
+	public GameObject target4;
 
-	Animator animator;
+	public Animator animator;
 
-	SpriteRenderer custRend;
-	SpriteRenderer speechBubRend;
+	public SpriteRenderer custRend;
+	public SpriteRenderer speechBubRend;
 
 	public bool canRecieveFood;
-	bool moveToPos1;
-	bool moveToPos2;
-	bool moveToPos3;
-	bool moveToPos4;
+	public bool moveToPos1;
+	public bool moveToPos2;
+	public bool moveToPos3;
+	public bool moveToPos4;
 
-	customerMaster masterScript;
+	public customerMaster masterScript;
 	
-	void Start () 
+	public virtual void Start () 
 	{
 		//gets customers collider, renderer, and speechbubble
 		customerColl = GetComponent<BoxCollider2D> ();
@@ -61,12 +61,12 @@ public class customer1 : MonoBehaviour {
 		masterScript = masterObj.GetComponent<customerMaster>();
 		SetPosition ();
 	}
-	void ChoosePos()
+	public void ChoosePos()
 	{
 		//chooses position customer takes max has to be 5 because unity rounds down 
 		chosenPosition = Random.Range (1,5);
 	}
-	void FixedUpdate () 
+	public virtual void FixedUpdate () 
 	{
 		if (moveToPos1 == true)
 		{
@@ -190,7 +190,7 @@ public class customer1 : MonoBehaviour {
 		}
 	}
 	//Leave chooses side customer will leave to and deletes the speechbubble + sets customer sorting layer to -3
-	public void Leave()
+	public virtual void Leave()
 	{
 		Animator animator = GetComponent<Animator>();
 		if (correctIngredients == 3)
@@ -216,7 +216,7 @@ public class customer1 : MonoBehaviour {
 		}
 		transform.GetChild(0).gameObject.SetActive(false);
 	}
-	void SetPosition()
+	public void SetPosition()
 	{
 		if (chosenPosition == 1)
 		{

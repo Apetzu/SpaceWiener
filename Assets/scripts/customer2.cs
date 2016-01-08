@@ -1,62 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class customer2 : MonoBehaviour {
+public class customer2 : customer1 {
 
-	/*used for the blue alien
-	 * that comes from below
-	 * customer1 is used for 
-	 * everything else*/
+	public GameObject tentacles;
+	public SpriteRenderer tentacleRend;
 
-	float speed = 0.5f;
-	float side;
-	public float timeLeft = 8;
-	int chosenPosition = 4;
-	float lifeTime = 20;
-	float timeLeftCopy = 0;
-	public int position = 0;
-	public float correctIngredients;
-	
-	BoxCollider2D customerColl;
-
-	GameObject customerObj;
-	GameObject speechBubble;
-	GameObject tentacles;
-	GameObject masterObj;
-	GameObject target1;
-	GameObject target2;
-	GameObject target3;
-	GameObject target4;
-	
-	Animator animator;
-	
-	SpriteRenderer custRend;
-	SpriteRenderer speechBubRend;
-	SpriteRenderer tentacleRend;
-	
-	public bool canRecieveFood;
-	bool moveToPos1;
-	bool moveToPos2;
-	bool moveToPos3;
-	bool moveToPos4;
-
-	customerMaster masterScript;
-	
-	void Start () 
+	// Use this for initialization
+	public override void Start () 
 	{
+		tentacles = transform.Find ("customer2Tentacles").gameObject;
+		tentacleRend = tentacles.GetComponent<SpriteRenderer> ();
 		//gets customers collider, renderer, and speechbubble
-		gameObject.tag = "Untagged";
-		customerColl = transform.Find("customer2").GetComponent<BoxCollider2D> ();
-		customerObj = gameObject.transform.Find("customer2").gameObject;
-		custRend = transform.Find("customer2").GetComponent<SpriteRenderer> ();
-		speechBubble = gameObject.transform.Find ("customer2/speechbubble1").gameObject;
-		tentacleRend = GetComponent<SpriteRenderer>();
+		customerColl = GetComponent<BoxCollider2D> ();
+		custRend = GetComponent<SpriteRenderer> ();
+		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		//random time customer waits at its position
-		timeLeft = Random.Range (10, 15);
+		timeLeft = Random.Range (25, 30);
+		lifeTime = timeLeft + 5;
 		//copy of timeleft for face changing purposes
 		timeLeftCopy = timeLeft;
 		ChoosePos();
 		side = Random.value;
+		Debug.Log ("customer2 script is activated");
 		target1 = GameObject.FindWithTag ("custPosKid1");
 		target2 = GameObject.FindWithTag ("custPosKid2");
 		target3 = GameObject.FindWithTag ("custPosKid3");
@@ -66,35 +32,31 @@ public class customer2 : MonoBehaviour {
 		SetPosition ();
 		if (moveToPos1 == true)
 		{
-			transform.position = GameObject.FindWithTag("kidSpawner1").transform.position;
+			transform.position = GameObject.FindWithTag("kidSpawner1").gameObject.transform.position;
 		}
 		if (moveToPos2 == true)
 		{
-			transform.position = GameObject.FindWithTag("kidSpawner2").transform.position;
+			transform.position = GameObject.FindWithTag("kidSpawner2").gameObject.transform.position;
 		}
 		if (moveToPos3 == true)
 		{
-			transform.position = GameObject.FindWithTag("kidSpawner3").transform.position;
+			transform.position = GameObject.FindWithTag("kidSpawner3").gameObject.transform.position;
 		}
 		if (moveToPos4 == true)
 		{
-			transform.position = GameObject.FindWithTag("kidSpawner4").transform.position;
+			transform.position = GameObject.FindWithTag("kidSpawner4").gameObject.transform.position;
 		}
-	}
-	void ChoosePos()
-	{
-		//chooses position customer takes max has to be 5 because unity rounds down 
-		chosenPosition = Random.Range (1,5);
+		tentacles.AddComponent<tentacles>();
 	}
 	
-	void FixedUpdate () 
+	// Update is called once per frame
+	public override void FixedUpdate () 
 	{
 		if (moveToPos1 == true)
 		{
 			tentacleRend.enabled = true;
-			//tells customer to move to its position
-			customerObj.transform.position = Vector3.MoveTowards(transform.position, target1.transform.position, speed);
-			if (customerObj.transform.position == target1.transform.position)
+			transform.position = Vector3.MoveTowards(transform.position, target1.transform.position, speed);
+			if (transform.position == target1.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
@@ -109,16 +71,15 @@ public class customer2 : MonoBehaviour {
 		if (moveToPos2 == true)
 		{
 			tentacleRend.enabled = true;
-			//tells customer to move to its position
-			customerObj.transform.position = Vector3.MoveTowards(transform.position, target2.transform.position, speed);
-			if (customerObj.transform.position == target2.transform.position)
+			transform.position = Vector3.MoveTowards(transform.position, target2.transform.position, speed);
+			if (transform.position == target2.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
 				custRend.sortingOrder = -1;
 				masterScript.pos1Taken = true;
-				position = 1;
+				position = 2;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
@@ -126,16 +87,15 @@ public class customer2 : MonoBehaviour {
 		if (moveToPos3 == true)
 		{
 			tentacleRend.enabled = true;
-			//tells customer to move to its position
-			customerObj.transform.position = Vector3.MoveTowards(transform.position, target3.transform.position, speed);
-			if (customerObj.transform.position == target3.transform.position)
+			transform.position = Vector3.MoveTowards(transform.position, target3.transform.position, speed);
+			if (transform.position == target3.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
 				custRend.sortingOrder = -1;
 				masterScript.pos1Taken = true;
-				position = 1;
+				position = 3;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
@@ -143,16 +103,15 @@ public class customer2 : MonoBehaviour {
 		if (moveToPos4 == true)
 		{
 			tentacleRend.enabled = true;
-			//tells customer to move to its position
-			customerObj.transform.position = Vector3.MoveTowards(transform.position, target4.transform.position, speed);
-			if (customerObj.transform.position == target4.transform.position)
+			transform.position = Vector3.MoveTowards(transform.position, target4.transform.position, speed);
+			if (transform.position == target4.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
 				custRend.sortingOrder = -1;
 				masterScript.pos1Taken = true;
-				position = 1;
+				position = 4;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
 			}
@@ -219,9 +178,8 @@ public class customer2 : MonoBehaviour {
 		{
 			masterScript.pos4Taken = true;
 		}
-
 	}
-	public void Leave()
+	public override void Leave()
 	{
 		tentacleRend.enabled = false;
 		Animator animator = GetComponent<Animator>();
@@ -238,58 +196,14 @@ public class customer2 : MonoBehaviour {
 			animator.SetTrigger("leaving");
 		}
 		custRend.sortingOrder = -3;
+		if (side > 0.5)
+		{
+			transform.Translate(Vector2.down * speed);
+		}
+		else
+		{
+			transform.Translate(Vector2.down * speed);
+		}
 		transform.GetChild(0).gameObject.SetActive(false);
-	}
-	void SetPosition()
-	{
-		if (chosenPosition == 1)
-		{
-			//this sets the chosen position as taken and moves customer to the position if chosen position is taken customer is destroyed
-			if (masterScript.pos1Taken == false)
-			{
-				masterScript.pos1Taken = true;
-				moveToPos1 = true;
-			}
-			else
-			{
-				Destroy (gameObject);
-			}
-		}
-		if (chosenPosition == 2)
-		{
-			if (masterScript.pos2Taken == false)
-			{
-				masterScript.pos2Taken = true;
-				moveToPos2 = true;
-			}
-			else
-			{
-				Destroy (gameObject);
-			}
-		}
-		if (chosenPosition == 3)
-		{
-			if (masterScript.pos3Taken == false)
-			{
-				masterScript.pos3Taken = true;
-				moveToPos3 = true;
-			}
-			else
-			{
-				Destroy (gameObject);
-			}
-		}
-		if (chosenPosition == 4)
-		{
-			if (masterScript.pos4Taken == false)
-			{
-				masterScript.pos4Taken = true;
-				moveToPos4 = true;
-			}
-			else
-			{
-				Destroy (gameObject);
-			}
-		}
 	}
 }
