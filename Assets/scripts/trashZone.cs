@@ -24,7 +24,7 @@ public class trashZone : MonoBehaviour, IDropHandler {
 	{
 		if (eventData.pointerDrag == doneBread)
 		{
-			if (doneBread.GetComponent<plateZone>().wiener == true)
+			/*if (doneBread.GetComponent<plateZone>().wiener == true)
 				tempMoneyValue += 5f;
 			if (doneBread.GetComponent<plateZone>().salad == true)
 				tempMoneyValue += 3f;
@@ -39,7 +39,7 @@ public class trashZone : MonoBehaviour, IDropHandler {
 			customerPaidCopy.transform.localScale = new Vector3(1,1,1);
 			customerPaidCopy.transform.position = new Vector2 (transform.position.x - 3f, transform.position.y);
 			customerPaidCopy.text = ("Money lost: " + tempMoneyValue);
-			tempMoneyValue = 0;
+			tempMoneyValue = 0;*/
 
 			sausageObj.GetComponent<Image> ().color = Color.clear;
 			saladObj.GetComponent<Image> ().color = Color.clear;

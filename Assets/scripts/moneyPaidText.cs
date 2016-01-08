@@ -23,7 +23,7 @@ public class moneyPaidText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		text.color = Color.Lerp (text.color, new Color (230, 255, 0, 0), fadeOut * Time.deltaTime);
+		text.color = Color.Lerp (text.color, new Color (text.color.r, text.color.g, text.color.b, 0), fadeOut * Time.deltaTime);
 		newThisPosition = mainCamera.WorldToScreenPoint (transform.position);
 		float newPosition = Mathf.SmoothDamp(newThisPosition.y, newThisPosition.y + target, ref yVelocity, smoothTime);
 		transform.position = mainCamera.ScreenToWorldPoint(new Vector3 (newThisPosition.x, newPosition, newThisPosition.z));
