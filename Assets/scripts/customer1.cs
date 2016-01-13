@@ -9,7 +9,7 @@ public class customer1 : MonoBehaviour {
 	 * deletes collider when customer leaves
 	 */
 
-	public float speed = 0.5f;
+	public float speed = 0.45f;
 	public float side;
 	public float timeLeft = 8;
 	public int chosenPosition = 4;
@@ -130,7 +130,8 @@ public class customer1 : MonoBehaviour {
 		if (timeLeft < timeLeftCopy / 2.0f)
 		{
 			Animator animator = GetComponent<Animator>();
-			animator.SetTrigger("angry");
+			animator.SetBool("angry",true);
+			animator.SetBool("happy",false);
 		}
 		//customer leaves and sets its position as free deletes collider
 		if (timeLeft < 0)
@@ -193,18 +194,25 @@ public class customer1 : MonoBehaviour {
 	//Leave chooses side customer will leave to and deletes the speechbubble + sets customer sorting layer to -3
 	public virtual void Leave()
 	{
+		//oota hetki
 		Animator animator = GetComponent<Animator>();
 		if (correctIngredients == 3)
 		{
-			animator.SetTrigger("happy");
+			animator.SetBool("happy",true);
+			animator.SetBool("angry",false);
+			animator.SetBool("leaving",false);
 		}
 		else if (correctIngredients == 2)
 		{
-			animator.SetTrigger("angry");
+			animator.SetBool("happy",false);
+			animator.SetBool("angry",true);
+			animator.SetBool("leaving",false);
 		}
 		else
 		{
-			animator.SetTrigger("leaving");
+			animator.SetBool("happy",false);
+			animator.SetBool("angry",false);
+			animator.SetBool("leaving",true);
 		}
 		custRend.sortingOrder = -3;
 		if (side > 0.5)

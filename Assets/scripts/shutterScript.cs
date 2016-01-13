@@ -32,7 +32,7 @@ public class shutterScript : MonoBehaviour {
 
 	void Update () 
 	{
-		if(gameObject.transform.position.y != 5)
+		if(gameObject.transform.position.y >= 6)
 		{
 			Time.timeScale = 1;
 			instructionText.enabled = false;
@@ -52,14 +52,14 @@ public class shutterScript : MonoBehaviour {
 			shutterRend.sortingOrder = 0;
 		}
 
-		if(Time.timeScale == 0)
-		{
-			Debug.Log("Paused true");
-		}
-		else
-		{
-			Debug.Log("Paused false");
-		}
+		//if(Time.timeScale == 0)
+		//{
+		//	Debug.Log("Paused true");
+		//}
+		//else
+		//{
+		//	Debug.Log("Paused false");
+		//}
 	}
 	
 	void OnMouseDown()

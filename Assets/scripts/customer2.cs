@@ -7,7 +7,7 @@ public class customer2 : customer1 {
 	public GameObject tentacles;
 	public SpriteRenderer tentacleRend;
 
-	new public float speed = 0.3f;
+	new public float speed = 0.2f;
 
 	// Use this for initialization
 	public override void Start () 
@@ -25,7 +25,6 @@ public class customer2 : customer1 {
 		timeLeftCopy = timeLeft;
 		ChoosePos();
 		side = Random.value;
-		Debug.Log ("customer2 script is activated");
 		target1 = GameObject.FindWithTag ("custPosKid1");
 		target2 = GameObject.FindWithTag ("custPosKid2");
 		target3 = GameObject.FindWithTag ("custPosKid3");
@@ -51,7 +50,19 @@ public class customer2 : customer1 {
 		}
 		tentacles.AddComponent<tentacles>();
 	}
-	
+	//use this if you want tentacles to show betterly
+	//public void Update ()
+	//{
+	//	Debug.Log (Time.timeScale);
+	//	if (Time.timeScale != 0)
+	//	{
+	//		tentacleRend.sortingOrder = 10;
+	//	}
+	//	else
+	//	{
+	//		tentacleRend.sortingOrder = 1;
+	//	}
+	//}
 	// Update is called once per frame
 	public override void FixedUpdate () 
 	{
@@ -188,15 +199,21 @@ public class customer2 : customer1 {
 		Animator animator = GetComponent<Animator>();
 		if (correctIngredients == 3)
 		{
-			animator.SetTrigger("happy");
+			animator.SetBool("happy",true);
+			animator.SetBool("angry",false);
+			animator.SetBool("leaving",false);
 		}
 		else if (correctIngredients == 2)
 		{
-			animator.SetTrigger("angry");
+			animator.SetBool("happy",false);
+			animator.SetBool("angry",true);
+			animator.SetBool("leaving",false);
 		}
 		else
 		{
-			animator.SetTrigger("leaving");
+			animator.SetBool("happy",false);
+			animator.SetBool("angry",false);
+			animator.SetBool("leaving",true);
 		}
 		custRend.sortingOrder = -3;
 		if (side > 0.5)

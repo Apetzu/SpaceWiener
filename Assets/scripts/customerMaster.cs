@@ -51,8 +51,7 @@ public class customerMaster : MonoBehaviour {
 		if (side > 0.5)
 		{
 			//spawn random customer on left side from array and applies customer script to it
-			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,4)],spawnerLeft.transform.position, spawnerLeft.transform.rotation);
-			Debug.Log (customer1.tag);
+			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,5)],spawnerLeft.transform.position, spawnerLeft.transform.rotation);
 			if (customer1.gameObject.tag == "childCustomer")
 			{
 				customer1.gameObject.AddComponent<customer2>();
@@ -65,8 +64,7 @@ public class customerMaster : MonoBehaviour {
 		else
 		{
 			//spawn random customer on right side from array and applies customer script to it
-			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,4)],spawnerRight.transform.position, spawnerRight.transform.rotation);
-			Debug.Log (customer1.tag);
+			GameObject customer1 = (GameObject) Instantiate(customers[UnityEngine.Random.Range (0,5)],spawnerRight.transform.position, spawnerRight.transform.rotation);
 			if (customer1.gameObject.tag == "childCustomer")
 			{
 				customer1.gameObject.AddComponent<customer2>();

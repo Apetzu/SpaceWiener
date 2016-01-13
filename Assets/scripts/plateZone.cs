@@ -21,6 +21,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	public bool salad;
 	public bool sauce;
 	public bool wiener;
+	public bool breadBeDragged;
 
 	//public GameObject[,] objects = new GameObject[3,3];
 	public List<GameObject> allSausageObjects = new List<GameObject>();
@@ -29,87 +30,100 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	
 	public void OnDrop(PointerEventData eventData)
 	{
-		if (bread == true)
+		if (Time.timeScale != 0)
 		{
-			if (eventData.pointerDrag.tag == "sausage" && sausageObj.GetComponent<Image>().color == Color.clear)
+			if (bread == true)
 			{
-				sausageObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
-				sausageObj.GetComponent<Image>().color = Color.white;
-				for (int i = 0; i <= allSausageObjects.Count; i++)
+				if (eventData.pointerDrag.tag == "sausage" && sausageObj.GetComponent<Image>().color == Color.clear)
 				{
-					if (eventData.pointerDrag.gameObject == allSausageObjects[i])
+					sausageObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
+					sausageObj.GetComponent<Image>().color = Color.white;
+					for (int i = 0; i <= allSausageObjects.Count; i++)
 					{
-						if (allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
-							sausageObj.GetComponent<Image>().sprite = allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
-						wienerI = i;
-						wiener = true;
-						break;
+						if (eventData.pointerDrag.gameObject == allSausageObjects[i])
+						{
+							if (allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
+								sausageObj.GetComponent<Image>().sprite = allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
+							wienerI = i;
+							wiener = true;
+							break;
+						}
+					}
+				}
+				if (eventData.pointerDrag.tag == "salad" && saladObj.GetComponent<Image>().color == Color.clear)
+				{
+					saladObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
+					saladObj.GetComponent<Image>().color = Color.white;
+					for (int i = 0; i <= allSaladObjects.Count; i++)
+					{
+						if (eventData.pointerDrag.gameObject == allSaladObjects[i])
+						{
+							if (allSaladObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
+								saladObj.GetComponent<Image>().sprite = allSaladObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
+							salad = true;
+							saladI = i;
+							break;
+						}
+					}
+				}
+				if (eventData.pointerDrag.tag == "sauce" && sauceObj.GetComponent<Image>().color == Color.clear)
+				{
+					sauceObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
+					sauceObj.GetComponent<Image>().color = Color.white;
+					for (int i = 0; i <= allSauceObjects.Count; i++)
+					{
+						if (eventData.pointerDrag.gameObject == allSauceObjects[i])
+						{
+							if (allSauceObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
+								sauceObj.GetComponent<Image>().sprite = allSauceObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
+							sauce = true;
+							sauceI = i;
+							break;
+						}
 					}
 				}
 			}
-			if (eventData.pointerDrag.tag == "salad" && saladObj.GetComponent<Image>().color == Color.clear)
-			{
-				saladObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
-				saladObj.GetComponent<Image>().color = Color.white;
-				for (int i = 0; i <= allSaladObjects.Count; i++)
-				{
-					if (eventData.pointerDrag.gameObject == allSaladObjects[i])
-					{
-						if (allSaladObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
-							saladObj.GetComponent<Image>().sprite = allSaladObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
-						salad = true;
-						saladI = i;
-						break;
-					}
-				}
-			}
-			if (eventData.pointerDrag.tag == "sauce" && sauceObj.GetComponent<Image>().color == Color.clear)
-			{
-				sauceObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
-				sauceObj.GetComponent<Image>().color = Color.white;
-				for (int i = 0; i <= allSauceObjects.Count; i++)
-				{
-					if (eventData.pointerDrag.gameObject == allSauceObjects[i])
-					{
-						if (allSauceObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
-							sauceObj.GetComponent<Image>().sprite = allSauceObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
-						sauce = true;
-						sauceI = i;
-						break;
-					}
-				}
-			}
-		}
 
-		if (eventData.pointerDrag.gameObject == draggableBreadObj)
-		{
-			bread = true;
-			GetComponent<Image>().color = Color.white;
-			GetComponent<Image>().sprite = draggableBreadObj.GetComponent<Image>().sprite;
-			if (draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace != null)
-				GetComponent<Image>().sprite = draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace;
-		}
+			if (eventData.pointerDrag.gameObject == draggableBreadObj)
+			{
+				bread = true;
+				GetComponent<Image>().color = Color.white;
+				GetComponent<Image>().sprite = draggableBreadObj.GetComponent<Image>().sprite;
+				if (draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace != null)
+					GetComponent<Image>().sprite = draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace;
+			}
+	}
 	}
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
-		if (bread == true)
+		if (Time.timeScale != 0)
 		{
-			startPos = transform.position;
-			GetComponent<CanvasGroup> ().blocksRaycasts = false;
-			GetComponent<Image> ().color = Color.white;
+			if (bread == true)
+			{
+				breadBeDragged = true;
+				startPos = transform.position;
+				GetComponent<CanvasGroup> ().blocksRaycasts = false;
+				GetComponent<Image> ().color = Color.white;
+			}
 		}
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		if (bread == true)
-			transform.position = mainCamera.ScreenToWorldPoint (eventData.position) + Vector3.forward;
+		if (Time.timeScale != 0)
+		{
+			if (bread == true)
+				transform.position = mainCamera.ScreenToWorldPoint (eventData.position) + Vector3.forward;
+		}
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		transform.position = startPos;
-		GetComponent<CanvasGroup> ().blocksRaycasts = true;
+		if (Time.timeScale != 0)
+		{
+			transform.position = startPos;
+			GetComponent<CanvasGroup> ().blocksRaycasts = true;
+		}
 	}
 }
