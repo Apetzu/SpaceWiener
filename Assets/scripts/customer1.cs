@@ -9,7 +9,16 @@ public class customer1 : MonoBehaviour {
 	 * deletes collider when customer leaves
 	 */
 
-	public float speed = 0.45f;
+	public Vector3 MoveVector = Vector3.up;
+	Vector3 startPosition;
+	public float MoveRange = 0.03f;
+	public float bounceSpeed = 10f;
+	public float MoveSpeed = 8f;
+	public float yPosition = 0;
+	public float direction = 0;
+
+	public float speed = 5f;
+	public float speedY = 5f;
 	public float side;
 	public float timeLeft = 8;
 	public int chosenPosition = 4;
@@ -17,11 +26,13 @@ public class customer1 : MonoBehaviour {
 	public float timeLeftCopy = 0;
 	public int position = 0;
 	public float correctIngredients;
+	public float leaveDelay = 1;
 
 	public BoxCollider2D customerColl;
 
 	public GameObject speechBubble;
 	public GameObject masterObj;
+	public GameObject chosenTarget;
 	public GameObject target1;
 	public GameObject target2;
 	public GameObject target3;
@@ -42,6 +53,7 @@ public class customer1 : MonoBehaviour {
 	
 	public virtual void Start () 
 	{
+		startPosition = transform.position;
 		//gets customers collider, renderer, and speechbubble
 		customerColl = GetComponent<BoxCollider2D> ();
 		custRend = GetComponent<SpriteRenderer> ();
@@ -60,6 +72,11 @@ public class customer1 : MonoBehaviour {
 		masterObj = GameObject.FindWithTag ("customerMaster");
 		masterScript = masterObj.GetComponent<customerMaster>();
 		SetPosition ();
+		if (transform.position.x >= chosenTarget.transform.position.x)
+		{
+			speed = -speed;
+		}
+		direction = transform.position.y - chosenTarget.transform.position.y;
 	}
 	public void ChoosePos()
 	{
@@ -67,65 +84,40 @@ public class customer1 : MonoBehaviour {
 		chosenPosition = Random.Range (1,5);
 		//SetPosition ();
 	}
+	public virtual void CustomerMoveFunction()
+	{
+		transform.position = new Vector2(transform.position.x + Time.fixedDeltaTime * speed ,transform.position.y + Mathf.Sin (Time.timeSinceLevelLoad * bounceSpeed) * MoveRange);
+	}
+	public void CustomerIsInPlace ()
+	{
+
+		if (speed > 0 && transform.position.x > chosenTarget.transform.position.x)
+		{
+			Vector2 MovePos = new Vector2(transform.position.x ,transform.position.y + direction * speed);
+			MoveRange = 0;
+			speed = 0;
+		}
+		else if (speed < 0 && transform.position.x < chosenTarget.transform.position.x)
+		{
+			Vector2 MovePos = new Vector2(transform.position.x ,transform.position.y + direction * speed);
+			MoveRange = 0;
+			speed = 0;
+		}
+	}
 	public virtual void FixedUpdate () 
 	{
-		if (moveToPos1 == true)
+		CustomerIsInPlace ();
+		CustomerMoveFunction();
+		if (speed == 0)
 		{
-			//tells customer to move to its position
-			transform.position = Vector3.MoveTowards(transform.position, target1.transform.position, speed);
-			if (transform.position == target1.transform.position)
-			{
-				//shows speechbubble and its contents sets customer able to recieve food
-				customerColl.enabled = true;
-				canRecieveFood = true;
-				custRend.sortingOrder = -1;
-				masterScript.pos1Taken = true;
-				position = 1;
-				speechBubble.SetActive(true);
-				timeLeft -= Time.deltaTime;
-			}
-		}
-		if (moveToPos2 == true)
-		{
-			transform.position = Vector3.MoveTowards(transform.position, target2.transform.position, speed);
-			if (transform.position == target2.transform.position)
-			{
-				customerColl.enabled = true;
-				canRecieveFood = true;
-				custRend.sortingOrder = -1;
-				masterScript.pos2Taken = true;
-				position = 2;
-				speechBubble.SetActive(true);
-				timeLeft -= Time.deltaTime;
-			}
-		}
-		if (moveToPos3 == true)
-		{
-			transform.position = Vector3.MoveTowards(transform.position, target3.transform.position, speed);
-			if (transform.position == target3.transform.position)
-			{
-				customerColl.enabled = true;
-				canRecieveFood = true;
-				custRend.sortingOrder = -1;
-				masterScript.pos3Taken = true;
-				position = 3;
-				speechBubble.SetActive(true);
-				timeLeft -= Time.deltaTime;
-			}
-		}
-		if (moveToPos4 == true)
-		{
-			transform.position = Vector3.MoveTowards(transform.position, target4.transform.position, speed);
-			if (transform.position == target4.transform.position)
-			{
-				customerColl.enabled = true;
-				canRecieveFood = true;
-				custRend.sortingOrder = -1;
-				masterScript.pos4Taken = true;
-				position = 4;
-				speechBubble.SetActive(true);
-				timeLeft -= Time.deltaTime;
-			}
+			//shows speechbubble and its contents sets customer able to recieve food
+			customerColl.enabled = true;
+			canRecieveFood = true;
+			custRend.sortingOrder = -1;
+			masterScript.pos1Taken = true;
+			position = chosenPosition;
+			speechBubble.SetActive(true);
+			timeLeft -= Time.deltaTime;
 		}
 		if (timeLeft < timeLeftCopy / 2.0f)
 		{
@@ -194,7 +186,8 @@ public class customer1 : MonoBehaviour {
 	//Leave chooses side customer will leave to and deletes the speechbubble + sets customer sorting layer to -3
 	public virtual void Leave()
 	{
-		//oota hetki
+		speed = 5;
+		MoveRange = 0.03f;
 		Animator animator = GetComponent<Animator>();
 		if (correctIngredients == 3)
 		{
@@ -217,11 +210,19 @@ public class customer1 : MonoBehaviour {
 		custRend.sortingOrder = -3;
 		if (side > 0.5)
 		{
-			transform.Translate(Vector2.left * speed);
+			leaveDelay -= Time.deltaTime;
+			if (leaveDelay <= 0)
+			{
+				CustomerMoveFunction();
+			}
 		}
 		else
 		{
-			transform.Translate(Vector2.right * speed);
+			leaveDelay -= Time.deltaTime;
+			if (leaveDelay <= 0)
+			{
+				CustomerMoveFunction();
+			}
 		}
 		transform.GetChild(0).gameObject.SetActive(false);
 	}
@@ -234,6 +235,7 @@ public class customer1 : MonoBehaviour {
 		else if (chosenPosition == 1)
 		{
 			//this sets the chosen position as taken and moves customer to the position if chosen position is taken customer is destroyed
+			chosenTarget = target1;
 			if (masterScript.pos1Taken == false)
 			{
 				masterScript.pos1Taken = true;
@@ -247,6 +249,7 @@ public class customer1 : MonoBehaviour {
 		}
 		else if (chosenPosition == 2)
 		{
+			chosenTarget = target2;
 			if (masterScript.pos2Taken == false)
 			{
 				masterScript.pos2Taken = true;
@@ -260,6 +263,7 @@ public class customer1 : MonoBehaviour {
 		}
 		else if (chosenPosition == 3)
 		{
+			chosenTarget = target3;
 			if (masterScript.pos3Taken == false)
 			{
 				masterScript.pos3Taken = true;
@@ -273,6 +277,7 @@ public class customer1 : MonoBehaviour {
 		}
 		else if (chosenPosition == 4)
 		{
+			chosenTarget = target4;
 			if (masterScript.pos4Taken == false)
 			{
 				masterScript.pos4Taken = true;

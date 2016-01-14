@@ -7,9 +7,10 @@ public class customer2 : customer1 {
 	public GameObject tentacles;
 	public SpriteRenderer tentacleRend;
 
+	float speedRising = 0.1f;
+	new public float bounceSpeed = 28f;
 	new public float speed = 0.2f;
-
-	// Use this for initialization
+	
 	public override void Start () 
 	{
 		tentacles = transform.Find ("customer2Tentacles").gameObject;
@@ -64,12 +65,16 @@ public class customer2 : customer1 {
 	//	}
 	//}
 	// Update is called once per frame
+	public override void CustomerMoveFunction()
+	{
+		transform.position = new Vector2(transform.position.x + Time.fixedDeltaTime * 5 ,transform.position.y + Mathf.Sin (Time.timeSinceLevelLoad * bounceSpeed) * MoveRange);
+	}
 	public override void FixedUpdate () 
 	{
 		if (moveToPos1 == true)
 		{
 			tentacleRend.enabled = true;
-			transform.position = Vector3.MoveTowards(transform.position, target1.transform.position, speed);
+			transform.position = Vector3.MoveTowards(transform.position, target1.transform.position, speedRising);
 			if (transform.position == target1.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
@@ -85,7 +90,7 @@ public class customer2 : customer1 {
 		if (moveToPos2 == true)
 		{
 			tentacleRend.enabled = true;
-			transform.position = Vector3.MoveTowards(transform.position, target2.transform.position, speed);
+			transform.position = Vector3.MoveTowards(transform.position, target2.transform.position, speedRising);
 			if (transform.position == target2.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
@@ -101,7 +106,7 @@ public class customer2 : customer1 {
 		if (moveToPos3 == true)
 		{
 			tentacleRend.enabled = true;
-			transform.position = Vector3.MoveTowards(transform.position, target3.transform.position, speed);
+			transform.position = Vector3.MoveTowards(transform.position, target3.transform.position, speedRising);
 			if (transform.position == target3.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
@@ -117,7 +122,7 @@ public class customer2 : customer1 {
 		if (moveToPos4 == true)
 		{
 			tentacleRend.enabled = true;
-			transform.position = Vector3.MoveTowards(transform.position, target4.transform.position, speed);
+			transform.position = Vector3.MoveTowards(transform.position, target4.transform.position, speedRising);
 			if (transform.position == target4.transform.position)
 			{
 				//shows speechbubble and its contents sets customer able to recieve food
@@ -218,11 +223,19 @@ public class customer2 : customer1 {
 		custRend.sortingOrder = -3;
 		if (side > 0.5)
 		{
-			transform.Translate(Vector2.right * speed);
+			leaveDelay -= Time.deltaTime;
+			if (leaveDelay <= 0)
+			{
+				CustomerMoveFunction();
+			}
 		}
 		else
 		{
-			transform.Translate(Vector2.left * speed);
+			leaveDelay -= Time.deltaTime;
+			if (leaveDelay <= 0)
+			{
+				CustomerMoveFunction();
+			}
 		}
 		transform.GetChild(0).gameObject.SetActive(false);
 	}

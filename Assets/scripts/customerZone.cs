@@ -126,7 +126,6 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					finishedBread.bread = false;
 					finishedBread.salad = false;
 			
-					/* Tämä ei toimi se spawnautuu jonnekkin ihan muualle*/
 					Text customerPaidCopy = (Text) Instantiate(moneyPaidText, Vector3.zero, transform.rotation);
 					customerPaidCopy.gameObject.AddComponent<moneyPaidText>();
 					customerPaidCopy.transform.SetParent(canvas.transform);
