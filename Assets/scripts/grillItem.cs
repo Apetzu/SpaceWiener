@@ -8,6 +8,9 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	private Vector3 startPos;
 	public Sprite onDogSpriteReplace;
 	public Camera mainCamera;
+	public int wienerId;
+	public bool wiener;
+	public int takenGrillInt;
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{

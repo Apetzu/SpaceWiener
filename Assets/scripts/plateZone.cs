@@ -14,6 +14,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	public GameObject sausageObj;
 	public GameObject saladObj;
 	public GameObject sauceObj;
+	public GameObject grillObj;
 
 	public int wienerI;
 	public int saladI;
@@ -24,7 +25,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	public bool breadBeDragged;
 
 	//public GameObject[,] objects = new GameObject[3,3];
-	public List<GameObject> allSausageObjects = new List<GameObject>();
+	public List<GameObject> allGrillSausageObjects = new List<GameObject>();
 	public List<GameObject> allSaladObjects = new List<GameObject>();
 	public List<GameObject> allSauceObjects = new List<GameObject>();
 	
@@ -34,9 +35,9 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 		{
 			if (bread == true)
 			{
-				if (eventData.pointerDrag.tag == "sausage" && sausageObj.GetComponent<Image>().color == Color.clear)
+				if (eventData.pointerDrag.tag == "sausageFromGrill" && sausageObj.GetComponent<Image>().color == Color.clear && eventData.pointerDrag.GetComponent<grillItem>().wiener == true)
 				{
-					sausageObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
+					/*sausageObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
 					sausageObj.GetComponent<Image>().color = Color.white;
 					for (int i = 0; i <= allSausageObjects.Count; i++)
 					{
@@ -48,7 +49,18 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 							wiener = true;
 							break;
 						}
-					}
+					}*/
+
+					sausageObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<grillItem>().onDogSpriteReplace;
+					sausageObj.GetComponent<Image>().color = Color.white;
+					wienerI = eventData.pointerDrag.GetComponent<grillItem>().wienerId;
+					wiener = true;
+					eventData.pointerDrag.GetComponent<Image>().sprite = null;
+					eventData.pointerDrag.GetComponent<Image>().color = Color.clear;
+					eventData.pointerDrag.GetComponent<grillItem>().onDogSpriteReplace = null;
+					eventData.pointerDrag.GetComponent<grillItem>().wienerId = 0;
+					eventData.pointerDrag.GetComponent<grillItem>().wiener = false;
+					grillObj.GetComponent<grill>().takenGrill[eventData.pointerDrag.GetComponent<grillItem>().takenGrillInt] = false;
 				}
 				if (eventData.pointerDrag.tag == "salad" && saladObj.GetComponent<Image>().color == Color.clear)
 				{

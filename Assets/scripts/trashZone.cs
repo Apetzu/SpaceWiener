@@ -14,6 +14,7 @@ public class trashZone : MonoBehaviour, IDropHandler {
 	public GameObject canvas;
 	float tempMoneyValue;
 	public Text moneyPaidText;
+	public GameObject grillObj;
 
 	void Start()
 	{
@@ -49,6 +50,15 @@ public class trashZone : MonoBehaviour, IDropHandler {
 			finishedBread.wiener = false;
 			finishedBread.bread = false;
 			finishedBread.salad = false;
+		}
+
+		if (eventData.pointerDrag.tag == "sausageFromGrill") 
+		{
+			eventData.pointerDrag.GetComponent<Image>().sprite = null;
+			eventData.pointerDrag.GetComponent<Image>().color = Color.clear;
+			eventData.pointerDrag.GetComponent<grillItem>().onDogSpriteReplace = null;
+			eventData.pointerDrag.GetComponent<grillItem>().wienerId = 0;
+			eventData.pointerDrag.GetComponent<grillItem>().wiener = false;
 		}
 	}
 }

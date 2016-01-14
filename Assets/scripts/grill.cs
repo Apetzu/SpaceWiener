@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
 public class grill : MonoBehaviour, IDropHandler {
 	
 	public GameObject[] allGrillObjects = new GameObject[4];
-	bool[] takenGrill;
+	public bool[] takenGrill;
+	public List<GameObject> allSausageObjects = new List<GameObject>();
 
 	void Start()
 	{
@@ -17,14 +19,25 @@ public class grill : MonoBehaviour, IDropHandler {
 	{
 		if (eventData.pointerDrag.tag == "sausage") 
 		{
-			for (int i = 0; i < takenGrill.Length; i++) 
+			for (int o = 0; o <= allSausageObjects.Count; o++)
 			{
-				if (takenGrill[i] == false)
+				if (eventData.pointerDrag.gameObject == allSausageObjects[o])
 				{
-					takenGrill[i] = true;
-					allGrillObjects[i].GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<draggableItem>().onDogSpriteReplace;
-					allGrillObjects[i].GetComponent<Image>().color = Color.white;
-					allGrillObjects[i].GetComponent<CanvasGroup>().blocksRaycasts = true;
+					for (int i = 0; i < takenGrill.Length; i++) 
+					{
+						if (takenGrill[i] == false)
+						{
+							takenGrill[i] = true;
+							allGrillObjects[i].GetComponent<grillItem>().takenGrillInt = i;
+							allGrillObjects[i].GetComponent<grillItem>().wienerId = o;
+							allGrillObjects[i].GetComponent<grillItem>().wiener = true;
+							allGrillObjects[i].GetComponent<grillItem>().onDogSpriteReplace = eventData.pointerDrag.GetComponent<Image>().sprite;
+							allGrillObjects[i].GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<draggableItem>().onDogSpriteReplace;
+							allGrillObjects[i].GetComponent<Image>().color = Color.white;
+							allGrillObjects[i].GetComponent<CanvasGroup>().blocksRaycasts = true;
+							break;
+						}
+					}
 					break;
 				}
 			}
