@@ -21,6 +21,7 @@ TagManager:
   - kidSpawner2
   - kidSpawner3
   - kidSpawner4
+  - sausageFromGrill
   layers:
   - Default
   - TransparentFX
