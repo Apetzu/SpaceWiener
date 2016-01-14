@@ -9,10 +9,17 @@ public class shutterScript : MonoBehaviour {
 
 	public GameObject kioskForeground;
 	public Text instructionText;
+	//public AudioClip shutterTest;
 
+	Vector3 lastPosition;
+	Transform transForm;
+	public bool isMoving;
+	
 	SpriteRenderer kioskRend;
 	SpriteRenderer shutterRend;
-
+	
+	AudioSource audio;
+	
 	/*SORTING ORDERS:
 	 * speecbubble = 7
 	 * bread = 8
@@ -22,12 +29,18 @@ public class shutterScript : MonoBehaviour {
 	 * shutter = 10 when up
 	 * kiosk = 11 when shutter up
 	 */
-	
+
 	void Start () 
 	{
 		Time.timeScale = 0;
 		shutterRend = GetComponent<SpriteRenderer> ();
 		kioskRend = kioskForeground.GetComponent<SpriteRenderer> ();
+
+		transForm = transform;
+		lastPosition = transForm.position;
+		isMoving = false;
+
+		audio = GetComponent<AudioSource> ();
 	}
 
 	void Update () 
@@ -60,8 +73,38 @@ public class shutterScript : MonoBehaviour {
 		//{
 		//	Debug.Log("Paused false");
 		//}
+
+		if(transForm.position != lastPosition)
+		{
+			isMoving = true;
+		}
+		else
+		{
+			isMoving = false;
+		}
+
+		lastPosition = transForm.position;
+
+		/*if(!audio.isPlaying)
+		{
+			Debug.Log("TOIMII!");
+		}*/
+		/*if(isMoving == true)
+		{
+			AudioSource audio = GetComponent<AudioSource>();
+			audio.Play ();
+			Debug.Log("moving");
+		}*/
+
+		if((isMoving == true) && (audio.isPlaying == false))
+		{
+			//AudioSource audio = GetComponent<AudioSource>();
+			audio.Play ();
+			Debug.Log("moving");
+		}
+
 	}
-	
+
 	void OnMouseDown()
 	{ 
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
