@@ -11,9 +11,29 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public int wienerId;
 	public bool wiener;
 	public int takenGrillInt;
+	bool wienerBeDragged;
+	public float currentTime;
+	public float grillingTransTime = 5f;
+	public Sprite[] animSprites;
+	public int burnLevel = 0;
+
+	void FixedUpdate()
+	{
+		if (wiener == true && wienerBeDragged == false && burnLevel < animSprites.Length - 1)
+		{
+			currentTime += Time.fixedDeltaTime;
+			if (currentTime >= grillingTransTime)
+			{
+				currentTime = 0f;
+				burnLevel++;
+				GetComponent<Image>().sprite = animSprites[burnLevel];
+			}
+		}
+	}
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
+		wienerBeDragged = true;
 		startPos = transform.position;
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
@@ -23,7 +43,11 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	}
 	public void OnEndDrag(PointerEventData eventData)
 	{
+		wienerBeDragged = false;
 		transform.position = startPos;
-		GetComponent<CanvasGroup>().blocksRaycasts = true;
+		if (wiener == true)
+			GetComponent<CanvasGroup>().blocksRaycasts = true;
+		else
+			GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 }

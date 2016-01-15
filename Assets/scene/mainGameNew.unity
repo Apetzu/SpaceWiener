@@ -694,9 +694,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4b69d8eef3b946b5863799c175078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDogSpriteReplace: {fileID: 21300000, guid: caf327ff991b8424f980e005d45bab05, type: 3}
+  onDogSpriteReplace: {fileID: 21300000, guid: 7dbd24785d2e5484ea059bbe5f6fb8fb, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 0
+  animSprites:
+  - {fileID: 21300000, guid: caf327ff991b8424f980e005d45bab05, type: 3}
+  - {fileID: 21300000, guid: 8c42c8d07f6770a4498fd82602d2dcda, type: 3}
+  - {fileID: 21300000, guid: 0ccdcb0db86b3454ab84d101f5c648b0, type: 3}
 --- !u!225 &396674008
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -791,6 +795,7 @@ MonoBehaviour:
   onDogSpriteReplace: {fileID: 21300000, guid: 8a75f999dda12ba42af1f11a62696534, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 0
+  animSprites: []
 --- !u!225 &461253394
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -885,6 +890,7 @@ MonoBehaviour:
   onDogSpriteReplace: {fileID: 21300000, guid: 1d567338d976af940b4e89000d783d75, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 1
+  animSprites: []
 --- !u!225 &499261149
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1063,9 +1069,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4b69d8eef3b946b5863799c175078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDogSpriteReplace: {fileID: 21300000, guid: 5d8d370c3da80af4796d553ce55b7bd0, type: 3}
+  onDogSpriteReplace: {fileID: 21300000, guid: 1f05f87dfbb693c45a889f34ab6e333e, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 0
+  animSprites:
+  - {fileID: 21300000, guid: 5d8d370c3da80af4796d553ce55b7bd0, type: 3}
+  - {fileID: 21300000, guid: 8205051bcde780b4fb8fac578f16c13d, type: 3}
+  - {fileID: 21300000, guid: b4b7d9fea37b04e4ba765eb32b5fbeb3, type: 3}
 --- !u!225 &530975579
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1139,7 +1149,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1499940535}
-  m_RootOrder: 25
+  m_RootOrder: 21
   m_AnchorMin: {x: 1, y: .5}
   m_AnchorMax: {x: 1, y: .5}
   m_AnchoredPosition: {x: 0, y: -90}
@@ -1161,7 +1171,6 @@ MonoBehaviour:
   - {fileID: 1830009017}
   - {fileID: 1242027275}
   - {fileID: 640791860}
-  takenGrill: 
   allSausageObjects:
   - {fileID: 396674005}
   - {fileID: 806114592}
@@ -1397,7 +1406,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1499940535}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 480, y: -90}
@@ -1419,6 +1428,10 @@ MonoBehaviour:
   wienerId: 0
   wiener: 0
   takenGrillInt: 0
+  currentTime: 0
+  grillingTransTime: 5
+  animSprites: []
+  burnLevel: 0
 --- !u!114 &640791863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1804,9 +1817,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4b69d8eef3b946b5863799c175078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDogSpriteReplace: {fileID: 21300000, guid: 9beb155fea9dbae4c83db2c3708aea29, type: 3}
+  onDogSpriteReplace: {fileID: 21300000, guid: d69397ad5817cb9449261569509d1be5, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 0
+  animSprites:
+  - {fileID: 21300000, guid: 9beb155fea9dbae4c83db2c3708aea29, type: 3}
+  - {fileID: 21300000, guid: 948a4eafe7d32ad489567457110c2271, type: 3}
+  - {fileID: 21300000, guid: 65f6df6c86202664393918e6b611f6e3, type: 3}
 --- !u!225 &806114595
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2287,7 +2304,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1499940535}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 240, y: -90}
@@ -2342,6 +2359,10 @@ MonoBehaviour:
   wienerId: 0
   wiener: 0
   takenGrillInt: 0
+  currentTime: 0
+  grillingTransTime: 5
+  animSprites: []
+  burnLevel: 0
 --- !u!225 &1132318449
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2383,7 +2404,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1499940535}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 400, y: -90}
@@ -2438,6 +2459,10 @@ MonoBehaviour:
   wienerId: 0
   wiener: 0
   takenGrillInt: 0
+  currentTime: 0
+  grillingTransTime: 5
+  animSprites: []
+  burnLevel: 0
 --- !u!225 &1242027280
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2745,11 +2770,11 @@ RectTransform:
   - {fileID: 1787415078}
   - {fileID: 499261147}
   - {fileID: 619652370}
+  - {fileID: 566364353}
   - {fileID: 1132318445}
   - {fileID: 1830009018}
   - {fileID: 1242027276}
   - {fileID: 640791861}
-  - {fileID: 566364353}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
@@ -2861,6 +2886,7 @@ MonoBehaviour:
   onDogSpriteReplace: {fileID: 21300000, guid: a8508d8103aa6b348af68c128d42642d, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 1
+  animSprites: []
 --- !u!225 &1516650794
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3009,6 +3035,7 @@ MonoBehaviour:
   onDogSpriteReplace: {fileID: 21300000, guid: 87adcef04f8fd014fa684dc1ee54ce79, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 0
+  animSprites: []
 --- !u!225 &1712054357
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3103,6 +3130,7 @@ MonoBehaviour:
   onDogSpriteReplace: {fileID: 21300000, guid: 137ce7dad8cfa284fb7efec1e5c59102, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 1
+  animSprites: []
 --- !u!225 &1787415080
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3177,7 +3205,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1499940535}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 320, y: -90}
@@ -3232,6 +3260,10 @@ MonoBehaviour:
   wienerId: 0
   wiener: 0
   takenGrillInt: 0
+  currentTime: 0
+  grillingTransTime: 5
+  animSprites: []
+  burnLevel: 0
 --- !u!225 &1830009022
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3498,6 +3530,7 @@ MonoBehaviour:
   onDogSpriteReplace: {fileID: 21300000, guid: a729039aefc856441a514a2334051a77, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 0
+  animSprites: []
 --- !u!225 &2025838941
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3619,6 +3652,7 @@ MonoBehaviour:
   onDogSpriteReplace: {fileID: 21300000, guid: fe10540f18c986b42a65beafd1828c46, type: 3}
   mainCamera: {fileID: 686179847}
   isVisibleAllTime: 0
+  animSprites: []
 --- !u!225 &2078708605
 CanvasGroup:
   m_ObjectHideFlags: 0
