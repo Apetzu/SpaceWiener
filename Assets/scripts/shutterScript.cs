@@ -51,7 +51,6 @@ public class shutterScript : MonoBehaviour {
 			kioskRend.sortingOrder = 6;
 			shutterRend.sortingOrder = 0;
 		}
-
 		//if(Time.timeScale == 0)
 		//{
 		//	Debug.Log("Paused true");

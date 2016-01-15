@@ -19,6 +19,7 @@ public class customerMaster : MonoBehaviour {
 	float side;
 	public float moneyValue = 0;
 	float endTimer = 81;
+	public int customerLayerOrder = -100;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;

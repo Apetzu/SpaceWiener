@@ -15,9 +15,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	public GameObject canvas;
 	public GameObject draggableBreadObj;
 	public Camera mainCamera;
-
-	//Text moneyPaidTextClone;
-
+	
 	public float moneyPaid = 0;
 
 	plateZone finishedBread;
@@ -45,7 +43,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 				customerScript = chosenCustomer.transform.gameObject.GetComponent<customer1>();
 				requestObj = hit.transform.gameObject.transform.Find("speechbubble1/request").gameObject;
 				requestScript = requestObj.GetComponent<customerRequest>();
-				//loooooooong long sentence that checks the values on customer request and the finished bread
+				// checks the values on customer request and the finished bread
 				if (customerScript.canRecieveFood == true && finishedBread.bread == true)
 				{
 					finishedBread.breadBeDragged = false;

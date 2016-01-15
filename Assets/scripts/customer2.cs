@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class customer2 : customer1 {
-	
+
+	/*inherits stuff from customer 1 and overrides some of it 
+	 * used for blue child aluen*/
 		
 	public GameObject tentacles;
 	public SpriteRenderer tentacleRend;
@@ -64,7 +66,6 @@ public class customer2 : customer1 {
 	//		tentacleRend.sortingOrder = 1;
 	//	}
 	//}
-	// Update is called once per frame
 	public override void CustomerMoveFunction()
 	{
 		transform.position = new Vector2(transform.position.x + Time.fixedDeltaTime * 5 ,transform.position.y + Mathf.Sin (Time.timeSinceLevelLoad * bounceSpeed) * MoveRange);
@@ -80,7 +81,12 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -1;
+				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
+				if (updateFixer1 != true)
+				{
+					masterScript.customerLayerOrder += 1;
+					updateFixer1 = true;
+				}
 				masterScript.pos1Taken = true;
 				position = 1;
 				speechBubble.SetActive(true);
@@ -96,8 +102,13 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -1;
-				masterScript.pos1Taken = true;
+				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
+				if (updateFixer1 != true)
+				{
+					masterScript.customerLayerOrder += 1;
+					updateFixer1 = true;
+				}
+				masterScript.pos2Taken = true;
 				position = 2;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
@@ -112,8 +123,13 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -1;
-				masterScript.pos1Taken = true;
+				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
+				if (updateFixer1 != true)
+				{
+					masterScript.customerLayerOrder += 1;
+					updateFixer1 = true;
+				}
+				masterScript.pos3Taken = true;
 				position = 3;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
@@ -128,8 +144,13 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -1;
-				masterScript.pos1Taken = true;
+				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
+				if (updateFixer1 != true)
+				{
+					masterScript.customerLayerOrder += 1;
+					updateFixer1 = true;
+				}
+				masterScript.pos4Taken = true;
 				position = 4;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
@@ -200,6 +221,7 @@ public class customer2 : customer1 {
 	}
 	public override void Leave()
 	{
+		colorSpeed = 4f;
 		tentacleRend.enabled = false;
 		Animator animator = GetComponent<Animator>();
 		if (correctIngredients == 3)
@@ -220,21 +242,41 @@ public class customer2 : customer1 {
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
 		}
-		custRend.sortingOrder = -3;
+		custRend.sortingOrder = masterScript.customerLayerOrder + 1;
+		if (updateFixer1 != true)
+		{
+			masterScript.customerLayerOrder += 1;
+			updateFixer1 = true;
+		}
 		if (side > 0.5)
 		{
+			scaling = false;
 			leaveDelay -= Time.deltaTime;
 			if (leaveDelay <= 0)
 			{
 				CustomerMoveFunction();
 			}
+			if (leaveDelay >= 0.2)
+			{
+				//makes customers scale smaller + darkens its color
+				transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(minimum, minimum, minimum), Time.fixedDeltaTime * growSpeed);
+				lerpTime += colorSpeed * Time.fixedDeltaTime;
+				custRend.color = Color.Lerp(custRend.color,new Color(0,0,0,1), Time.fixedDeltaTime * lerpTime);
+			}
 		}
 		else
 		{
+			scaling = false;
 			leaveDelay -= Time.deltaTime;
 			if (leaveDelay <= 0)
 			{
 				CustomerMoveFunction();
+			}
+			if (leaveDelay >= 0.2)
+			{
+				transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(minimum, minimum, minimum), Time.fixedDeltaTime * growSpeed);
+				lerpTime += colorSpeed * Time.fixedDeltaTime;
+				custRend.color = Color.Lerp(custRend.color,new Color(0,0,0,1), Time.fixedDeltaTime * lerpTime);
 			}
 		}
 		transform.GetChild(0).gameObject.SetActive(false);

@@ -134,6 +134,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	{
 		if (Time.timeScale != 0)
 		{
+			breadBeDragged = false;
 			transform.position = startPos;
 			GetComponent<CanvasGroup> ().blocksRaycasts = true;
 		}

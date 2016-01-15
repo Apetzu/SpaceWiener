@@ -46,6 +46,7 @@ public class customerRequest : MonoBehaviour {
 	{
 		//rolls whether the customer wants sauce or not 
 		randBoolSpice = Random.Range (1,10);
+		//2 / 10 times customer does not want salad
 		if (randBoolSpice > 2)
 		{
 			sauce = true;
@@ -56,6 +57,7 @@ public class customerRequest : MonoBehaviour {
 		}
 		//rolls whether the customer wants salad or not 
 		randBoolSalad = Random.Range (1,10);
+		//2 / 10 times customer does not want salad
 		if (randBoolSalad > 2f)
 		{
 			salad = true;
@@ -69,6 +71,7 @@ public class customerRequest : MonoBehaviour {
 		sauceI = Random.Range (0,3);
 		saladI = Random.Range (0,3);
 	}
+	//sets sprites to correspond customers wants
 	void ChangeSprites()
 	{
 		if (sauce == true && sauceI == 0)
