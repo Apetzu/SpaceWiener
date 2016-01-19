@@ -226,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.8600006, y: -10.6999998, z: 0}
+  m_LocalPosition: {x: -54.4288864, y: -19.7962799, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 456276}
@@ -283,9 +283,9 @@ MonoBehaviour:
   salad1: {fileID: 21300000, guid: 87adcef04f8fd014fa684dc1ee54ce79, type: 3}
   salad2: {fileID: 21300000, guid: fe10540f18c986b42a65beafd1828c46, type: 3}
   salad3: {fileID: 21300000, guid: a729039aefc856441a514a2334051a77, type: 3}
-  wiener1: {fileID: 21300000, guid: 7d7496152a11dab4fb0b32657dfd7128, type: 3}
-  wiener2: {fileID: 21300000, guid: a37ac154aa6726f478c33c50fadc714c, type: 3}
-  wiener3: {fileID: 21300000, guid: bf69c3865b0b5c540a8b34a3c44caf62, type: 3}
+  wiener1: {fileID: 21300000, guid: 7dbd24785d2e5484ea059bbe5f6fb8fb, type: 3}
+  wiener2: {fileID: 21300000, guid: d69397ad5817cb9449261569509d1be5, type: 3}
+  wiener3: {fileID: 21300000, guid: 1f05f87dfbb693c45a889f34ab6e333e, type: 3}
   sauce: 0
   salad: 0
   wienerI: 0
