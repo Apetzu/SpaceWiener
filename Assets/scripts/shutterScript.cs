@@ -79,8 +79,6 @@ public class shutterScript : MonoBehaviour {
 			kioskRend.sortingOrder = 6;
 			shutterRend.sortingOrder = 0;
 		}
-<<<<<<< HEAD
-
 		if(transForm.position != lastPosition)
 		{
 			isMoving = true;
@@ -91,7 +89,6 @@ public class shutterScript : MonoBehaviour {
 		}
 		
 		lastPosition = transForm.position;
-=======
 		//if(Time.timeScale == 0)
 		//{
 		//	Debug.Log("Paused true");
@@ -100,9 +97,6 @@ public class shutterScript : MonoBehaviour {
 		//{
 		//	Debug.Log("Paused false");
 		//}
-	}
->>>>>>> origin/master
-	
 		moving.volume = 0.4f;
 
 		if(isMoving == true && moving.isPlaying == false)
