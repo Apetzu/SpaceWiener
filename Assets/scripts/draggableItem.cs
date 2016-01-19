@@ -9,6 +9,7 @@ public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	public Sprite onDogSpriteReplace;
 	public Camera mainCamera;
 	public bool isVisibleAllTime;
+	public Sprite[] animSprites;
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{

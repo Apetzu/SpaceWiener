@@ -35,32 +35,20 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 		{
 			if (bread == true)
 			{
-				if (eventData.pointerDrag.tag == "sausageFromGrill" && sausageObj.GetComponent<Image>().color == Color.clear && eventData.pointerDrag.GetComponent<grillItem>().wiener == true)
+				if (eventData.pointerDrag.tag == "sausageFromGrill" && sausageObj.GetComponent<Image>().color == Color.clear && eventData.pointerDrag.GetComponent<grillItem>().wiener == true && eventData.pointerDrag.GetComponent<Image>().sprite == eventData.pointerDrag.GetComponent<grillItem>().animSprites[1])
 				{
-					/*sausageObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
-					sausageObj.GetComponent<Image>().color = Color.white;
-					for (int i = 0; i <= allSausageObjects.Count; i++)
-					{
-						if (eventData.pointerDrag.gameObject == allSausageObjects[i])
-						{
-							if (allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace != null)
-								sausageObj.GetComponent<Image>().sprite = allSausageObjects[i].GetComponent<draggableItem>().onDogSpriteReplace;
-							wienerI = i;
-							wiener = true;
-							break;
-						}
-					}*/
-
 					sausageObj.GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<grillItem>().onDogSpriteReplace;
 					sausageObj.GetComponent<Image>().color = Color.white;
 					wienerI = eventData.pointerDrag.GetComponent<grillItem>().wienerId;
 					wiener = true;
+
 					eventData.pointerDrag.GetComponent<Image>().sprite = null;
 					eventData.pointerDrag.GetComponent<Image>().color = Color.clear;
 					eventData.pointerDrag.GetComponent<grillItem>().onDogSpriteReplace = null;
 					eventData.pointerDrag.GetComponent<grillItem>().wienerId = 0;
 					eventData.pointerDrag.GetComponent<grillItem>().wiener = false;
-					grillObj.GetComponent<grill>().takenGrill[eventData.pointerDrag.GetComponent<grillItem>().takenGrillInt] = false;
+					eventData.pointerDrag.GetComponent<grillItem>().burnLevel = 0;
+					eventData.pointerDrag.GetComponent<grillItem>().currentTime = 0f;
 				}
 				if (eventData.pointerDrag.tag == "salad" && saladObj.GetComponent<Image>().color == Color.clear)
 				{
@@ -134,6 +122,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	{
 		if (Time.timeScale != 0)
 		{
+			breadBeDragged = false;
 			transform.position = startPos;
 			GetComponent<CanvasGroup> ().blocksRaycasts = true;
 		}

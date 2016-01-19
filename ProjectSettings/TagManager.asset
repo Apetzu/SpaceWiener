@@ -22,6 +22,10 @@ TagManager:
   - kidSpawner3
   - kidSpawner4
   - sausageFromGrill
+  - greenCustomer
+  - grayCustomer
+  - pinkCustomer
+  - humanCustomer
   layers:
   - Default
   - TransparentFX
@@ -58,4 +62,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: leaveLayer
+    uniqueID: 4211695159
     locked: 0

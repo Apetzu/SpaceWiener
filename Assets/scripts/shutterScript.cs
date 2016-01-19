@@ -79,6 +79,7 @@ public class shutterScript : MonoBehaviour {
 			kioskRend.sortingOrder = 6;
 			shutterRend.sortingOrder = 0;
 		}
+<<<<<<< HEAD
 
 		if(transForm.position != lastPosition)
 		{
@@ -90,6 +91,17 @@ public class shutterScript : MonoBehaviour {
 		}
 		
 		lastPosition = transForm.position;
+=======
+		//if(Time.timeScale == 0)
+		//{
+		//	Debug.Log("Paused true");
+		//}
+		//else
+		//{
+		//	Debug.Log("Paused false");
+		//}
+	}
+>>>>>>> origin/master
 	
 		moving.volume = 0.4f;
 
