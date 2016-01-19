@@ -1095,6 +1095,7 @@ GameObject:
   - 212: {fileID: 613557489}
   - 114: {fileID: 613557488}
   - 82: {fileID: 613557492}
+  - 82: {fileID: 613557493}
   m_Layer: 0
   m_Name: shutter
   m_TagString: Untagged
@@ -1116,6 +1117,7 @@ MonoBehaviour:
   kioskForeground: {fileID: 1344964135}
   instructionText: {fileID: 266748470}
   isMoving: 0
+  speed: 1
 --- !u!212 &613557489
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1175,10 +1177,80 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3d66d11dbb0251e46b366f730bae7eeb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 45baac2c3e10ccb4a90c05b94870f551, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .400000006
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &613557493
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 613557487}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7191b9910fba9dd46bb81a3fd09767b8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 3
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1976,6 +2048,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  takenGrill: 
+  allSausageObjects: []
 --- !u!1 &984730316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2359,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  takenGrill: 
+  allSausageObjects: []
 --- !u!1 &1242027275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,6 +2445,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  takenGrill: 
+  allSausageObjects: []
 --- !u!1 &1260022594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2586,7 @@ MonoBehaviour:
   sausageObj: {fileID: 220947797}
   saladObj: {fileID: 665156007}
   sauceObj: {fileID: 877095756}
+  grillObj: {fileID: 0}
   wienerI: 0
   saladI: 0
   sauceI: 0
@@ -2515,10 +2594,7 @@ MonoBehaviour:
   sauce: 0
   wiener: 0
   breadBeDragged: 0
-  allSausageObjects:
-  - {fileID: 396674005}
-  - {fileID: 806114592}
-  - {fileID: 530975576}
+  allGrillSausageObjects: []
   allSaladObjects:
   - {fileID: 1712054354}
   - {fileID: 2078708602}
@@ -3175,6 +3251,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  takenGrill: 
+  allSausageObjects: []
 --- !u!1 &1833249123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3675,6 +3753,7 @@ MonoBehaviour:
   doneBread: {fileID: 1294766679}
   canvas: {fileID: 1499940534}
   moneyPaidText: {fileID: 619652371}
+  grillObj: {fileID: 0}
 --- !u!222 &2141443971
 CanvasRenderer:
   m_ObjectHideFlags: 0

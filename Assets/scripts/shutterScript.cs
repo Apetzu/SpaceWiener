@@ -9,17 +9,25 @@ public class shutterScript : MonoBehaviour {
 
 	public GameObject kioskForeground;
 	public Text instructionText;
-	//public AudioClip shutterTest;
+
 
 	Vector3 lastPosition;
 	Transform transForm;
+	//Transform transForm2;
 	public bool isMoving;
 	
 	SpriteRenderer kioskRend;
 	SpriteRenderer shutterRend;
 	
-	AudioSource audio;
-	
+	AudioSource moving;
+	AudioSource close;
+
+	//Transform here;
+	//Transform stop;
+	//private float startTime;
+	//private float jorneyLenght;
+	//public float speed = 1.0f;
+
 	/*SORTING ORDERS:
 	 * speecbubble = 7
 	 * bread = 8
@@ -37,14 +45,20 @@ public class shutterScript : MonoBehaviour {
 		kioskRend = kioskForeground.GetComponent<SpriteRenderer> ();
 
 		transForm = transform;
+
 		lastPosition = transForm.position;
 		isMoving = false;
 
-		audio = GetComponent<AudioSource> ();
+		AudioSource[] audioSources = GetComponents<AudioSource> ();
+		moving = audioSources [0];
+		close = audioSources [1];
 	}
 
 	void Update () 
 	{
+		//here = transForm;
+		//stop = transForm2;
+
 		if(gameObject.transform.position.y >= 6)
 		{
 			Time.timeScale = 1;
@@ -54,6 +68,7 @@ public class shutterScript : MonoBehaviour {
 		{
 			Time.timeScale = 0;
 		}
+
 		if(gameObject.transform.position.y < 10)
 		{
 			shutterRend.sortingOrder = 10;
@@ -65,44 +80,35 @@ public class shutterScript : MonoBehaviour {
 			shutterRend.sortingOrder = 0;
 		}
 
-		//if(Time.timeScale == 0)
-		//{
-		//	Debug.Log("Paused true");
-		//}
-		//else
-		//{
-		//	Debug.Log("Paused false");
-		//}
-
 		if(transForm.position != lastPosition)
 		{
 			isMoving = true;
 		}
-		else
+		else if(transForm.position == lastPosition)
 		{
 			isMoving = false;
 		}
-
+		
 		lastPosition = transForm.position;
+	
+		moving.volume = 0.4f;
 
-		/*if(!audio.isPlaying)
+		if(isMoving == true && moving.isPlaying == false)
 		{
-			Debug.Log("TOIMII!");
-		}*/
-		/*if(isMoving == true)
+			moving.Play ();
+		}
+		else if(isMoving == false && moving.isPlaying == true)
 		{
-			AudioSource audio = GetComponent<AudioSource>();
-			audio.Play ();
-			Debug.Log("moving");
-		}*/
-
-		if((isMoving == true) && (audio.isPlaying == false))
-		{
-			//AudioSource audio = GetComponent<AudioSource>();
-			audio.Play ();
-			Debug.Log("moving");
+			//moving.volume = 0;
+			//moving.Stop();
+			moving.Pause();
 		}
 
+
+		if(isMoving == true && gameObject.transform.position.y == 5 || isMoving == true && gameObject.transform.position.y == 13)
+		{
+			close.Play ();
+		}
 	}
 
 	void OnMouseDown()
