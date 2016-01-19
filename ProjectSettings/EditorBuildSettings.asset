@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/scene/mainMenu.unity
+    path: Assets/scene/oldProjects/mainMenu.unity
   - enabled: 1
     path: Assets/scene/oldProjects/pauseMenu.unity

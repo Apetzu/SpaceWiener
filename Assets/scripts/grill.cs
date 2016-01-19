@@ -11,7 +11,7 @@ public class grill : MonoBehaviour, IDropHandler {
 
 	public void OnDrop(PointerEventData eventData)
 	{
-		if (eventData.pointerDrag.tag == "sausage") 
+		if (eventData.pointerDrag.tag == "sausage" && Time.timeScale != 0f) 
 		{
 			for (int o = 0; o <= allSausageObjects.Count; o++)
 			{

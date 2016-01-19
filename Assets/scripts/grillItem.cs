@@ -29,6 +29,11 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 				GetComponent<Image>().sprite = animSprites[burnLevel];
 			}
 		}
+		if (wiener == true && wienerBeDragged == false && GetComponent<AudioSource>().isPlaying == false)
+			GetComponent<AudioSource>().Play ();
+		if (wiener == false || wienerBeDragged == true)
+			GetComponent<AudioSource>().Stop ();
+
 	}
 
 	public void OnBeginDrag (PointerEventData eventData)
