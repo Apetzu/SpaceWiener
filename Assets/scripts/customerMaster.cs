@@ -10,6 +10,7 @@ public class customerMaster : MonoBehaviour {
 	public Text moneyText;
 	public Text timer;
 	public Text winText;
+	public Button creditsButton;
 
 	public bool pos1Taken = false;
 	public bool pos2Taken = false;
@@ -18,8 +19,7 @@ public class customerMaster : MonoBehaviour {
 
 	float side;
 	public float moneyValue = 0;
-	float endTimer = 81;
-	public int customerLayerOrder = -100;
+	float endTimer = 10;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;
@@ -27,16 +27,24 @@ public class customerMaster : MonoBehaviour {
 
 	Vector3 waitPosition;
 
+	public void OnClick()
+	{
+		Debug.Log ("täh");
+	}
 	void Update()
 	{
 		endTimer = endTimer - Time.deltaTime;
-		moneyText.text = ("money: "+moneyValue);
+		moneyText.text = ("Money: "+moneyValue);
 		timer.text = ("Time left: "+ (int) (endTimer));
 		if (endTimer <= 0 || moneyValue >= 100 /*replace with wanted number */)
 		{
 			winText.text = ("you got "+moneyValue+"/100 money");
 			Time.timeScale = 0;
 		}
+	}
+	void test()
+	{
+		Debug.Log ("tessssssssssssssti");
 	}
 	void Start()
 	{

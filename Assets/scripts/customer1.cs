@@ -113,7 +113,6 @@ public class customer1 : MonoBehaviour {
 		startScale = transform.localScale;
 		direction = transform.position.y - chosenTarget.transform.position.y;
 		startColor = custRend.color;
-		custRend.sortingOrder = masterScript.customerLayerOrder;
 	}
 	public void ChoosePos()
 	{
@@ -157,16 +156,7 @@ public class customer1 : MonoBehaviour {
 			custRend.sortingOrder = -1;
 			position = chosenPosition;
 			speechBubble.SetActive(true);
-			timeLeft -= Time.fixedDeltaTime;
-		}
-		else
-		{
-			custRend.sortingOrder = masterScript.customerLayerOrder + 1;
-			if (updateFixer1 != true)
-			{
-				masterScript.customerLayerOrder += 1;
-				updateFixer1 = true;
-			}
+			timeLeft -= Time.deltaTime;
 		}
 		if (timeLeft < timeLeftCopy / 2.0f)
 		{
@@ -276,13 +266,7 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
 		}
-		custRend.sortingOrder = masterScript.customerLayerOrder + 1;
-		//this makes it so customerLayerOrder is changed only once even if Leave() is called in FixedUpdate
-		if (updateFixer2 != true)
-		{
-			masterScript.customerLayerOrder += 1;
-			updateFixer2 = true;
-		}
+		custRend.sortingOrder = -3;
 		if (side > 0.5)
 		{
 			scaling = false;

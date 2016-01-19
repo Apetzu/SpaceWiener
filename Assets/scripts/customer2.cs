@@ -81,16 +81,11 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
-				if (updateFixer1 != true)
-				{
-					masterScript.customerLayerOrder += 1;
-					updateFixer1 = true;
-				}
 				masterScript.pos1Taken = true;
 				position = 1;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
+				custRend.sortingOrder = -1;
 			}
 		}
 		if (moveToPos2 == true)
@@ -102,12 +97,7 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
-				if (updateFixer1 != true)
-				{
-					masterScript.customerLayerOrder += 1;
-					updateFixer1 = true;
-				}
+				custRend.sortingOrder = -1;
 				masterScript.pos2Taken = true;
 				position = 2;
 				speechBubble.SetActive(true);
@@ -123,12 +113,7 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
-				if (updateFixer1 != true)
-				{
-					masterScript.customerLayerOrder += 1;
-					updateFixer1 = true;
-				}
+				custRend.sortingOrder = -1;
 				masterScript.pos3Taken = true;
 				position = 3;
 				speechBubble.SetActive(true);
@@ -144,12 +129,7 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = masterScript.customerLayerOrder + 1;
-				if (updateFixer1 != true)
-				{
-					masterScript.customerLayerOrder += 1;
-					updateFixer1 = true;
-				}
+				custRend.sortingOrder = -1;
 				masterScript.pos4Taken = true;
 				position = 4;
 				speechBubble.SetActive(true);
@@ -242,12 +222,7 @@ public class customer2 : customer1 {
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
 		}
-		custRend.sortingOrder = masterScript.customerLayerOrder + 1;
-		if (updateFixer1 != true)
-		{
-			masterScript.customerLayerOrder += 1;
-			updateFixer1 = true;
-		}
+		custRend.sortingOrder = -1;
 		if (side > 0.5)
 		{
 			scaling = false;
