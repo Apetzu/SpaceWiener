@@ -130,6 +130,8 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					customerPaidCopy.transform.localScale = new Vector3(1,1,1);
 					customerPaidCopy.transform.position = chosenCustomer.transform.position;
 					customerPaidCopy.text = ("Earned: " + moneyPaid);
+					if (moneyPaid != 0)
+						customerPaidCopy.GetComponent<AudioSource> ().Play ();
 					StartCoroutine("resetMoneyPaid");
 				}
 				else

@@ -18,7 +18,6 @@ public class moneyPaidText : MonoBehaviour {
 		//target = GameObject.FindWithTag ("customerMaster");
 		text = GetComponent<Text>();
 		mainCamera = GameObject.FindWithTag ("MainCamera").GetComponent<Camera>();
-		GetComponent<AudioSource> ().Play ();
 	}
 	
 	// Update is called once per frame
