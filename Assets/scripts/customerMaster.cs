@@ -25,12 +25,14 @@ public class customerMaster : MonoBehaviour {
 	public GameObject spawnerRight;
 	public GameObject[] customers;
 
+	public AudioClip[] humanCustomerSounds;
+	public AudioClip[] childCustomerSounds;
+	public AudioClip[] pinkCustomerSounds;
+	public AudioClip[] grayCustomerSounds;
+	public AudioClip[] greenCustomerSounds;
+
 	Vector3 waitPosition;
 
-	public void OnClick()
-	{
-		Debug.Log ("täh");
-	}
 	void Update()
 	{
 		endTimer = endTimer - Time.deltaTime;
@@ -41,10 +43,6 @@ public class customerMaster : MonoBehaviour {
 			winText.text = ("you got "+moneyValue+"/100 money");
 			Time.timeScale = 0;
 		}
-	}
-	void test()
-	{
-		Debug.Log ("tessssssssssssssti");
 	}
 	void Start()
 	{

@@ -67,6 +67,10 @@ public class customer1 : MonoBehaviour {
 	public bool updateFixer1;
 	public bool updateFixer2;
 
+	AudioClip[] currentCustomerSounds;
+
+	bool speechbubbleSound = false;
+
 	public customerMaster masterScript;
 	
 	public virtual void Start () 
@@ -113,6 +117,14 @@ public class customer1 : MonoBehaviour {
 		startScale = transform.localScale;
 		direction = transform.position.y - chosenTarget.transform.position.y;
 		startColor = custRend.color;
+		if (gameObject.tag == "humanCustomer")
+			currentCustomerSounds = masterScript.humanCustomerSounds;
+		if (gameObject.tag == "pinkCustomer")
+			currentCustomerSounds = masterScript.pinkCustomerSounds;
+		if (gameObject.tag == "grayCustomer")
+			currentCustomerSounds = masterScript.grayCustomerSounds;
+		if (gameObject.tag == "greenCustomer")
+			currentCustomerSounds = masterScript.greenCustomerSounds;
 	}
 	public void ChoosePos()
 	{
@@ -157,12 +169,21 @@ public class customer1 : MonoBehaviour {
 			position = chosenPosition;
 			speechBubble.SetActive(true);
 			timeLeft -= Time.deltaTime;
+			if (speechbubbleSound == false)
+			{
+				speechBubble.GetComponent<AudioSource>().Play();
+				speechbubbleSound = true;
+			}
+			GetComponent<AudioSource>().clip = currentCustomerSounds[0];
+			GetComponent<AudioSource>().Play();
 		}
 		if (timeLeft < timeLeftCopy / 2.0f)
 		{
 			Animator animator = GetComponent<Animator>();
 			animator.SetBool("angry",true);
 			animator.SetBool("happy",false);
+			GetComponent<AudioSource>().clip = currentCustomerSounds[1];
+			GetComponent<AudioSource>().Play();
 		}
 		//customer leaves and sets its position as free deletes collider
 		if (timeLeft < 0)
@@ -225,6 +246,7 @@ public class customer1 : MonoBehaviour {
 	//Leave chooses side customer will leave to and deletes the speechbubble + sets customer sorting layer to -3
 	public virtual void Leave()
 	{
+		speechbubbleSound = false;
 		custRend.sortingLayerName = "Default";
 		colorSpeed = 5f;
 		fadeOut = true;
@@ -253,18 +275,24 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("happy",true);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",false);
+			GetComponent<AudioSource>().clip = currentCustomerSounds[0];
+			GetComponent<AudioSource>().Play();
 		}
 		else if (correctIngredients == 2)
 		{
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",true);
 			animator.SetBool("leaving",false);
+			GetComponent<AudioSource>().clip = currentCustomerSounds[1];
+			GetComponent<AudioSource>().Play();
 		}
 		else
 		{
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
+			GetComponent<AudioSource>().clip = currentCustomerSounds[2];
+			GetComponent<AudioSource>().Play();
 		}
 		custRend.sortingOrder = -3;
 		if (side > 0.5)

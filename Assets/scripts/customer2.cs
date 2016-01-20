@@ -12,6 +12,7 @@ public class customer2 : customer1 {
 	float speedRising = 0.1f;
 	new public float bounceSpeed = 28f;
 	new public float speed = 0.2f;
+	bool speechbubbleSound = false;
 	
 	public override void Start () 
 	{
@@ -85,7 +86,14 @@ public class customer2 : customer1 {
 				position = 1;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
-				custRend.sortingOrder = -1;
+				custRend.sortingOrder = -4;
+				if (speechbubbleSound == false)
+				{
+					speechBubble.GetComponent<AudioSource>().Play();
+					speechbubbleSound = true;
+				}
+				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
+				GetComponent<AudioSource>().Play();
 			}
 		}
 		if (moveToPos2 == true)
@@ -97,11 +105,18 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -1;
+				custRend.sortingOrder = -4;
 				masterScript.pos2Taken = true;
 				position = 2;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
+				if (speechbubbleSound == false)
+				{
+					speechBubble.GetComponent<AudioSource>().Play();
+					speechbubbleSound = true;
+				}
+				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
+				GetComponent<AudioSource>().Play();
 			}
 		}
 		if (moveToPos3 == true)
@@ -113,11 +128,18 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -1;
+				custRend.sortingOrder = -4;
 				masterScript.pos3Taken = true;
 				position = 3;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
+				if (speechbubbleSound == false)
+				{
+					speechBubble.GetComponent<AudioSource>().Play();
+					speechbubbleSound = true;
+				}
+				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
+				GetComponent<AudioSource>().Play();
 			}
 		}
 		if (moveToPos4 == true)
@@ -129,17 +151,26 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -1;
+				custRend.sortingOrder = -4;
 				masterScript.pos4Taken = true;
 				position = 4;
 				speechBubble.SetActive(true);
 				timeLeft -= Time.deltaTime;
+				if (speechbubbleSound == false)
+				{
+					speechBubble.GetComponent<AudioSource>().Play();
+					speechbubbleSound = true;
+				}
+				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
+				GetComponent<AudioSource>().Play();
 			}
 		}
 		if (timeLeft < timeLeftCopy / 2.0f)
 		{
 			Animator animator = GetComponent<Animator>();
 			animator.SetTrigger("angry");
+			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[1];
+			GetComponent<AudioSource>().Play();
 		}
 		//customer leaves and sets its position as free deletes collider
 		if (timeLeft < 0)
@@ -201,6 +232,7 @@ public class customer2 : customer1 {
 	}
 	public override void Leave()
 	{
+		speechbubbleSound = false;
 		colorSpeed = 4f;
 		tentacleRend.enabled = false;
 		Animator animator = GetComponent<Animator>();
@@ -209,18 +241,24 @@ public class customer2 : customer1 {
 			animator.SetBool("happy",true);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",false);
+			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
+			GetComponent<AudioSource>().Play();
 		}
 		else if (correctIngredients == 2)
 		{
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",true);
 			animator.SetBool("leaving",false);
+			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[1];
+			GetComponent<AudioSource>().Play();
 		}
 		else
 		{
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
+			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[2];
+			GetComponent<AudioSource>().Play();
 		}
 		custRend.sortingOrder = -1;
 		if (side > 0.5)

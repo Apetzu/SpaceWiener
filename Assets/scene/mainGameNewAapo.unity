@@ -1238,6 +1238,7 @@ GameObject:
   - 222: {fileID: 619652372}
   - 114: {fileID: 619652371}
   - 114: {fileID: 619652373}
+  - 82: {fileID: 619652374}
   m_Layer: 5
   m_Name: moneyPaid
   m_TagString: Untagged
@@ -1314,6 +1315,76 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
   m_EffectDistance: {x: 1.5, y: 1.5}
   m_UseGraphicAlpha: 1
+--- !u!82 &619652374
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 619652369}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &640791860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,12 +2159,12 @@ MonoBehaviour:
   moneyText: {fileID: 756665582}
   timer: {fileID: 812351462}
   winText: {fileID: 499389925}
+  creditsButton: {fileID: 0}
   pos1Taken: 0
   pos2Taken: 0
   pos3Taken: 0
   pos4Taken: 0
   moneyValue: 0
-  customerLayerOrder: -100
   spawnerLeft: {fileID: 2034707330}
   spawnerRight: {fileID: 984730316}
   customers:
@@ -2102,6 +2173,26 @@ MonoBehaviour:
   - {fileID: 114642, guid: df8a600fbae394c4791e312fad6f0b49, type: 2}
   - {fileID: 114388, guid: 59383e8ebec76c145aab653eee17180a, type: 2}
   - {fileID: 134772, guid: f3f6045a2b69f0c409671f08734d211a, type: 2}
+  humanCustomerSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  childCustomerSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pinkCustomerSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  grayCustomerSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  greenCustomerSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1005521741
 Transform:
   m_ObjectHideFlags: 0
@@ -2760,6 +2851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 686179847}
+  readyHotdogRect: {fileID: 1294766680}
   bread: 0
   draggableBreadObj: {fileID: 461253391}
   sausageObj: {fileID: 220947797}
@@ -4428,6 +4520,7 @@ GameObject:
   - 222: {fileID: 2141443971}
   - 114: {fileID: 2141443970}
   - 114: {fileID: 2141443969}
+  - 82: {fileID: 2141443972}
   m_Layer: 5
   m_Name: Trash
   m_TagString: Untagged
@@ -4504,3 +4597,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2141443967}
+--- !u!82 &2141443972
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141443967}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f96c53157493be743bfa03b8df372407, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
