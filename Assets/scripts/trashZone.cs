@@ -46,6 +46,7 @@ public class trashZone : MonoBehaviour, IDropHandler {
 			eventData.pointerDrag.GetComponent<grillItem>().wiener = false;
 			eventData.pointerDrag.GetComponent<grillItem>().burnLevel = 0;
 			eventData.pointerDrag.GetComponent<grillItem>().currentTime = 0f;
+			eventData.pointerDrag.GetComponent<grillItem>().grillingTransTime = 5f;
 		}
 	}
 }

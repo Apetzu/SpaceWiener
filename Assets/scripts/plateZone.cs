@@ -62,6 +62,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 					eventData.pointerDrag.GetComponent<grillItem>().wiener = false;
 					eventData.pointerDrag.GetComponent<grillItem>().burnLevel = 0;
 					eventData.pointerDrag.GetComponent<grillItem>().currentTime = 0f;
+					eventData.pointerDrag.GetComponent<grillItem>().grillingTransTime = 5f;
 				}
 				if (eventData.pointerDrag.tag == "salad" && saladObj.GetComponent<Image>().color == Color.clear)
 				{

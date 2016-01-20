@@ -84,7 +84,11 @@ public class customer2 : customer1 {
 				canRecieveFood = true;
 				masterScript.pos1Taken = true;
 				position = 1;
-				speechBubble.SetActive(true);
+				speechBubbleDelay -= Time.fixedDeltaTime;
+				if (speechBubbleDelay <= 0)
+				{
+					speechBubble.SetActive(true);
+				}
 				timeLeft -= Time.deltaTime;
 				custRend.sortingOrder = -4;
 				if (speechbubbleSound == false)
@@ -108,7 +112,11 @@ public class customer2 : customer1 {
 				custRend.sortingOrder = -4;
 				masterScript.pos2Taken = true;
 				position = 2;
-				speechBubble.SetActive(true);
+				speechBubbleDelay -= Time.fixedDeltaTime;
+				if (speechBubbleDelay <= 0)
+				{
+					speechBubble.SetActive(true);
+				}
 				timeLeft -= Time.deltaTime;
 				if (speechbubbleSound == false)
 				{
@@ -131,7 +139,11 @@ public class customer2 : customer1 {
 				custRend.sortingOrder = -4;
 				masterScript.pos3Taken = true;
 				position = 3;
-				speechBubble.SetActive(true);
+				speechBubbleDelay -= Time.fixedDeltaTime;
+				if (speechBubbleDelay <= 0)
+				{
+					speechBubble.SetActive(true);
+				}
 				timeLeft -= Time.deltaTime;
 				if (speechbubbleSound == false)
 				{
@@ -154,7 +166,11 @@ public class customer2 : customer1 {
 				custRend.sortingOrder = -4;
 				masterScript.pos4Taken = true;
 				position = 4;
-				speechBubble.SetActive(true);
+				speechBubbleDelay -= Time.fixedDeltaTime;
+				if (speechBubbleDelay <= 0)
+				{
+					speechBubble.SetActive(true);
+				}
 				timeLeft -= Time.deltaTime;
 				if (speechbubbleSound == false)
 				{

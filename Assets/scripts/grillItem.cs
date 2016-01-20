@@ -21,6 +21,10 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	{
 		if (wiener == true && wienerBeDragged == false && burnLevel < animSprites.Length - 1)
 		{
+			if (burnLevel == 1)
+			{
+				grillingTransTime = 10f;
+			}
 			currentTime += Time.fixedDeltaTime;
 			if (currentTime >= grillingTransTime)
 			{

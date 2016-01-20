@@ -53,7 +53,14 @@ public class shutterScript : MonoBehaviour {
 		moving = audioSources [0];
 		close = audioSources [1];
 	}
-
+	public void MoveShutterDown()
+	{
+		transform.position = new Vector3 (0, 5f, 0);
+	}
+	public void MoveShutterUp()
+	{
+		transform.position = new Vector3 (0, 13f, 0);
+	}
 	void Update () 
 	{
 		//here = transForm;

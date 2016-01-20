@@ -19,6 +19,7 @@ public class customer1 : MonoBehaviour {
 	public float maximum = 2.5f;
 	public float colorSpeed = 0.5f;
 	public float lerpTime = 0;
+	public float speechBubbleDelay = 1f;
 
 	public Color startColor;
 	public Color currentColor;
@@ -167,8 +168,12 @@ public class customer1 : MonoBehaviour {
 			canRecieveFood = true;
 			custRend.sortingOrder = -1;
 			position = chosenPosition;
-			speechBubble.SetActive(true);
 			timeLeft -= Time.deltaTime;
+			speechBubbleDelay -= Time.fixedDeltaTime;
+			if (speechBubbleDelay <= 0)
+			{
+				speechBubble.SetActive(true);
+			}
 			if (speechbubbleSound == false)
 			{
 				speechBubble.GetComponent<AudioSource>().Play();
