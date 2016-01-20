@@ -26,6 +26,8 @@ TagManager:
   - grayCustomer
   - pinkCustomer
   - humanCustomer
+  - credits
+  - tutorial
   layers:
   - Default
   - TransparentFX

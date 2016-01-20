@@ -19,7 +19,7 @@ public class customerMaster : MonoBehaviour {
 
 	float side;
 	public float moneyValue = 0;
-	float endTimer = 10;
+	float endTimer = 81;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;

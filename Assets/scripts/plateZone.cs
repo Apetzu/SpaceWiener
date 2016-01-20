@@ -8,6 +8,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 {
 	private Vector3 startPos;
 	public Camera mainCamera;
+	public RectTransform readyHotdogRect;
 
 	public bool bread = false;
 	public GameObject draggableBreadObj;
@@ -28,7 +29,19 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	public List<GameObject> allGrillSausageObjects = new List<GameObject>();
 	public List<GameObject> allSaladObjects = new List<GameObject>();
 	public List<GameObject> allSauceObjects = new List<GameObject>();
-	
+
+	void Update()
+	{
+		if (bread != true)
+		{
+			readyHotdogRect.sizeDelta = new Vector2 (250,150);
+		}
+		else
+		{
+			readyHotdogRect.sizeDelta = new Vector2 (150,150);
+		}
+
+	}
 	public void OnDrop(PointerEventData eventData)
 	{
 		if (Time.timeScale != 0)
