@@ -15,6 +15,7 @@ public class customer2 : customer1 {
 	bool speechbubbleSound = false;
 	bool updateFixer1;
 	bool updateFixer2;
+	bool updateFixer3;
 	
 	public override void Start () 
 	{
@@ -101,10 +102,9 @@ public class customer2 : customer1 {
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
 				}
-				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
 				if (updateFixer1 == false)
 				{
-					GetComponent<AudioSource>().Play();
+					GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[0]);
 					updateFixer1 = true;
 				}
 			}
@@ -133,10 +133,9 @@ public class customer2 : customer1 {
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
 				}
-				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
 				if (updateFixer1 == false)
 				{
-					GetComponent<AudioSource>().Play();
+					GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[0]);
 					updateFixer1 = true;
 				}
 			}
@@ -165,10 +164,9 @@ public class customer2 : customer1 {
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
 				}
-				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
 				if (updateFixer1 == false)
 				{
-					GetComponent<AudioSource>().Play();
+					GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[0]);
 					updateFixer1 = true;
 				}
 			}
@@ -197,10 +195,9 @@ public class customer2 : customer1 {
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
 				}
-				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
 				if (updateFixer1 == false)
 				{
-					GetComponent<AudioSource>().Play();
+					GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[0]);
 					updateFixer1 = true;
 				}
 			}
@@ -209,10 +206,9 @@ public class customer2 : customer1 {
 		{
 			Animator animator = GetComponent<Animator>();
 			animator.SetTrigger("angry");
-			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[1];
 			if (updateFixer2 == false)
 			{
-				GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[1]);
 				updateFixer2 = true;
 			}
 		}
@@ -285,24 +281,33 @@ public class customer2 : customer1 {
 			animator.SetBool("happy",true);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",false);
-			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer3 == false)
+			{
+				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[0]);
+				updateFixer3 = true;
+			}
 		}
 		else if (correctIngredients == 2)
 		{
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",true);
 			animator.SetBool("leaving",false);
-			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[1];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer3 == false)
+			{
+				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[1]);
+				updateFixer3 = true;
+			}
 		}
 		else
 		{
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
-			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[2];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer3 == false)
+			{
+				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[2]);
+				updateFixer3 = true;
+			}
 		}
 		custRend.sortingOrder = -1;
 		if (side > 0.5)

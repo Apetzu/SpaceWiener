@@ -123,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.14999962, y: -.209999993, z: 0}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 468058}
@@ -161,7 +161,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.3000002, y: -.267822266, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: .899999976, y: .899999976, z: .899999976}
   m_Children: []
   m_Father: {fileID: 468058}
@@ -173,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0976867676, y: -.267822266, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 468058}
@@ -185,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.390007, y: -5.45817947, z: 0}
+  m_LocalPosition: {x: -28, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 464132}
@@ -299,7 +299,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9c239f2ed9a51db46a4b44012e8cb30e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   salad3: {fileID: 21300000, guid: a729039aefc856441a514a2334051a77, type: 3}
   wiener1: {fileID: 21300000, guid: 7dbd24785d2e5484ea059bbe5f6fb8fb, type: 3}
   wiener2: {fileID: 21300000, guid: d69397ad5817cb9449261569509d1be5, type: 3}
-  wiener3: {fileID: 21300000, guid: 1f05f87dfbb693c45a889f34ab6e333e, type: 3}
+  wiener3: {fileID: 21300000, guid: 0f0721b525cd91c43ab284eb9c6a786f, type: 3}
   sauce: 0
   salad: 0
   wienerI: 0
@@ -454,7 +454,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: 21300000, guid: 5781bc82dc5bad1428b64d89505e22f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 520fa87a17a481c41be08c1f5dc666af, type: 3}
   m_Color: {r: .431372553, g: .431372553, b: .431372553, a: 1}
 --- !u!212 &21241832
 SpriteRenderer:

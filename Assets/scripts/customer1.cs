@@ -186,10 +186,9 @@ public class customer1 : MonoBehaviour {
 				speechBubble.GetComponent<AudioSource>().Play();
 				speechbubbleSound = true;
 			}
-			GetComponent<AudioSource>().clip = currentCustomerSounds[0];
 			if (updateFixer3 == false)
 			{
-				GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[0]);
 				updateFixer3 = true;
 			}
 		}
@@ -198,10 +197,10 @@ public class customer1 : MonoBehaviour {
 			Animator animator = GetComponent<Animator>();
 			animator.SetBool("angry",true);
 			animator.SetBool("happy",false);
-			GetComponent<AudioSource>().clip = currentCustomerSounds[1];
+			//GetComponent<AudioSource>().clip = currentCustomerSounds[1];
 			if (updateFixer4 == false)
 			{
-				GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
 				updateFixer4 = true;
 			}
 		}
@@ -296,10 +295,9 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("happy",true);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",false);
-			GetComponent<AudioSource>().clip = currentCustomerSounds[0];
 			if (updateFixer5 == false)
 			{
-				GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[0]);
 				updateFixer5 = true;
 			}
 		}
@@ -308,10 +306,9 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",true);
 			animator.SetBool("leaving",false);
-			GetComponent<AudioSource>().clip = currentCustomerSounds[1];
 			if (updateFixer5 == false)
 			{
-				GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
 				updateFixer5 = true;
 			}
 		}
@@ -320,10 +317,9 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("happy",false);
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
-			GetComponent<AudioSource>().clip = currentCustomerSounds[2];
 			if (updateFixer5 == false)
 			{
-				GetComponent<AudioSource>().Play();
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[2]);
 				updateFixer5 = true;
 			}
 		}

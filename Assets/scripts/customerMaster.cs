@@ -49,14 +49,14 @@ public class customerMaster : MonoBehaviour {
 		{
 			canvas2.SetActive(true);
 			victory.gameObject.SetActive(true);
-			winText.text = ("you got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
+			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
 			shutterScript.MoveShutterDown();
 		}
 		if (endTimer <= 0)
 		{
 			canvas2.SetActive(true);
 			gameOver.gameObject.SetActive(true);
-			winText.text = ("you got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
+			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
 			shutterScript.MoveShutterDown();
 		}
 	}
