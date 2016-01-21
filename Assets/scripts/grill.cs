@@ -8,6 +8,21 @@ public class grill : MonoBehaviour, IDropHandler {
 	
 	public GameObject[] allGrillObjects = new GameObject[4];
 	public List<GameObject> allSausageObjects = new List<GameObject>();
+	bool soundBool;
+
+	void Update()
+	{
+		if (Time.timeScale != 0f && soundBool == false)
+		{
+			GetComponent<AudioSource>().Play();
+			soundBool = true;
+		}
+		if (Time.timeScale == 0f)
+		{
+			GetComponent<AudioSource>().Stop();
+			soundBool = false;
+		}
+	}
 
 	public void OnDrop(PointerEventData eventData)
 	{

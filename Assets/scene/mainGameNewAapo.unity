@@ -1598,6 +1598,7 @@ GameObject:
   - 222: {fileID: 566364356}
   - 114: {fileID: 566364355}
   - 114: {fileID: 566364354}
+  - 82: {fileID: 566364357}
   m_Layer: 5
   m_Name: GrillZone
   m_TagString: Untagged
@@ -1675,6 +1676,76 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 566364352}
+--- !u!82 &566364357
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 566364352}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f64432b59163bb545bd73b44949cf4aa, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .400000006
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 83
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: .400000006
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &619652369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,11 +2015,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 81ebc0ecd657a7d41b348bed49a30a59, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 36a647038f3721f4fb7af09ec85f4fea, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .600000024
   m_Pitch: 1.39999998
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -3624,11 +3695,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 81ebc0ecd657a7d41b348bed49a30a59, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 36a647038f3721f4fb7af09ec85f4fea, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .800000012
+  m_Volume: .600000024
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -4022,11 +4093,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 81ebc0ecd657a7d41b348bed49a30a59, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 36a647038f3721f4fb7af09ec85f4fea, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .600000024
   m_Pitch: 1.20000005
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -5944,11 +6015,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 81ebc0ecd657a7d41b348bed49a30a59, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 36a647038f3721f4fb7af09ec85f4fea, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .600000024
   m_Pitch: .800000012
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -6266,14 +6337,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b254fec2c319562428f2dd3ed8ac45d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 120
+  gameTime: 240
   timeBetweenCustomerSpawnMin: 1
   timeBetweenCustomerSpawnMax: 3
-  customerTimeMin: 25
-  customerTimeMax: 30
+  customerTimeMin: 45
+  customerTimeMax: 45
   grillTimeToCooked: 5
-  grillTimeToBurned: 10
-  moneyNeededForWin: 120
+  grillTimeToBurned: 20
+  moneyNeededForWin: 250
   moneyForCorrectHotdog: 5
   moneyForCorrectSalad: 3
   moneyForCorrectSauce: 1.5
@@ -7230,7 +7301,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f96c53157493be743bfa03b8df372407, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 0
   Mute: 0
