@@ -16,14 +16,22 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public float grillingTransTime = 5f;
 	public Sprite[] animSprites;
 	public int burnLevel = 0;
+	public GameObject timerMaster;
 
+	timerMaster timerMasterScript;
+
+	void Start()
+	{
+		timerMasterScript = timerMaster.GetComponent<timerMaster>();
+		grillingTransTime = timerMasterScript.grillTimeToCooked;
+	}
 	void FixedUpdate()
 	{
 		if (wiener == true && wienerBeDragged == false && burnLevel < animSprites.Length - 1)
 		{
 			if (burnLevel == 1)
 			{
-				grillingTransTime = 10f;
+				grillingTransTime = timerMasterScript.grillTimeToBurned;
 			}
 			currentTime += Time.fixedDeltaTime;
 			if (currentTime >= grillingTransTime)

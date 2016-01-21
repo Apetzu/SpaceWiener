@@ -49,6 +49,7 @@ public class customer1 : MonoBehaviour {
 	public GameObject target2;
 	public GameObject target3;
 	public GameObject target4;
+	public GameObject timerMaster;
 
 	public Animator animator;
 
@@ -72,6 +73,7 @@ public class customer1 : MonoBehaviour {
 	bool updateFixer5;
 
 	AudioClip[] currentCustomerSounds;
+	public timerMaster timerMasterScript;
 
 	bool speechbubbleSound = false;
 
@@ -79,6 +81,8 @@ public class customer1 : MonoBehaviour {
 	
 	public virtual void Start () 
 	{
+		timerMaster = GameObject.FindWithTag ("timerMaster");
+		timerMasterScript = timerMaster.GetComponent<timerMaster> ();
 		//these change the customers bouncing
 		if (gameObject.tag == "humanCustomer")
 		{
@@ -101,7 +105,7 @@ public class customer1 : MonoBehaviour {
 		custRend = GetComponent<SpriteRenderer> ();
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		//random time customer waits at its position
-		timeLeft = Random.Range (25, 30);
+		timeLeft = Random.Range (timerMasterScript.customerTimeMin,timerMasterScript.customerTimeMin);
 		lifeTime = timeLeft + 20;
 		//copy of timeleft for face changing purposes
 		timeLeftCopy = timeLeft;

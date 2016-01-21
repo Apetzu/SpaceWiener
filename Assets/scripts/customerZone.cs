@@ -14,8 +14,10 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	public GameObject sauceObj;
 	public GameObject canvas;
 	public GameObject draggableBreadObj;
+	public GameObject timerMaster;
 	public Camera mainCamera;
-	
+
+	timerMaster timerMasterScript;
 	public float moneyPaid = 0;
 
 	plateZone finishedBread;
@@ -27,6 +29,7 @@ public class customerZone : MonoBehaviour, IDropHandler {
 	
 	void Start()
 	{
+		timerMasterScript = timerMaster.GetComponent<timerMaster> ();
 		finishedBread = doneBread.GetComponent<plateZone> ();
 		masterScript = masterObj.GetComponent<customerMaster>();
 	}
@@ -50,8 +53,8 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					//if requested wiener is the same as the wiener on the bread
 					if (requestScript.wienerI == finishedBread.wienerI  && finishedBread.wiener == true)
 					{
-						masterScript.moneyValue += 5;
-						moneyPaid += 5;
+						masterScript.moneyValue += timerMasterScript.moneyForCorrectHotdog;
+						moneyPaid += timerMasterScript.moneyForCorrectHotdog;
 						customerScript.timeLeft = 0;
 						customerScript.correctIngredients += 1;
 					}
@@ -64,8 +67,8 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					{
 						if (requestScript.saladI == finishedBread.saladI)
 						{
-							masterScript.moneyValue += 3;
-							moneyPaid += 3;
+							masterScript.moneyValue += timerMasterScript.moneyForCorrectSalad;
+							moneyPaid += timerMasterScript.moneyForCorrectSalad;
 							customerScript.correctIngredients += 1;
 							customerScript.timeLeft = 0;
 						}
@@ -92,8 +95,8 @@ public class customerZone : MonoBehaviour, IDropHandler {
 					{
 						if (requestScript.sauceI == finishedBread.sauceI)
 						{
-							masterScript.moneyValue += 1.5f;
-							moneyPaid += 1.5f;
+							masterScript.moneyValue += timerMasterScript.moneyForCorrectSauce;
+							moneyPaid += timerMasterScript.moneyForCorrectSalad;
 							customerScript.timeLeft = 0;
 							customerScript.correctIngredients += 1;
 						}

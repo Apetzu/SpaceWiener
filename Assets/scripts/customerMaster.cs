@@ -24,6 +24,11 @@ public class customerMaster : MonoBehaviour {
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;
 	public GameObject[] customers;
+	public GameObject timerMaster;
+	public GameObject victory;
+	public GameObject gameOver;
+	public GameObject shutter;
+	public GameObject canvas2;
 
 	public AudioClip[] humanCustomerSounds;
 	public AudioClip[] childCustomerSounds;
@@ -32,20 +37,34 @@ public class customerMaster : MonoBehaviour {
 	public AudioClip[] greenCustomerSounds;
 
 	Vector3 waitPosition;
+	timerMaster timerMasterScript;
+	shutterScript shutterScript;
 
-	void Update()
+	void FixedUpdate()
 	{
-		endTimer = endTimer - Time.deltaTime;
+		endTimer = endTimer - Time.fixedDeltaTime;
 		moneyText.text = ("Money: "+moneyValue);
 		timer.text = ("Time left: "+ (int) (endTimer));
-		if (endTimer <= 0 || moneyValue >= 100 /*replace with wanted number */)
+		if (moneyValue >= timerMasterScript.moneyNeededForWin /*replace with wanted number */)
 		{
-			winText.text = ("you got "+moneyValue+"/100 money");
-			Time.timeScale = 0;
+			canvas2.SetActive(true);
+			victory.gameObject.SetActive(true);
+			winText.text = ("you got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
+			shutterScript.MoveShutterDown();
+		}
+		if (endTimer <= 0)
+		{
+			canvas2.SetActive(true);
+			gameOver.gameObject.SetActive(true);
+			winText.text = ("you got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
+			shutterScript.MoveShutterDown();
 		}
 	}
 	void Start()
 	{
+		shutterScript = shutter.gameObject.GetComponent<shutterScript>();
+		timerMasterScript = timerMaster.GetComponent<timerMaster> ();
+		endTimer = timerMasterScript.gameTime;
 		StartCoroutine (spawnCust());
 	}
 	void RollSide()
@@ -89,7 +108,7 @@ public class customerMaster : MonoBehaviour {
 		{
 			yield return new WaitForSeconds(1);
 			RollSide ();
-			yield return new WaitForSeconds(Random.Range(1f,3));
+			yield return new WaitForSeconds(Random.Range(timerMasterScript.timeBetweenCustomerSpawnMin,timerMasterScript.timeBetweenCustomerSpawnMax));
 		}
 	}
 }

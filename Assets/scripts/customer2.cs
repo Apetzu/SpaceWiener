@@ -18,6 +18,8 @@ public class customer2 : customer1 {
 	
 	public override void Start () 
 	{
+		timerMaster = GameObject.FindWithTag ("timerMaster");
+		timerMasterScript = timerMaster.GetComponent<timerMaster> ();
 		tentacles = transform.Find ("customer2Tentacles").gameObject;
 		tentacleRend = tentacles.GetComponent<SpriteRenderer> ();
 		//gets customers collider, renderer, and speechbubble
@@ -25,7 +27,7 @@ public class customer2 : customer1 {
 		custRend = GetComponent<SpriteRenderer> ();
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		//random time customer waits at its position
-		timeLeft = Random.Range (25, 30);
+		timeLeft = Random.Range (timerMasterScript.customerTimeMin,timerMasterScript.customerTimeMin);
 		lifeTime = timeLeft + 5;
 		//copy of timeleft for face changing purposes
 		timeLeftCopy = timeLeft;

@@ -27,6 +27,8 @@ TagManager:
   - pinkCustomer
   - humanCustomer
   - credits
+  - tutorial
+  - timerMaster
   layers:
   - Default
   - TransparentFX
