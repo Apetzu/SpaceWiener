@@ -90,7 +90,8 @@ public class customer2 : customer1 {
 					speechBubble.SetActive(true);
 				}
 				timeLeft -= Time.deltaTime;
-				custRend.sortingOrder = -4;
+				custRend.sortingOrder = -1;
+				tentacleRend.sortingOrder = 0;
 				if (speechbubbleSound == false)
 				{
 					speechBubble.GetComponent<AudioSource>().Play();
@@ -109,7 +110,8 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -4;
+				custRend.sortingOrder = -1;
+				tentacleRend.sortingOrder = 0;
 				masterScript.pos2Taken = true;
 				position = 2;
 				speechBubbleDelay -= Time.fixedDeltaTime;
@@ -136,7 +138,8 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -4;
+				custRend.sortingOrder = -1;
+				tentacleRend.sortingOrder = 0;
 				masterScript.pos3Taken = true;
 				position = 3;
 				speechBubbleDelay -= Time.fixedDeltaTime;
@@ -163,7 +166,8 @@ public class customer2 : customer1 {
 				//shows speechbubble and its contents sets customer able to recieve food
 				customerColl.enabled = true;
 				canRecieveFood = true;
-				custRend.sortingOrder = -4;
+				custRend.sortingOrder = -1;
+				tentacleRend.sortingOrder = 0;
 				masterScript.pos4Taken = true;
 				position = 4;
 				speechBubbleDelay -= Time.fixedDeltaTime;

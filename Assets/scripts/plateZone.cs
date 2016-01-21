@@ -32,14 +32,14 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 
 	void Update()
 	{
-		if (bread != true)
-		{
-			readyHotdogRect.sizeDelta = new Vector2 (250,150);
-		}
-		else
-		{
-			readyHotdogRect.sizeDelta = new Vector2 (150,150);
-		}
+		//if (bread != true)
+		//{
+		//	readyHotdogRect.sizeDelta = new Vector2 (250,150);
+		//}
+		//else
+		//{
+		//	readyHotdogRect.sizeDelta = new Vector2 (150,150);
+		//}
 
 	}
 	public void OnDrop(PointerEventData eventData)

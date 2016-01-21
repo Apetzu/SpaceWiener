@@ -19,7 +19,7 @@ public class customer1 : MonoBehaviour {
 	public float maximum = 2.5f;
 	public float colorSpeed = 0.5f;
 	public float lerpTime = 0;
-	public float speechBubbleDelay = 1f;
+	public float speechBubbleDelay = 0.6f;
 
 	public Color startColor;
 	public Color currentColor;
@@ -254,6 +254,7 @@ public class customer1 : MonoBehaviour {
 		speechbubbleSound = false;
 		custRend.sortingLayerName = "Default";
 		colorSpeed = 5f;
+		custRend.sortingOrder = -4;
 		fadeOut = true;
 		currentColor = custRend.color;
 		if (chosenPosition == 1)
