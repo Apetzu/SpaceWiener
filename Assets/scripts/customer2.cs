@@ -13,6 +13,8 @@ public class customer2 : customer1 {
 	new public float bounceSpeed = 28f;
 	new public float speed = 0.2f;
 	bool speechbubbleSound = false;
+	bool updateFixer1;
+	bool updateFixer2;
 	
 	public override void Start () 
 	{
@@ -98,7 +100,11 @@ public class customer2 : customer1 {
 					speechbubbleSound = true;
 				}
 				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
-				GetComponent<AudioSource>().Play();
+				if (updateFixer1 == false)
+				{
+					GetComponent<AudioSource>().Play();
+					updateFixer1 = true;
+				}
 			}
 		}
 		if (moveToPos2 == true)
@@ -126,7 +132,11 @@ public class customer2 : customer1 {
 					speechbubbleSound = true;
 				}
 				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
-				GetComponent<AudioSource>().Play();
+				if (updateFixer1 == false)
+				{
+					GetComponent<AudioSource>().Play();
+					updateFixer1 = true;
+				}
 			}
 		}
 		if (moveToPos3 == true)
@@ -154,7 +164,11 @@ public class customer2 : customer1 {
 					speechbubbleSound = true;
 				}
 				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
-				GetComponent<AudioSource>().Play();
+				if (updateFixer1 == false)
+				{
+					GetComponent<AudioSource>().Play();
+					updateFixer1 = true;
+				}
 			}
 		}
 		if (moveToPos4 == true)
@@ -182,7 +196,11 @@ public class customer2 : customer1 {
 					speechbubbleSound = true;
 				}
 				GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[0];
-				GetComponent<AudioSource>().Play();
+				if (updateFixer1 == false)
+				{
+					GetComponent<AudioSource>().Play();
+					updateFixer1 = true;
+				}
 			}
 		}
 		if (timeLeft < timeLeftCopy / 2.0f)
@@ -190,7 +208,11 @@ public class customer2 : customer1 {
 			Animator animator = GetComponent<Animator>();
 			animator.SetTrigger("angry");
 			GetComponent<AudioSource>().clip = masterScript.childCustomerSounds[1];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer2 == false)
+			{
+				GetComponent<AudioSource>().Play();
+				updateFixer2 = true;
+			}
 		}
 		//customer leaves and sets its position as free deletes collider
 		if (timeLeft < 0)

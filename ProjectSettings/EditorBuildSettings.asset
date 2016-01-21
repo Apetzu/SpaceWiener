@@ -10,4 +10,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/scene/oldProjects/pauseMenu.unity
   - enabled: 1
-    path: Assets/scene/mainGameNew.unity
+    path: Assets/scene/oldProjects/mainGameNew.unity

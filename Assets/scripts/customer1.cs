@@ -65,8 +65,11 @@ public class customer1 : MonoBehaviour {
 	public bool fadeOut;
 	//use this to call function in update only once
 	//saves time to do 2 instead of using one shut up
-	public bool updateFixer1;
-	public bool updateFixer2;
+	bool updateFixer1;
+	bool updateFixer2;
+	bool updateFixer3;
+	bool updateFixer4;
+	bool updateFixer5;
 
 	AudioClip[] currentCustomerSounds;
 
@@ -180,7 +183,11 @@ public class customer1 : MonoBehaviour {
 				speechbubbleSound = true;
 			}
 			GetComponent<AudioSource>().clip = currentCustomerSounds[0];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer3 == false)
+			{
+				GetComponent<AudioSource>().Play();
+				updateFixer3 = true;
+			}
 		}
 		if (timeLeft < timeLeftCopy / 2.0f)
 		{
@@ -188,7 +195,11 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("angry",true);
 			animator.SetBool("happy",false);
 			GetComponent<AudioSource>().clip = currentCustomerSounds[1];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer4 == false)
+			{
+				GetComponent<AudioSource>().Play();
+				updateFixer4 = true;
+			}
 		}
 		//customer leaves and sets its position as free deletes collider
 		if (timeLeft < 0)
@@ -282,7 +293,11 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",false);
 			GetComponent<AudioSource>().clip = currentCustomerSounds[0];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer5 == false)
+			{
+				GetComponent<AudioSource>().Play();
+				updateFixer5 = true;
+			}
 		}
 		else if (correctIngredients == 2)
 		{
@@ -290,7 +305,11 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("angry",true);
 			animator.SetBool("leaving",false);
 			GetComponent<AudioSource>().clip = currentCustomerSounds[1];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer5 == false)
+			{
+				GetComponent<AudioSource>().Play();
+				updateFixer5 = true;
+			}
 		}
 		else
 		{
@@ -298,7 +317,11 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("angry",false);
 			animator.SetBool("leaving",true);
 			GetComponent<AudioSource>().clip = currentCustomerSounds[2];
-			GetComponent<AudioSource>().Play();
+			if (updateFixer5 == false)
+			{
+				GetComponent<AudioSource>().Play();
+				updateFixer5 = true;
+			}
 		}
 		custRend.sortingOrder = -3;
 		if (side > 0.5)
