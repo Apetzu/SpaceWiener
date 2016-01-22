@@ -10,16 +10,26 @@ public class customerMaster : MonoBehaviour {
 	public Text moneyText;
 	public Text timer;
 	public Text winText;
-	public Button creditsButton;
+	public Text numberOfCustsAngeredText;
+	public Text numberOfCustsServedText;
+	public Text timer2;
+	public Text numberOfWienersBurnedText;
+	public Text numberOfTrashesText;
+	//public Button creditsButton;
 
 	public bool pos1Taken = false;
 	public bool pos2Taken = false;
 	public bool pos3Taken = false;
 	public bool pos4Taken = false;
+	public bool gameLost;
 
 	float side;
 	public float moneyValue = 0;
 	float endTimer = 121;
+	public float numberOfCustsAngered = 0f;
+	public float numberOfCustsServed = 0f;
+	public float numberOfTrashes = 0f;
+	public float numberOfWienersBurned = 0f;
 
 	public GameObject spawnerLeft;
 	public GameObject spawnerRight;
@@ -28,6 +38,7 @@ public class customerMaster : MonoBehaviour {
 	public GameObject victory;
 	public GameObject gameOver;
 	public GameObject shutter;
+	public GameObject canvas1;
 	public GameObject canvas2;
 
 	public AudioClip[] humanCustomerSounds;
@@ -45,20 +56,47 @@ public class customerMaster : MonoBehaviour {
 		endTimer = endTimer - Time.fixedDeltaTime;
 		moneyText.text = ("Money: "+moneyValue);
 		timer.text = ("Time left: "+ (int) (endTimer));
+		timer2.text = ("Time left: "+ (int) (endTimer));
 		if (moneyValue >= timerMasterScript.moneyNeededForWin /*replace with wanted number */)
 		{
-			canvas2.SetActive(true);
-			victory.gameObject.SetActive(true);
-			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
-			shutterScript.MoveShutterDown();
+			StartCoroutine(endDelay());
 		}
 		if (endTimer <= 0)
 		{
+			StartCoroutine(endDelay());
+		}
+	}
+	IEnumerator endDelay()
+	{
+		yield return new WaitForSeconds (1);
+		if (gameLost == true)
+		{
+			shutterScript.gameOver = true;
+			numberOfCustsServedText.text = ("Customers served: "+numberOfCustsServed);
+			numberOfWienersBurnedText.text = ("Wieners burned: "+numberOfWienersBurned);
+			numberOfTrashesText.text = ("Objects put in trash: "+numberOfTrashes);
+			numberOfCustsAngeredText.text = ("Customers angered: "+numberOfCustsAngered);
+			canvas1.SetActive(false);
 			canvas2.SetActive(true);
 			gameOver.gameObject.SetActive(true);
 			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
 			shutterScript.MoveShutterDown();
 		}
+		else
+		{
+			shutterScript.gameOver = true;
+			numberOfCustsServedText.text = ("Customers served: "+numberOfCustsServed);
+			numberOfWienersBurnedText.text = ("Wieners burned: "+numberOfWienersBurned);
+			numberOfTrashesText.text = ("Objects put in trash: "+numberOfTrashes);
+			numberOfCustsAngeredText.text = ("Customers angered: "+numberOfCustsAngered);
+			canvas1.SetActive(false);
+			canvas2.SetActive(true);
+			victory.gameObject.SetActive(true);
+			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
+			shutterScript.MoveShutterDown();
+		}
+
+
 	}
 	void Start()
 	{

@@ -9,6 +9,7 @@ public class shutterScript : MonoBehaviour {
 
 	public GameObject kioskForeground;
 	public Text instructionText;
+	public bool gameOver;
 
 
 	Vector3 lastPosition;
@@ -126,13 +127,19 @@ public class shutterScript : MonoBehaviour {
 
 	void OnMouseDown()
 	{ 
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		if (gameOver == false)
+		{
+			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		}
 	}
 	
 	void OnMouseDrag() 
 	{ 
-		Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
-		gameObject.transform.position = new Vector3 (0, Mathf.Clamp (point.y, 5.0F, 13.0F), 0);
+		if (gameOver == false)
+		{
+			Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+			gameObject.transform.position = new Vector3 (0, Mathf.Clamp (point.y, 5.0F, 13.0F), 0);
+		}
 	}
 }
 

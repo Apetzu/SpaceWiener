@@ -29,7 +29,7 @@ public class customer2 : customer1 {
 		speechBubble = gameObject.transform.Find ("speechbubble1").gameObject;
 		//random time customer waits at its position
 		timeLeft = Random.Range (timerMasterScript.customerTimeMin,timerMasterScript.customerTimeMin);
-		lifeTime = timeLeft + 5;
+		lifeTime = timeLeft + 20;
 		//copy of timeleft for face changing purposes
 		timeLeftCopy = timeLeft;
 		ChoosePos();
@@ -283,6 +283,7 @@ public class customer2 : customer1 {
 			animator.SetBool("leaving",false);
 			if (updateFixer3 == false)
 			{
+				masterScript.numberOfCustsServed++;
 				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[0]);
 				updateFixer3 = true;
 			}
@@ -294,6 +295,7 @@ public class customer2 : customer1 {
 			animator.SetBool("leaving",false);
 			if (updateFixer3 == false)
 			{
+				masterScript.numberOfCustsServed++;
 				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[1]);
 				updateFixer3 = true;
 			}
@@ -305,11 +307,12 @@ public class customer2 : customer1 {
 			animator.SetBool("leaving",true);
 			if (updateFixer3 == false)
 			{
+				masterScript.numberOfCustsAngered++;
 				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[2]);
 				updateFixer3 = true;
 			}
 		}
-		custRend.sortingOrder = -1;
+		custRend.sortingOrder = -4;
 		if (side > 0.5)
 		{
 			scaling = false;

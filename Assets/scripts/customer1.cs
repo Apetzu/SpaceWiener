@@ -297,8 +297,12 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("leaving",false);
 			if (updateFixer5 == false)
 			{
-				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[0]);
+				masterScript.numberOfCustsServed++;
 				updateFixer5 = true;
+				if (gameObject.tag != "humanCustomer")
+				{
+					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
+				}
 			}
 		}
 		else if (correctIngredients == 2)
@@ -308,8 +312,12 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("leaving",false);
 			if (updateFixer5 == false)
 			{
-				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
+				masterScript.numberOfCustsServed++;
 				updateFixer5 = true;
+				if (gameObject.tag != "humanCustomer")
+				{
+					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
+				}
 			}
 		}
 		else
@@ -319,8 +327,12 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("leaving",true);
 			if (updateFixer5 == false)
 			{
-				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[2]);
+				masterScript.numberOfCustsServed++;
 				updateFixer5 = true;
+				if (gameObject.tag != "humanCustomer")
+				{
+					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
+				}
 			}
 		}
 		custRend.sortingOrder = -3;

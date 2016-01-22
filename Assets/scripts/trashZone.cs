@@ -15,9 +15,13 @@ public class trashZone : MonoBehaviour, IDropHandler {
 	float tempMoneyValue;
 	public Text moneyPaidText;
 	public GameObject grillObj;
+	public GameObject customerMaster;
+
+	customerMaster customerMasterScript;
 
 	void Start()
 	{
+		customerMasterScript = customerMaster.GetComponent<customerMaster>();
 		finishedBread = doneBread.GetComponent<plateZone> ();
 	}
 
@@ -25,6 +29,7 @@ public class trashZone : MonoBehaviour, IDropHandler {
 	{
 		if (eventData.pointerDrag == doneBread)
 		{
+			customerMasterScript.numberOfTrashes++;
 			GetComponent<AudioSource>().Play();
 			sausageObj.GetComponent<Image> ().color = Color.clear;
 			saladObj.GetComponent<Image> ().color = Color.clear;
@@ -38,6 +43,7 @@ public class trashZone : MonoBehaviour, IDropHandler {
 
 		if (eventData.pointerDrag.tag == "sausageFromGrill") 
 		{
+			customerMasterScript.numberOfTrashes++;
 			GetComponent<AudioSource>().Play();
 			eventData.pointerDrag.GetComponent<Image>().sprite = null;
 			eventData.pointerDrag.GetComponent<Image>().color = Color.clear;

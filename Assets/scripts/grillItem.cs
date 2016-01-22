@@ -17,11 +17,14 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public Sprite[] animSprites;
 	public int burnLevel = 0;
 	public GameObject timerMaster;
+	public GameObject customerMaster;
 
 	timerMaster timerMasterScript;
+	customerMaster customerMasterScript;
 
 	void Start()
 	{
+		customerMasterScript = customerMaster.GetComponent<customerMaster> ();
 		timerMasterScript = timerMaster.GetComponent<timerMaster>();
 		grillingTransTime = timerMasterScript.grillTimeToCooked;
 	}
@@ -39,6 +42,10 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 				currentTime = 0f;
 				burnLevel++;
 				GetComponent<Image>().sprite = animSprites[burnLevel];
+			}
+			if (burnLevel == 2)
+			{
+				customerMasterScript.numberOfWienersBurned++;
 			}
 		}
 		if (wiener == true && wienerBeDragged == false && GetComponent<AudioSource>().isPlaying == false)
