@@ -71,6 +71,7 @@ public class customer1 : MonoBehaviour {
 	bool updateFixer3;
 	bool updateFixer4;
 	bool updateFixer5;
+	public bool leaveBool;
 
 	AudioClip[] currentCustomerSounds;
 	public timerMaster timerMasterScript;
@@ -181,7 +182,7 @@ public class customer1 : MonoBehaviour {
 			{
 				speechBubble.SetActive(true);
 			}
-			if (speechbubbleSound == false)
+			if (speechbubbleSound == false && speechBubbleDelay <= 0)
 			{
 				speechBubble.GetComponent<AudioSource>().Play();
 				speechbubbleSound = true;
@@ -198,7 +199,7 @@ public class customer1 : MonoBehaviour {
 			animator.SetBool("angry",true);
 			animator.SetBool("happy",false);
 			//GetComponent<AudioSource>().clip = currentCustomerSounds[1];
-			if (updateFixer4 == false)
+			if (updateFixer4 == false && leaveBool == false)
 			{
 				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
 				updateFixer4 = true;
@@ -299,10 +300,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.numberOfCustsServed++;
 				updateFixer5 = true;
-				if (gameObject.tag != "humanCustomer")
-				{
-					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
-				}
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[0]);
 			}
 		}
 		else if (correctIngredients == 2)
@@ -314,10 +312,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.numberOfCustsServed++;
 				updateFixer5 = true;
-				if (gameObject.tag != "humanCustomer")
-				{
-					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
-				}
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
 			}
 		}
 		else
@@ -331,7 +326,7 @@ public class customer1 : MonoBehaviour {
 				updateFixer5 = true;
 				if (gameObject.tag != "humanCustomer")
 				{
-					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[1]);
+					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[2]);
 				}
 			}
 		}

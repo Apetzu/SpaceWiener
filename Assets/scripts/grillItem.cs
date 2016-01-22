@@ -28,6 +28,20 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		timerMasterScript = timerMaster.GetComponent<timerMaster>();
 		grillingTransTime = timerMasterScript.grillTimeToCooked;
 	}
+
+	void Update()
+	{
+		if (Time.timeScale == 0)
+			wienerBeDragged = true;
+		else
+			wienerBeDragged = false;
+
+		if (wiener == true && wienerBeDragged == false && GetComponent<AudioSource>().isPlaying == false)
+			GetComponent<AudioSource>().Play ();
+		if (wiener == false || wienerBeDragged == true)
+			GetComponent<AudioSource>().Stop ();
+	}
+
 	void FixedUpdate()
 	{
 		if (wiener == true && wienerBeDragged == false && burnLevel < animSprites.Length - 1)
@@ -48,30 +62,33 @@ public class grillItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 				customerMasterScript.numberOfWienersBurned++;
 			}
 		}
-		if (wiener == true && wienerBeDragged == false && GetComponent<AudioSource>().isPlaying == false)
-			GetComponent<AudioSource>().Play ();
-		if (wiener == false || wienerBeDragged == true)
-			GetComponent<AudioSource>().Stop ();
 
 	}
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
-		wienerBeDragged = true;
-		startPos = transform.position;
-		GetComponent<CanvasGroup>().blocksRaycasts = false;
+		if (Time.timeScale != 0)
+		{
+			wienerBeDragged = true;
+			startPos = transform.position;
+			GetComponent<CanvasGroup>().blocksRaycasts = false;
+		}
 	}
 	public void OnDrag(PointerEventData eventData)
 	{
-		transform.position = mainCamera.ScreenToWorldPoint (eventData.position) + Vector3.forward;
+		if (Time.timeScale != 0)
+			transform.position = mainCamera.ScreenToWorldPoint (eventData.position) + Vector3.forward;
 	}
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		wienerBeDragged = false;
-		transform.position = startPos;
-		if (wiener == true)
-			GetComponent<CanvasGroup>().blocksRaycasts = true;
-		else
-			GetComponent<CanvasGroup>().blocksRaycasts = false;
+		if (Time.timeScale != 0)
+		{
+			wienerBeDragged = false;
+			transform.position = startPos;
+			if (wiener == true)
+				GetComponent<CanvasGroup>().blocksRaycasts = true;
+			else
+				GetComponent<CanvasGroup>().blocksRaycasts = false;
+		}
 	}
 }

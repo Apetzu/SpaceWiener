@@ -54,7 +54,7 @@ public class customerMaster : MonoBehaviour {
 	void FixedUpdate()
 	{
 		endTimer = endTimer - Time.fixedDeltaTime;
-		moneyText.text = ("Money: "+moneyValue);
+		moneyText.text = ("Money: "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
 		timer.text = ("Time left: "+ (int) (endTimer));
 		timer2.text = ("Time left: "+ (int) (endTimer));
 		if (moneyValue >= timerMasterScript.moneyNeededForWin /*replace with wanted number */)
@@ -64,11 +64,12 @@ public class customerMaster : MonoBehaviour {
 		if (endTimer <= 0)
 		{
 			StartCoroutine(endDelay());
+			gameLost = true;
 		}
 	}
 	IEnumerator endDelay()
 	{
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (0.5f);
 		if (gameLost == true)
 		{
 			shutterScript.gameOver = true;
@@ -79,7 +80,8 @@ public class customerMaster : MonoBehaviour {
 			canvas1.SetActive(false);
 			canvas2.SetActive(true);
 			gameOver.gameObject.SetActive(true);
-			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
+			gameOver.GetComponent<AudioSource>().Play();
+			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin+" money");
 			shutterScript.MoveShutterDown();
 		}
 		else
@@ -92,7 +94,8 @@ public class customerMaster : MonoBehaviour {
 			canvas1.SetActive(false);
 			canvas2.SetActive(true);
 			victory.gameObject.SetActive(true);
-			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin);
+			victory.GetComponent<AudioSource>().Play();
+			winText.text = ("You got "+moneyValue+"/"+timerMasterScript.moneyNeededForWin+" money");
 			shutterScript.MoveShutterDown();
 		}
 

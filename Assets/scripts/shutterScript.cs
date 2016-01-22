@@ -57,6 +57,7 @@ public class shutterScript : MonoBehaviour {
 	public void MoveShutterDown()
 	{
 		transform.position = new Vector3 (0, 5f, 0);
+		gameOver = true;
 	}
 	public void MoveShutterUp()
 	{

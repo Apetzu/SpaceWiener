@@ -97,7 +97,7 @@ public class customer2 : customer1 {
 				timeLeft -= Time.deltaTime;
 				custRend.sortingOrder = -1;
 				tentacleRend.sortingOrder = 0;
-				if (speechbubbleSound == false)
+				if (speechbubbleSound == false && speechBubbleDelay <= 0)
 				{
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
@@ -128,7 +128,7 @@ public class customer2 : customer1 {
 					speechBubble.SetActive(true);
 				}
 				timeLeft -= Time.deltaTime;
-				if (speechbubbleSound == false)
+				if (speechbubbleSound == false && speechBubbleDelay <= 0)
 				{
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
@@ -159,7 +159,7 @@ public class customer2 : customer1 {
 					speechBubble.SetActive(true);
 				}
 				timeLeft -= Time.deltaTime;
-				if (speechbubbleSound == false)
+				if (speechbubbleSound == false && speechBubbleDelay <= 0)
 				{
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
@@ -190,7 +190,7 @@ public class customer2 : customer1 {
 					speechBubble.SetActive(true);
 				}
 				timeLeft -= Time.deltaTime;
-				if (speechbubbleSound == false)
+				if (speechbubbleSound == false && speechBubbleDelay <= 0)
 				{
 					speechBubble.GetComponent<AudioSource>().Play();
 					speechbubbleSound = true;
@@ -206,7 +206,7 @@ public class customer2 : customer1 {
 		{
 			Animator animator = GetComponent<Animator>();
 			animator.SetTrigger("angry");
-			if (updateFixer2 == false)
+			if (updateFixer2 == false && leaveBool == false)
 			{
 				GetComponent<AudioSource>().PlayOneShot(masterScript.childCustomerSounds[1]);
 				updateFixer2 = true;
