@@ -8050,16 +8050,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTime: 241
-  timeBetweenCustomerSpawnMin: 1
-  timeBetweenCustomerSpawnMax: 3
-  customerTimeMin: 45
-  customerTimeMax: 45
+  timeBetweenCustomerSpawnMin: 2
+  timeBetweenCustomerSpawnMax: 4
+  customerTimeMin: 30
+  customerTimeMax: 30
   grillTimeToCooked: 5
   grillTimeToBurned: 20
   moneyNeededForWin: 250
   moneyForCorrectHotdog: 5
   moneyForCorrectSalad: 3
-  moneyForCorrectSauce: 1.5
+  moneyForCorrectSauce: 1
 --- !u!4 &1900679641
 Transform:
   m_ObjectHideFlags: 0
@@ -8725,7 +8725,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -376, y: -77}
+  m_AnchoredPosition: {x: -330, y: -77}
   m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2095890626

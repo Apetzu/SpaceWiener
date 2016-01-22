@@ -300,7 +300,8 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.numberOfCustsServed++;
 				updateFixer5 = true;
-				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[0]);
+				if (gameObject.tag != "humanCustomer")
+					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[0]);
 			}
 		}
 		else if (correctIngredients == 2)
@@ -324,10 +325,7 @@ public class customer1 : MonoBehaviour {
 			{
 				masterScript.numberOfCustsServed++;
 				updateFixer5 = true;
-				if (gameObject.tag != "humanCustomer")
-				{
-					GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[2]);
-				}
+				GetComponent<AudioSource>().PlayOneShot(currentCustomerSounds[2]);
 			}
 		}
 		custRend.sortingOrder = -3;
