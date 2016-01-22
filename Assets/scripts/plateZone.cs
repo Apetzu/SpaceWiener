@@ -16,6 +16,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 	public GameObject saladObj;
 	public GameObject sauceObj;
 	public GameObject grillObj;
+	public GameObject breadObj;
 
 	public int wienerI;
 	public int saladI;
@@ -101,10 +102,10 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 			if (eventData.pointerDrag.gameObject == draggableBreadObj)
 			{
 				bread = true;
-				GetComponent<Image>().color = Color.white;
-				GetComponent<Image>().sprite = draggableBreadObj.GetComponent<Image>().sprite;
+				breadObj.GetComponent<Image>().color = Color.white;
+				breadObj.GetComponent<Image>().sprite = draggableBreadObj.GetComponent<Image>().sprite;
 				if (draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace != null)
-					GetComponent<Image>().sprite = draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace;
+					breadObj.GetComponent<Image>().sprite = draggableBreadObj.GetComponent<draggableItem>().onDogSpriteReplace;
 			}
 	}
 	}
@@ -118,7 +119,7 @@ public class plateZone : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 				breadBeDragged = true;
 				startPos = transform.position;
 				GetComponent<CanvasGroup> ().blocksRaycasts = false;
-				GetComponent<Image> ().color = Color.white;
+				breadObj.GetComponent<Image> ().color = Color.white;
 			}
 		}
 	}

@@ -56,11 +56,13 @@ public class customerZone : MonoBehaviour, IDropHandler {
 						masterScript.moneyValue += timerMasterScript.moneyForCorrectHotdog;
 						moneyPaid += timerMasterScript.moneyForCorrectHotdog;
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 						customerScript.correctIngredients += 1;
 					}
 					else
 					{	
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 					}
 					
 					if (requestScript.salad == true && finishedBread.salad == true)
@@ -71,24 +73,29 @@ public class customerZone : MonoBehaviour, IDropHandler {
 							moneyPaid += timerMasterScript.moneyForCorrectSalad;
 							customerScript.correctIngredients += 1;
 							customerScript.timeLeft = 0;
+							customerScript.leaveBool = true;
 						}
 						else
 						{
 							customerScript.timeLeft = 0;
+							customerScript.leaveBool = true;
 						}
 					}
 					else if (requestScript.salad == true && finishedBread.salad == false)
 					{
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 					}
 					else if (requestScript.salad == false && finishedBread.salad == false)
 					{
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 						customerScript.correctIngredients += 1;
 					}
 					else if (requestScript.salad == false && finishedBread.salad == true)
 					{
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 					}
 					
 					if (requestScript.sauce == true && finishedBread.sauce == true)
@@ -98,25 +105,30 @@ public class customerZone : MonoBehaviour, IDropHandler {
 							masterScript.moneyValue += timerMasterScript.moneyForCorrectSauce;
 							moneyPaid += timerMasterScript.moneyForCorrectSalad;
 							customerScript.timeLeft = 0;
+							customerScript.leaveBool = true;
 							customerScript.correctIngredients += 1;
 						}
 						else
 						{
 							customerScript.timeLeft = 0;
+							customerScript.leaveBool = true;
 						}
 					}
 					else if (requestScript.sauce == true && finishedBread.sauce == false)
 					{
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 					}
 					else if (requestScript.sauce == false && finishedBread.sauce == false)
 					{
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 						customerScript.correctIngredients += 1;
 					}
 					else if (requestScript.sauce == false && finishedBread.sauce == true)
 					{
 						customerScript.timeLeft = 0;
+						customerScript.leaveBool = true;
 					}
 					sausageObj.GetComponent<Image>().color = Color.clear;
 					saladObj.GetComponent<Image>().color = Color.clear;

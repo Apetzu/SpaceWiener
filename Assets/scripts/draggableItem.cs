@@ -10,6 +10,7 @@ public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	public Camera mainCamera;
 	public bool isVisibleAllTime;
 	public Sprite[] animSprites;
+	public GameObject grillObj;
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
@@ -17,6 +18,8 @@ public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		{
 			startPos = transform.position;
 			GetComponent<CanvasGroup>().blocksRaycasts = false;
+			foreach (GameObject g in grillObj.GetComponent<grill>().allGrillObjects)
+				g.GetComponent<CanvasGroup>().blocksRaycasts = false;
 		}
 	}
 	public void OnDrag(PointerEventData eventData)
@@ -35,6 +38,8 @@ public class draggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 			if (isVisibleAllTime != true)
 				GetComponent<Image>().color = Color.clear;
 			GetComponent<CanvasGroup>().blocksRaycasts = true;
+			foreach (GameObject g in grillObj.GetComponent<grill>().allGrillObjects)
+				g.GetComponent<CanvasGroup>().blocksRaycasts = true;
 		}
 	}
 
